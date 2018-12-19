@@ -39,14 +39,6 @@ extension CGFloat: DoubleConvertible, DoubleInitializable {
 }
 #endif
 
-public extension DoubleConvertible where Self: DoubleInitializable {
-    public var degreesToRadians: DoubleConvertible {
-        return Self(double * .pi / 180.0)
-    }
-    public var radiansToDegrees: DoubleConvertible {
-        return Self(double * 180.0 / .pi)
-    }
-}
 
 
 public protocol OptionalDoubleConvertible{

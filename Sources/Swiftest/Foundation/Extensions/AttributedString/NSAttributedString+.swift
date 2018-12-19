@@ -37,7 +37,7 @@ public extension NSAttributedString {
     ///
     /// - Parameter attributes: Dictionary of attributes
     /// - Returns: NSAttributedString with applied attributes
-    fileprivate func applying(attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
+    public func applying(attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
         let copy = NSMutableAttributedString(attributedString: self)
         let range = (string as NSString).range(of: string)
         copy.addAttributes(attributes, range: range)
