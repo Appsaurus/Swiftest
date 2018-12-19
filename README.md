@@ -13,9 +13,7 @@
 
 ## Usage
 
-```swift
-<API>
-```
+Coming soon.
 
 ## Installation
 
@@ -23,21 +21,17 @@
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Swiftest'
+pod 'Swiftest', :git => 'https://github.com/Appsaurus/Swiftest'
 ```
 
 **Swiftest** is also available through [Carthage](https://github.com/Carthage/Carthage).
 To install just write into your Cartfile:
 
 ```ruby
-github "brian/Swiftest"
+github "Appsaurus/Swiftest"
 ```
 
 **Swiftest** can also be installed manually. Just download and drop `Sources` folders in your project.
-
-## Author
-
-Brian Strobach, brian@appsaurus.io
 
 ## Contributing
 
@@ -46,3 +40,6 @@ We would love you to contribute to **Swiftest**, check the [CONTRIBUTING](github
 ## License
 
 **Swiftest** is available under the MIT license. See the [LICENSE](github.com/brian/Swiftest/blob/master/LICENSE.md) file for more info.
+
+This library includes software from the SwifterSwift project (https://github.com/swifterswift) licensed under the MIT License. While that library did not meet our exact needs, I highly recommend it as a foundation for any Swift project.
+
