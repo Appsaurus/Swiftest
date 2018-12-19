@@ -36,7 +36,7 @@ extension Collection{
     
     public subscript (normalizedIndex normalizedIndex: FloatLiteralType) -> Element {
         let normalizedIndex = normalizedIndex.clamped(0.0, 1.0)
-        let offset = Int((Double(count) * normalizedIndex))
+        let offset = Int((Double(count - 1) * normalizedIndex))
         return self[offset: offset]
     }
 }
