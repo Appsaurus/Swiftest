@@ -74,42 +74,6 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertFalse("abc".isAlphaNumeric)
     }
 
-    func testisValidEmail() {
-        // https://blogs.msdn.microsoft.com/testing123/2009/02/06/email-address-test-cases/
-
-        XCTAssert("email@domain.com".isValidEmail)
-        XCTAssert("firstname.lastname@domain.com".isValidEmail)
-        XCTAssert("email@subdomain.domain.com".isValidEmail)
-        XCTAssert("firstname+lastname@domain.com".isValidEmail)
-        XCTAssert("email@123.123.123.123".isValidEmail)
-        XCTAssert("email@[123.123.123.123]".isValidEmail)
-        XCTAssert("\"email\"@domain.com".isValidEmail)
-        XCTAssert("1234567890@domain.com".isValidEmail)
-        XCTAssert("email@domain-one.com".isValidEmail)
-        XCTAssert("_______@domain.com".isValidEmail)
-        XCTAssert("email@domain.name".isValidEmail)
-        XCTAssert("email@domain.co.jp".isValidEmail)
-        XCTAssert("firstname-lastname@domain.com".isValidEmail)
-
-        XCTAssertFalse("".isValidEmail)
-        XCTAssertFalse("plainaddress".isValidEmail)
-        XCTAssertFalse("#@%^%#$@#$@#.com".isValidEmail)
-        XCTAssertFalse("@domain.com".isValidEmail)
-        XCTAssertFalse("Joe Smith <email@domain.com>".isValidEmail)
-        XCTAssertFalse("email.domain.com".isValidEmail)
-        XCTAssertFalse("email@domain@domain.com".isValidEmail)
-        XCTAssertFalse(".email@domain.com".isValidEmail)
-        XCTAssertFalse("email.@domain.com".isValidEmail)
-        XCTAssertFalse("email..email@domain.com".isValidEmail)
-        XCTAssertFalse("email@domain.com (Joe Smith)".isValidEmail)
-        XCTAssertFalse("email@domain".isValidEmail)
-        XCTAssertFalse("email@-domain.com".isValidEmail)
-        XCTAssertFalse(" email@domain.com".isValidEmail)
-        XCTAssertFalse("email@domain.com ".isValidEmail)
-        XCTAssertFalse("\nemail@domain.com".isValidEmail)
-        XCTAssertFalse("nemail@domain.com   \n\n".isValidEmail)
-    }
-
     func testIsValidUrl() {
         XCTAssert("https://google.com".isValidUrl)
         XCTAssert("http://google.com".isValidUrl)
@@ -318,20 +282,6 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNil(""[safe: 1...2])
     }
 
-    func testCopyToPasteboard() {
-        let str = "Hello world!"
-        #if os(iOS)
-        str.copyToPasteboard()
-        let strFromPasteboard = UIPasteboard.general.string
-        XCTAssertEqual(strFromPasteboard, str)
-
-        #elseif os(macOS)
-        str.copyToPasteboard()
-        let strFromPasteboard = NSPasteboard.general.string(forType: .string)
-        XCTAssertEqual(strFromPasteboard, str)
-        #endif
-    }
-
     func testCamelize() {
         var str = "Hello test"
         str.format(as: .camelCase)
@@ -384,18 +334,6 @@ final class StringExtensionsTests: XCTestCase {
         var str = "Hëllô Teśt"
         str.latinize()
         XCTAssertEqual(str, "Hello Test")
-    }
-
-    func testRandom() {
-        let str1 = String.random(ofLength: 10)
-        XCTAssertEqual(str1.count, 10)
-
-        let str2 = String.random(ofLength: 10)
-        XCTAssertEqual(str2.count, 10)
-
-        XCTAssertNotEqual(str1, str2)
-
-        XCTAssertEqual(String.random(ofLength: 0), "")
     }
 
     func testReverse() {
@@ -575,17 +513,6 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("str".paddingEnd(2), "str")
     }
 
-    #if os(iOS) || os(tvOS)
-    func testIsSpelledCorrectly() {
-        let strCorrect = "Hello, World!"
-
-        XCTAssertTrue(strCorrect.isSpelledCorrectly)
-
-        let strNonCorrect = "Helol, Wrold!"
-        XCTAssertFalse(strNonCorrect.isSpelledCorrectly)
-    }
-    #endif
-
     func testRemovingPrefix() {
         let inputStr = "Hello, World!"
         XCTAssertEqual(inputStr.removingPrefix("Hello, "), "World!")
@@ -602,103 +529,6 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNil(String(base64: "hello"))
     }
 
-    func testInitRandomOfLength() {
-        let str1 = String(randomOfLength: 10)
-        XCTAssertEqual(str1.count, 10)
-
-        let str2 = String(randomOfLength: 10)
-        XCTAssertEqual(str2.count, 10)
-
-        XCTAssertNotEqual(str1, str2)
-
-        XCTAssertEqual(String(randomOfLength: 0), "")
-    }
-
-    #if !os(tvOS) && !os(watchOS)
-    func testBold() {
-        let boldString = "hello".bold
-        // swiftlint:disable next legacy_constructor
-        let attrs = boldString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, boldString.length))
-        XCTAssertNotNil(attrs[NSAttributedString.Key.font])
-
-        #if os(macOS)
-        guard let font = attrs[.font] as? NSFont else {
-            XCTFail("Unable to find font in testBold")
-            return
-        }
-        XCTAssertEqual(font, NSFont.boldSystemFont(ofSize: NSFont.systemFontSize))
-        #elseif os(iOS)
-        guard let font = attrs[NSAttributedString.Key.font] as? UIFont else {
-            XCTFail("Unable to find font in testBold")
-            return
-        }
-        XCTAssertEqual(font, UIFont.boldSystemFont(ofSize: UIFont.systemFontSize))
-        #endif
-    }
-    #endif
-
-    func testUnderline() {
-        let underlinedString = "hello".underline
-        // swiftlint:disable legacy_constructor
-        let attrs = underlinedString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, underlinedString.length))
-        // swiftlint:enable legacy_constructor
-        XCTAssertNotNil(attrs[NSAttributedString.Key.underlineStyle])
-        guard let style = attrs[NSAttributedString.Key.underlineStyle] as? Int else {
-            XCTFail("Unable to find style in testUnderline")
-            return
-        }
-        XCTAssertEqual(style, NSUnderlineStyle.single.rawValue)
-    }
-
-    func testStrikethrough() {
-        let strikedthroughString = "hello".strikethrough
-        // swiftlint:disable next legacy_constructor
-        let attrs = strikedthroughString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, strikedthroughString.length))
-        XCTAssertNotNil(attrs[NSAttributedString.Key.strikethroughStyle])
-        guard let style = attrs[NSAttributedString.Key.strikethroughStyle] as? NSNumber else {
-            XCTFail("Unable to find style in testStrikethrough")
-            return
-        }
-        XCTAssertEqual(style, NSNumber(value: NSUnderlineStyle.single.rawValue as Int))
-    }
-
-    #if os(iOS)
-    func testItalic() {
-        let italicString = "hello".italic
-        // swiftlint:disable next legacy_constructor
-        let attrs = italicString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, italicString.length))
-        XCTAssertNotNil(attrs[NSAttributedString.Key.font])
-        guard let font = attrs[NSAttributedString.Key.font] as? UIFont else {
-            XCTFail("Unable to find font in testItalic")
-            return
-        }
-        XCTAssertEqual(font, UIFont.italicSystemFont(ofSize: UIFont.systemFontSize))
-    }
-    #endif
-
-    func testColored() {
-        let coloredString = "hello".colored(with: .orange)
-        // swiftlint:disable next legacy_constructor
-        let attrs = coloredString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, coloredString.length))
-        XCTAssertNotNil(attrs[NSAttributedString.Key.foregroundColor])
-
-        #if os(macOS)
-        guard let color = attrs[.foregroundColor] as? NSColor else {
-            XCTFail("Unable to find color in testColored")
-            return
-        }
-        XCTAssertEqual(color, NSColor.orange)
-        #else
-        guard let color = attrs[NSAttributedString.Key.foregroundColor] as? UIColor else {
-            XCTFail("Unable to find color in testColored")
-            return
-        }
-        XCTAssertEqual(color, UIColor.orange)
-        #endif
-    }
-
-
-    
     func testNSString() {
         XCTAssertEqual("Hello".nsString, NSString(string: "Hello"))
     }

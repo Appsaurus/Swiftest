@@ -64,16 +64,6 @@ final class URLExtensionsTests: XCTestCase {
         XCTAssertEqual(url.absoluteString, "https://domain.com/")
     }
 
-    #if os(iOS) || os(tvOS)
-    func testThumbnail() {
-        XCTAssertNil(url.thumbnail())
-
-        let videoUrl = Bundle(for: URLExtensionsTests.self).url(forResource: "big_buck_bunny_720p_1mb", withExtension: "mp4")!
-        XCTAssertNotNil(videoUrl.thumbnail())
-        XCTAssertNotNil(videoUrl.thumbnail(fromTime: 1))
-    }
-    #endif
-
     func testDropScheme() {
         let urls: [String: String?] = [
             "https://domain.com/path/other/": "domain.com/path/other/",

@@ -120,7 +120,6 @@
 		OBJ_204 /* FunctionChainOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* FunctionChainOperator.swift */; };
 		OBJ_205 /* OptionalCustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* OptionalCustomOperators.swift */; };
 		OBJ_206 /* EmptyInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* EmptyInitializable.swift */; };
-		OBJ_207 /* IndexPathConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* IndexPathConvertible.swift */; };
 		OBJ_208 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Mockable.swift */; };
 		OBJ_210 /* ObjectDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* ObjectDisplayable.swift */; };
 		OBJ_211 /* OptionalProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* OptionalProtocol.swift */; };
@@ -155,7 +154,6 @@
 		OBJ_260 /* DataExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* DataExtensionsTests.swift */; };
 		OBJ_261 /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* DateExtensionsTests.swift */; };
 		OBJ_263 /* LocaleExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* LocaleExtensionsTests.swift */; };
-		OBJ_264 /* NSAttributedStringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_108 /* NSAttributedStringExtensionsTests.swift */; };
 		OBJ_265 /* NSPredicateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_109 /* NSPredicateExtensionsTests.swift */; };
 		OBJ_266 /* URLExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* URLExtensionsTests.swift */; };
 		OBJ_267 /* URLRequestExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* URLRequestExtensionsTests.swift */; };
@@ -294,7 +292,6 @@
 		OBJ_105 /* DateExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionsTests.swift; sourceTree = "<group>"; };
 		OBJ_106 /* FileManagerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensionsTests.swift; sourceTree = "<group>"; };
 		OBJ_107 /* LocaleExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleExtensionsTests.swift; sourceTree = "<group>"; };
-		OBJ_108 /* NSAttributedStringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensionsTests.swift; sourceTree = "<group>"; };
 		OBJ_109 /* NSPredicateExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensionsTests.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		OBJ_110 /* URLExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensionsTests.swift; sourceTree = "<group>"; };
@@ -348,7 +345,6 @@
 		OBJ_53 /* FunctionChainOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionChainOperator.swift; sourceTree = "<group>"; };
 		OBJ_54 /* OptionalCustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalCustomOperators.swift; sourceTree = "<group>"; };
 		OBJ_56 /* EmptyInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyInitializable.swift; sourceTree = "<group>"; };
-		OBJ_57 /* IndexPathConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPathConvertible.swift; sourceTree = "<group>"; };
 		OBJ_58 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_60 /* ObjectDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDisplayable.swift; sourceTree = "<group>"; };
@@ -587,7 +583,6 @@
 				OBJ_105 /* DateExtensionsTests.swift */,
 				OBJ_106 /* FileManagerExtensionsTests.swift */,
 				OBJ_107 /* LocaleExtensionsTests.swift */,
-				OBJ_108 /* NSAttributedStringExtensionsTests.swift */,
 				OBJ_109 /* NSPredicateExtensionsTests.swift */,
 				OBJ_110 /* URLExtensionsTests.swift */,
 				OBJ_111 /* URLRequestExtensionsTests.swift */,
@@ -737,7 +732,6 @@
 				OBJ_41 /* RangeRandomizable.swift */,
 				E4AF835221C4184E002D6E86 /* Conversions */,
 				OBJ_56 /* EmptyInitializable.swift */,
-				OBJ_57 /* IndexPathConvertible.swift */,
 				OBJ_58 /* Mockable.swift */,
 				OBJ_60 /* ObjectDisplayable.swift */,
 				OBJ_61 /* OptionalProtocol.swift */,
@@ -1102,7 +1096,6 @@
 				E4F7E08621C971700061EBB2 /* RangeConvertible.swift in Sources */,
 				OBJ_205 /* OptionalCustomOperators.swift in Sources */,
 				OBJ_206 /* EmptyInitializable.swift in Sources */,
-				OBJ_207 /* IndexPathConvertible.swift in Sources */,
 				OBJ_208 /* Mockable.swift in Sources */,
 				E4F7E08121C967AE0061EBB2 /* String+Case.swift in Sources */,
 				E4F7E04A21C8421A0061EBB2 /* Collection+Filtering.swift in Sources */,
@@ -1178,7 +1171,6 @@
 				OBJ_260 /* DataExtensionsTests.swift in Sources */,
 				OBJ_261 /* DateExtensionsTests.swift in Sources */,
 				OBJ_263 /* LocaleExtensionsTests.swift in Sources */,
-				OBJ_264 /* NSAttributedStringExtensionsTests.swift in Sources */,
 				OBJ_265 /* NSPredicateExtensionsTests.swift in Sources */,
 				OBJ_266 /* URLExtensionsTests.swift in Sources */,
 				OBJ_267 /* URLRequestExtensionsTests.swift in Sources */,

@@ -21,6 +21,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/Swiftest/**/*'
 
   s.frameworks = 'Foundation'
-  # s.osx.frameworks = 'Cocoa', 'Foundation'
 
 end

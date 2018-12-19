@@ -1,6 +1,6 @@
 //
 //  CGPointExtensions.swift
-//  AppsaurusUIKit
+//  Swiftest
 //
 //  Created by Brian Strobach on 6/8/16.
 //  Copyright © 2018 Appsaurus
