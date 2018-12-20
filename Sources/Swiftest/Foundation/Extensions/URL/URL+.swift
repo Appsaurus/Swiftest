@@ -14,6 +14,7 @@ import Foundation
 public extension URL {
 
     /// Swiftest: Dictionary of the URL's query parameters
+    @available(OSX 10.10, *)
     public var queryParameters: [String: String]? {
         guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false), let queryItems = components.queryItems else { return nil }
 
@@ -39,6 +40,7 @@ public extension URL {
     ///
     /// - Parameter parameters: parameters dictionary.
     /// - Returns: URL with appending given query parameters.
+    @available(OSX 10.10, *)
     public func appendingQueryParameters(_ parameters: [String: String]) -> URL {
         var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
         var items = urlComponents.queryItems ?? []
@@ -55,6 +57,7 @@ public extension URL {
     ///		print(url) // prints "https://google.com?q=Swifter%20Swift"
     ///
     /// - Parameter parameters: parameters dictionary.
+    @available(OSX 10.10, *)
     public mutating func appendQueryParameters(_ parameters: [String: String]) {
         self = appendingQueryParameters(parameters)
     }
@@ -65,6 +68,7 @@ public extension URL {
     ///    queryValue(for: "code") -> "12345"
     ///
     /// - Parameter key: The key of a query value.
+    @available(OSX 10.10, *)
     public func queryValue(for key: String) -> String? {
         let stringURL = absoluteString
         guard let items = URLComponents(string: stringURL)?.queryItems else { return nil }

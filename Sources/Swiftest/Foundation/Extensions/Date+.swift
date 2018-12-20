@@ -773,6 +773,7 @@ public extension Date {
     ///
     /// - Parameter Style: style of day name (default is DayNameStyle.full).
     /// - Returns: day name string (example: W, Wed, Wednesday).
+    @available(OSX 10.10, *)
     public func dayName(ofStyle style: DayNameStyle = .full) -> String {
         // http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
         let dateFormatter = DateFormatter()
@@ -798,6 +799,7 @@ public extension Date {
     ///
     /// - Parameter Style: style of month name (default is MonthNameStyle.full).
     /// - Returns: month name string (example: D, Dec, December).
+    @available(OSX 10.10, *)
     public func monthName(ofStyle style: MonthNameStyle = .full) -> String {
         // http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
         let dateFormatter = DateFormatter()
