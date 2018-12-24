@@ -5,16 +5,15 @@
 //  Created by Brian Strobach on 12/14/18.
 //
 
-public protocol BoolConvertible: ExpressibleByBooleanLiteral{
+public protocol BoolConvertible: ExpressibleByBooleanLiteral {
     var bool: Bool { get }
 }
 
-public protocol OptionalBoolConvertible{
+public protocol OptionalBoolConvertible {
     var bool: Bool? { get }
 }
 
-
-extension String: OptionalBoolConvertible{
+extension String: OptionalBoolConvertible {
     /// Swiftest: Bool value from string (if applicable).
     ///
     ///        "1".bool -> true

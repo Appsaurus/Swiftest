@@ -10,12 +10,12 @@
 import Foundation
 
 // MARK: - Properties
-public extension NSAttributedString{
-    public var fullRange: NSRange{
+public extension NSAttributedString {
+    public var fullRange: NSRange {
         return NSRange(location: 0, length: self.length)
     }
     
-    public var mutable: NSMutableAttributedString{
+    public var mutable: NSMutableAttributedString {
         return NSMutableAttributedString(attributedString: self)
     }
 }

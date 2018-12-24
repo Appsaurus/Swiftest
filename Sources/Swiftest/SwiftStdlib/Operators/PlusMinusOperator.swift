@@ -5,10 +5,7 @@
 //  Created by Brian Strobach on 12/18/18.
 //
 
-
-
 infix operator ±
-
 
 prefix operator ±
 

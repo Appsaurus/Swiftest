@@ -9,20 +9,19 @@ import Foundation
 
 public extension RangeReplaceableCollection {
     
-    //MARK: Appended copy
+    // MARK: Appended copy
     
     @discardableResult
-    public func appended(with element: Element) -> Self{
+    public func appended(with element: Element) -> Self {
         return self + [element]
     }
     
     @discardableResult
-    public func appended(with contents: [Element]) -> Self{
+    public func appended(with contents: [Element]) -> Self {
         return self + contents
     }
     
-    
-    //MARK: Prepend Mutations
+    // MARK: Prepend Mutations
     
     /// Swiftest: Insert an element at the beginning of array.
     ///
@@ -36,12 +35,12 @@ public extension RangeReplaceableCollection {
         
     }
     @discardableResult
-    public mutating func prepend<C>(contentsOf newElements: C) -> Self where C: Collection, C.Element == Element{
+    public mutating func prepend<C>(contentsOf newElements: C) -> Self where C: Collection, C.Element == Element {
         insert(contentsOf: newElements, at: startIndex)
         return self
     }
     
-    //MARK: Prepended copy
+    // MARK: Prepended copy
     
     /// Swiftest: Insert an element at the beginning of array.
     ///
@@ -55,32 +54,32 @@ public extension RangeReplaceableCollection {
         
     }
     @discardableResult
-    public func prepended<C>(withContentsOf newElements: C) -> Self where C: Collection, C.Element == Element{
+    public func prepended<C>(withContentsOf newElements: C) -> Self where C: Collection, C.Element == Element {
         var copy = self
         return copy.prepend(contentsOf: newElements)
     }
     
-    //MARK Replacement
+    // MARK: Replacement
     
     @discardableResult
-    public mutating func replaceLast(_ newValue: Element) -> Self{
+    public mutating func replaceLast(_ newValue: Element) -> Self {
         remove(at: lastIndex)
         append(newValue)
         return self
     }
     
     @discardableResult
-    public mutating func replaceFirst(_ newValue: Element) -> Self{
+    public mutating func replaceFirst(_ newValue: Element) -> Self {
         remove(at: startIndex)
         prepend(newValue)
         return self
     }
 }
 
-public func + <E, C>(lhs: E, rhs: C) -> C where C : RangeReplaceableCollection, E == C.Element{
+public func + <E, C>(lhs: E, rhs: C) -> C where C: RangeReplaceableCollection, E == C.Element {
     return rhs.prepended(with: lhs)
 }
 
-public func + <E, C>(lhs: C, rhs: E) -> C where C : RangeReplaceableCollection, E == C.Element{
+public func + <E, C>(lhs: C, rhs: E) -> C where C: RangeReplaceableCollection, E == C.Element {
     return lhs.appended(with: rhs)
 }

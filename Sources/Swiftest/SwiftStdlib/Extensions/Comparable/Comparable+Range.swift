@@ -5,7 +5,7 @@
 //  Created by Brian Strobach on 12/18/18.
 //
 
-extension Comparable{
+extension Comparable {
     /// Swiftest: Returns true if value is in the provided range.
     ///
     ///    1.isBetween(5...7) // false

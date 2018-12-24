@@ -7,8 +7,8 @@
 
 import Foundation
 
-open class DebugUtils{
-	static public func listOfPropertiesWithValues(of object: Any) -> String{
+open class DebugUtils {
+	static public func listOfPropertiesWithValues(of object: Any) -> String {
 		var object: Any = object
 		var desc = "\(String(describing: object)) at address \(address(of: &object)):\n"
 		let mirror = Mirror(reflecting: object)
@@ -16,12 +16,11 @@ open class DebugUtils{
 		return desc
 	}
 
-	static public  func listOfPropertiesWithValues(of mirror: Mirror) -> String{
+	static public  func listOfPropertiesWithValues(of mirror: Mirror) -> String {
 		var desc = ""
 		if let superMirror = mirror.superclassMirror {
 			desc.append(self.listOfPropertiesWithValues(of: superMirror))
 		}
-
 
 		for child in mirror.children {
 			if let propertyName = child.label {
@@ -30,7 +29,7 @@ open class DebugUtils{
 		}
 		return desc
 	}
-	static public  func printPropertiesWithValues<T: AnyObject>(of object: T){
+	static public  func printPropertiesWithValues<T: AnyObject>(of object: T) {
 		print(listOfPropertiesWithValues(of: object))
 	}
 }
@@ -43,17 +42,16 @@ public func address<T: AnyObject>(of object: T) -> Int {
 	return unsafeBitCast(object, to: Int.self)
 }
 
-
-public protocol DebugLoggable{
+public protocol DebugLoggable {
 
 }
 
-extension DebugLoggable{
-	public func keyValueDescription() -> String{
+extension DebugLoggable {
+	public func keyValueDescription() -> String {
 		return DebugUtils.listOfPropertiesWithValues(of: self)
 	}
 
-	public func printDescription(){
+	public func printDescription() {
 		print(keyValueDescription())
 	}
 }

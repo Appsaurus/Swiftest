@@ -37,7 +37,7 @@ public extension RangeReplaceableCollection where Element: AnyObject {
     /// - Parameter objects: reference of objects to remove.
     /// - Returns: self after removing all references to given objects.
     @discardableResult
-    public mutating func remove(objects: Element...) -> Self{
+    public mutating func remove(objects: Element...) -> Self {
         return remove(objects: objects)
     }
     
@@ -61,7 +61,6 @@ public extension RangeReplaceableCollection where Element: AnyObject {
         return self
     }
 }
-
 
 //TODO: Test if this NSObject extension is needed
 //public extension RangeReplaceableCollection where Element: NSObject {
@@ -119,7 +118,6 @@ public extension RangeReplaceableCollection where Element: AnyObject {
 //    }
 //}
 
-
 // MARK: - Methods (Equatable)
 public extension RangeReplaceableCollection where Element: Equatable {
     
@@ -165,7 +163,7 @@ public extension RangeReplaceableCollection where Element: Equatable {
     }
 }
 
-extension RangeReplaceableCollection{
+extension RangeReplaceableCollection {
     /// Swiftest: Removes the first element of the collection which satisfies the given predicate.
     ///
     ///        [1, 2, 2, 3, 4, 2, 5].removeFirst { $0 % 2 == 0 } -> [1, 2, 3, 4, 2, 5]

@@ -14,9 +14,9 @@ extension Dictionary {
     ///
     /// - Parameter prioritizedKeys: Keys ordered by priority
     /// - Returns: The value for the first key that is non nil, or nil if none of the keys have values.
-    public func firstValue(for prioritizedKeys: Key...) -> Value?{
+    public func firstValue(for prioritizedKeys: Key...) -> Value? {
         for key in prioritizedKeys {
-            if let value = self[key]{ return value }
+            if let value = self[key] { return value }
         }
         return nil
     }
@@ -145,16 +145,16 @@ public extension Dictionary {
     }
 }
 
-//MARK: Typed lookups for Any Values
-extension Dictionary where Key: Hashable, Value: Any{
+// MARK: Typed lookups for Any Values
+extension Dictionary where Key: Hashable, Value: Any {
     
-	public func get<A: Any>(_ type: A.Type, at key: Key) -> A?{
+	public func get<A: Any>(_ type: A.Type, at key: Key) -> A? {
 		guard let value = self[key] as? A else { return nil }
 		return value
 	}
     
-	public func get<A: Any>(_ type: A.Type, at key: Key, orThrow error: Error? = nil) throws -> A{
-		guard let value = get(type, at: key) else{
+	public func get<A: Any>(_ type: A.Type, at key: Key, orThrow error: Error? = nil) throws -> A {
+		guard let value = get(type, at: key) else {
 			let foundValue = self[key]
 			let foundValueDescription = String(describing: foundValue.self)
 			let debugDescription = "Expected type \(type) at \(key) but found \(foundValueDescription) instead."
@@ -166,16 +166,13 @@ extension Dictionary where Key: Hashable, Value: Any{
 	}
 }
 
-
-//MARK: Pretty printing
-extension Dictionary where Key: StringProtocol, Value: Any{
-	public func printPretty(){
+// MARK: Pretty printing
+extension Dictionary where Key: StringProtocol, Value: Any {
+	public func printPretty() {
 		print("\(prettyPrinted)")
 	}
 
-	public var prettyPrinted: String{
+	public var prettyPrinted: String {
 		return "\(self as AnyObject)"
 	}
 }
-
-

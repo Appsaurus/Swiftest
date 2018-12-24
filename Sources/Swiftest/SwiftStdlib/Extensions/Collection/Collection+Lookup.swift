@@ -5,17 +5,17 @@
 //  Created by Brian Strobach on 12/17/18.
 //
 
-extension Collection{    
+extension Collection {    
     
-    public subscript(indices: Index...) -> [Element]{
+    public subscript(indices: Index...) -> [Element] {
         return elementsAtIndices(indices)
     }
     
-    public subscript(indices: [Index]) -> [Element]{
+    public subscript(indices: [Index]) -> [Element] {
         return elementsAtIndices(indices)
     }
     
-    public func elementsAtIndices(_ indices: [Index]) -> [Element]{
+    public func elementsAtIndices(_ indices: [Index]) -> [Element] {
         return indices.map { (index) -> Element in
             self[index]
         }

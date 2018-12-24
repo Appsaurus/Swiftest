@@ -8,14 +8,14 @@
 
 import Foundation
 
-public func lock(_ object: AnyObject, closure: () -> ()) {
-    🔒(object){
+public func lock(_ object: AnyObject, closure: () -> Void) {
+    🔒(object) {
         closure()
     }
 }
 
 ///Emoji read/write locking because it is too good to pass up
-public func 🔒(_ object: AnyObject, closure: () -> ()) {
+public func 🔒(_ object: AnyObject, closure: () -> Void) {
     objc_sync_enter(object)
     closure()
     objc_sync_exit(object)

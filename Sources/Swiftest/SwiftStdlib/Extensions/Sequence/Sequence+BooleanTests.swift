@@ -5,7 +5,7 @@
 //  Created by Brian Strobach on 12/12/18.
 //
 
-extension Sequence where Element: Equatable{
+extension Sequence where Element: Equatable {
     
     /// Swiftest: Check if all elements in collection match a conditon.
     ///
@@ -40,20 +40,17 @@ extension Sequence where Element: Equatable{
         return try contains { try condition($0) }
     }
     
-    
-    public func contains(any elements: [Element]) -> Bool{
-        for element in elements{
+    public func contains(any elements: [Element]) -> Bool {
+        for element in elements {
             if contains(element) { return true }
         }
         return false
     }
     
-    
     //Variadic overload for `contains(any elements: [Element]) -> Bool`
-    public func contains(any elements: Element...) -> Bool{
+    public func contains(any elements: Element...) -> Bool {
         return contains(any: elements)
     }
-    
     
     /// Swiftest: Check if array contains an array of elements.
     ///

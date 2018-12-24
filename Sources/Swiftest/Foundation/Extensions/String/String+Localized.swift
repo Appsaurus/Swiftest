@@ -12,7 +12,7 @@ import CoreGraphics
 #if canImport(Foundation)
 import Foundation
 
-extension String{
+extension String {
 
     /// Swiftest: Returns a localized string, with an optional comment for translators.
     ///
@@ -22,7 +22,7 @@ extension String{
         return NSLocalizedString(self, comment: comment)
     }
     
-    //MARK: Number Format
+    // MARK: Number Format
     
     /// Float value from string (if applicable).
     ///
@@ -66,7 +66,7 @@ extension String{
     ///        print(str) // prints "Hello World!"
     ///
     @discardableResult
-    public mutating func latinize() -> String{
+    public mutating func latinize() -> String {
         self = latinized
         return self
     }

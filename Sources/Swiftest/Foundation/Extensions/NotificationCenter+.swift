@@ -9,17 +9,17 @@
 #if canImport(Foundation)
 import Foundation
 
-extension NotificationCenter{
-    open func post(name aName: String, object: Any?){
+extension NotificationCenter {
+    open func post(name aName: String, object: Any?) {
         post(name: Notification.Name(rawValue: aName), object: object)
     }
-    open func post(name: Notification.Name){
+    open func post(name: Notification.Name) {
         post(name: name, object: nil)
     }
-    public static func post(name: Notification.Name, object: Any?){
+    public static func post(name: Notification.Name, object: Any?) {
         NotificationCenter.default.post(name: name, object: object)
     }    
-    public static func post(name: Notification.Name){
+    public static func post(name: Notification.Name) {
         NotificationCenter.default.post(name: name)
     }
 }

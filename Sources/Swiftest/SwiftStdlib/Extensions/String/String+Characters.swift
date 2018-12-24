@@ -5,8 +5,7 @@
 //  Created by Brian Strobach on 12/18/18.
 //
 
-
-extension String{
+extension String {
     /// Swiftest: First character of string (if applicable).
     ///
     ///        "Hello".firstCharacterAsString -> Optional("H")
@@ -31,8 +30,6 @@ extension String{
     public var charactersArray: [Character] {
         return Array(self)
     }
-    
-
     
     /// Swiftest: Array with unicodes for all characters in a string.
     ///

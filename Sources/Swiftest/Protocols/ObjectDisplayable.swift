@@ -8,21 +8,20 @@
 
 import Foundation
 
-
-public protocol ObjectDisplayable: class{
+public protocol ObjectDisplayable: class {
     associatedtype DisplayableObjectType
     func display(object: DisplayableObjectType)
 }
 
-public protocol ContextualObjectDisplayable{
+public protocol ContextualObjectDisplayable {
     associatedtype DisplayableObjectContextType
     associatedtype DisplayableObjectType
     func display(object: DisplayableObjectType, context: DisplayableObjectContextType)
 }
 
-public extension Array where Element: ObjectDisplayable{
-    public func display(object: Element.DisplayableObjectType){
-        for element in self{
+public extension Array where Element: ObjectDisplayable {
+    public func display(object: Element.DisplayableObjectType) {
+        for element in self {
             element.display(object: object)
         }
     }

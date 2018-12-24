@@ -5,7 +5,7 @@
 //  Created by Brian Strobach on 12/17/18.
 //
 
-extension Collection{
+extension Collection {
     public func split(middleElementToLeft: Bool = true) -> (left: Self.SubSequence, right: Self.SubSequence) {
         let splitIndex = middleElementToLeft ? midIndex : midIndexRightTiebreaker
         let leftSplit = self[startIndex...splitIndex]
@@ -14,8 +14,7 @@ extension Collection{
     }
 }
 
-
-extension RangeReplaceableCollection{
+extension RangeReplaceableCollection {
     /// Swiftest: Separates collections into 2 collections based on a predicate.
     ///
     ///     [0, 1, 2, 3, 4, 5].divided { $0 % 2 == 0 } -> ( [0, 2, 4], [1, 3, 5] )

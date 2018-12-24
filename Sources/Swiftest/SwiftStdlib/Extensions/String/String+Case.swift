@@ -5,8 +5,7 @@
 //  Created by Brian Strobach on 12/18/18.
 //
 
-
-public extension String{
+public extension String {
     
     public enum CaseFormat {
         case hyphenated
@@ -15,12 +14,12 @@ public extension String{
     }
     
     @discardableResult
-    public mutating func format(as format: CaseFormat) -> String{
+    public mutating func format(as format: CaseFormat) -> String {
         self = formatted(as: format)
         return self
     }
-    public func formatted(as format: CaseFormat) -> String{
-        switch format{
+    public func formatted(as format: CaseFormat) -> String {
+        switch format {
         case .hyphenated:
             return separated(by: "-")
         case .snake_case:
@@ -31,7 +30,7 @@ public extension String{
     }
 }
 
-extension String{
+extension String {
     
     internal func separated(by separatorCharacter: Character) -> String {
         let characters = Array(self)
@@ -78,16 +77,16 @@ extension String{
         return first + rest
     }
 }
-extension String{
+extension String {
     
     @discardableResult
-    public mutating func uppercase() -> String{
+    public mutating func uppercase() -> String {
         self = uppercased()
         return self
     }
     
     @discardableResult
-    public mutating func lowercase() -> String{
+    public mutating func lowercase() -> String {
         self = lowercased()
         return self
     }
@@ -98,7 +97,7 @@ extension String{
     ///        "".uppercaseFirstCharacter() -> ""
     ///
     @discardableResult
-    public mutating func uppercaseFirstCharacter() -> String{
+    public mutating func uppercaseFirstCharacter() -> String {
         self = firstCharacterUppercased
         return self
     }
@@ -108,7 +107,7 @@ extension String{
     ///        "hello world".firstCharacterUppercased -> "Hello world"
     ///        "".uppercasedFirstCharacter -> ""
     ///
-    public var firstCharacterUppercased: String{
+    public var firstCharacterUppercased: String {
         guard let first = first else { return  self }
         return String(first).uppercased() + dropFirst()
     }
@@ -130,7 +129,7 @@ extension String{
     }
     
     public var capitalizedInitials: String {
-        let capitalizedWords:[String] = words().map{$0.capitalized}
+        let capitalizedWords: [String] = words().map {$0.capitalized}
         return capitalizedWords.joined(separator: " ")
     }
 }

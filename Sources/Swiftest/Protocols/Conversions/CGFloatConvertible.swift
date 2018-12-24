@@ -7,15 +7,13 @@
 
 #if canImport(CoreGraphics)
 
-
 public protocol CGFloatConvertible {
     var cgFloat: CGFloat { get }
 }
 
-public protocol CGFloatInitializable{
+public protocol CGFloatInitializable {
     init(_ cgFloat: CGFloat)
 }
-
 
 extension Float: CGFloatConvertible, CGFloatInitializable {
     public var cgFloat: CGFloat {
@@ -42,20 +40,17 @@ extension CGFloat: CGFloatConvertible, CGFloatInitializable {
 }
 #endif
 
-
-
 public protocol OptionalCGFloatConvertible {
     var cgFloat: CGFloat? { get }
 }
 
-public protocol OptionalCGFloatInitializable{
+public protocol OptionalCGFloatInitializable {
     init?(_ cgFloat: CGFloat)
 }
-extension String: OptionalCGFloatConvertible, CGFloatInitializable{
+extension String: OptionalCGFloatConvertible, CGFloatInitializable {
     public init(_ cgFloat: CGFloat) {
         self.init(cgFloat.float)
     }
-    
     
     public var cgFloat: CGFloat? {
         return float?.cgFloat

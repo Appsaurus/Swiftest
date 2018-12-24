@@ -5,7 +5,6 @@
 //  Created by Brian Strobach on 12/4/17.
 //
 
-
 precedencegroup OptionalAssignment {
     associativity: right
 }
@@ -27,7 +26,7 @@ precedencegroup NilCoalescingAssignment {
 infix operator ??= : NilCoalescingAssignment
 
 public func ??= <T>(variable: inout T?, value: @autoclosure () -> T?) {
-    if variable == nil{
+    if variable == nil {
         variable = value()
     }
 }

@@ -5,8 +5,7 @@
 //  Created by Brian Strobach on 12/17/18.
 //
 
-extension String{
-    
+extension String {
     
     /// Swiftest: Safely subscript string with index.
     ///

@@ -8,7 +8,7 @@
 #if canImport(Foundation)
 import Foundation
 
-extension String{
+extension String {
     
     /// Swiftest: String with no spaces or new lines in beginning and end.
     ///
@@ -28,7 +28,7 @@ extension String{
         self = self.trimmed
     }
     
-    public mutating func trimCharacters(_ characterSet: CharacterSet){
+    public mutating func trimCharacters(_ characterSet: CharacterSet) {
         self = self.trimmingCharacters(in: characterSet)
     }
 

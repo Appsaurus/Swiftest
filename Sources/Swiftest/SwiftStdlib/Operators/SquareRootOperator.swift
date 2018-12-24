@@ -10,8 +10,6 @@
 import CoreGraphics
 #endif
 
-
-
 prefix operator √
 
 /// Swiftest: Square root of double.

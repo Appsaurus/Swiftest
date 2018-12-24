@@ -5,13 +5,13 @@
 //  Created by Brian Strobach on 12/12/18.
 //
 
-extension Sequence where Element: Sequence{
-    public var flattened: [Self.Element.Element]{
-        return flatMap{$0}
+extension Sequence where Element: Sequence {
+    public var flattened: [Self.Element.Element] {
+        return flatMap {$0}
     }
 }
 
-extension Sequence{
+extension Sequence {
 
     /// Swiftest: Reduces an array while returning each interim combination.
     ///

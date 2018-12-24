@@ -110,7 +110,6 @@ final class ArrayExtensionsTests: XCTestCase {
         
         let adamUnknown = Person(name: "Adam", age: nil)
         
-        
         let array = [alex1, brian2, carl3, carol5, bernie4, adamUnknown].shuffled()
         
         let nameAscending = [adamUnknown, alex1, bernie4, brian2, carl3, carol5]
@@ -124,7 +123,6 @@ final class ArrayExtensionsTests: XCTestCase {
         
         let ageDescendingNilsLast: [Person] = [carol5, bernie4, carl3, brian2, alex1, adamUnknown]
         let ageDescendingNilsFirst: [Person] = [adamUnknown, carol5, bernie4, carl3, brian2, alex1]
-        
         
         // Testing Optional keyPath
         XCTAssertEqual(array.sorted(by: \Person.age, OptionalSortOrder.ascendingNilsLast), ageAscendingNilsLast)
@@ -151,7 +149,6 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(mutableArray, ageDescendingNilsFirst)
 
     }
-
     
     func testRemoveObject() {
         let object1 = Object()
@@ -238,7 +235,7 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssert(arr.count == 2)
     }
     
-    func testwithoutDuplicateReferences(){
+    func testwithoutDuplicateReferences() {
         let object1 = Object()
         let object2 = Object()
         let object3 = Object()

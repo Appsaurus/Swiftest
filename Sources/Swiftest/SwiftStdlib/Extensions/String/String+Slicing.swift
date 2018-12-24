@@ -7,9 +7,7 @@
 
 import Foundation
 
-extension String{
-
-    
+extension String {
     
     /// Swiftest: Sliced string from a start index with length.
     ///
@@ -27,7 +25,6 @@ extension String{
         guard length > 0 else { return "" }
         return self[safe: i..<i.advanced(by: length)]
     }
-    
     
     /// Swiftest: Slice given string from a start index with length (if applicable).
     ///
@@ -59,7 +56,6 @@ extension String{
             self = str
         }
     }
-    
     
     /// Swiftest: Slice given string from a start index (if applicable).
     ///

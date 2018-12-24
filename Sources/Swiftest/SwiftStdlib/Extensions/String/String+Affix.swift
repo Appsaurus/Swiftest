@@ -5,7 +5,7 @@
 //  Created by Brian Strobach on 12/18/18.
 //
 
-extension String{
+extension String {
     
     /// Swiftest: Pad string to fit the length parameter size with another string in the start.
     ///

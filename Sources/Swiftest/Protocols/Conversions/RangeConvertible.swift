@@ -17,13 +17,13 @@ public extension NSRange {
         return Range(self, in: string)!
     }
 }
-extension Range where Bound == String.Index{
+extension Range where Bound == String.Index {
     public func toNSRange(_ string: String) -> NSRange {
         return NSRange(self, in: string)
     } 
 }
 
-public protocol NSRangeConvertible{
+public protocol NSRangeConvertible {
     var nsRange: NSRange { get }
 }
 
@@ -32,20 +32,18 @@ public protocol NSRangeConvertible{
 #if canImport(CoreFoundation)
 import CoreFoundation
 
-extension CFRange: NSRangeConvertible{
-    public var nsRange: NSRange{
+extension CFRange: NSRangeConvertible {
+    public var nsRange: NSRange {
         return NSRange(location: self.location, length: self.length)
     }
 }
 
-
-public protocol CFRangeConvertible{
+public protocol CFRangeConvertible {
     var cfRange: CFRange { get }
 }
 
-
-extension NSRange: CFRangeConvertible{
-    public var cfRange: CFRange{
+extension NSRange: CFRangeConvertible {
+    public var cfRange: CFRange {
         return CFRange(location: self.location, length: self.length)
     }
 }

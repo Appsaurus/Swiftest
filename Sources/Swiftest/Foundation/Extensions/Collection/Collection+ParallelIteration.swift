@@ -8,7 +8,7 @@
 #if canImport(Foundation)
 import Foundation
 
-extension Collection{
+extension Collection {
     
     /// Swiftest: Performs `each` closure for each element of collection in parallel.
     ///
@@ -29,4 +29,3 @@ extension Collection{
 }
 
 #endif
-

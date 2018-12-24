@@ -9,7 +9,6 @@
 #if canImport(Foundation)
 import Foundation
 
-
 // MARK: - Properties
 public extension URL {
 
@@ -120,6 +119,5 @@ public extension URL {
     }
 
 }
-
 
 #endif

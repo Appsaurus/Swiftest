@@ -10,7 +10,6 @@
 import Foundation
 #endif
 
-
 // MARK: - Methods
 extension RangeReplaceableCollection {
 

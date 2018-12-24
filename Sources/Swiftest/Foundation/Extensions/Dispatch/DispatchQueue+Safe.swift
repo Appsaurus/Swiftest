@@ -9,9 +9,9 @@
 #if canImport(Foundation)
 import Foundation
 
-extension DispatchQueue{
+extension DispatchQueue {
     
-    public func asyncAfter(seconds: Int, execute work: @escaping @convention(block) () -> Swift.Void){
+    public func asyncAfter(seconds: Int, execute work: @escaping @convention(block) () -> Swift.Void) {
         let deadlineTime = DispatchTime.now() + .seconds(seconds)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             work()

@@ -5,7 +5,7 @@
 //  Created by Brian Strobach on 12/17/18.
 //
 
-extension String{
+extension String {
     /// Swiftest: Check if string starts with substring.
     ///
     ///        "hello World".starts(with: "h") -> true
@@ -76,7 +76,7 @@ extension String{
 #if canImport(Foundation)
 import Foundation
 
-extension String{
+extension String {
     
     /// Swiftest: Check if the given string contains only white spaces
     public var isWhitespace: Bool {

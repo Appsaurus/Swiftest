@@ -9,7 +9,7 @@
 /// RangeReplaceableCollection based Stack(LIFO) implementation
 public typealias Stack = RangeReplaceableCollection
 
-public extension Stack{
+public extension Stack {
     
     public mutating func push(_ newElement: Element) {
         self.append(newElement)

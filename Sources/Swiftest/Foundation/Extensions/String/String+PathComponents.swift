@@ -8,7 +8,6 @@
 #if canImport(Foundation)
 import Foundation
 
-
 // MARK: - NSString extensions
 public extension String {
     
@@ -45,9 +44,9 @@ public extension String {
         return nsString.appendingPathComponent(str)
     }
     
-    public func appendingPathComponents(_ paths: [String]) -> String{
+    public func appendingPathComponents(_ paths: [String]) -> String {
         var st = self
-        paths.forEach{st = st.appendingPathComponent($0)}
+        paths.forEach {st = st.appendingPathComponent($0)}
         return st
     }
     

@@ -11,7 +11,7 @@ import Foundation
 /// RangeReplaceableCollection based Queue(FIFO) implementation
 public typealias Queue = RangeReplaceableCollection
 
-public extension Queue{
+public extension Queue {
     public mutating func enqueue(_ newElement: Element) {
         self.append(newElement)
     }

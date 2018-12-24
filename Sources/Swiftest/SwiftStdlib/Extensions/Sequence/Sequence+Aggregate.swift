@@ -5,7 +5,7 @@
 //  Created by Brian Strobach on 12/12/18.
 //
 
-extension Sequence{
+extension Sequence {
     
     /// Swiftest: Get element count based on condition.
     ///
@@ -43,11 +43,10 @@ public extension Sequence where Element: Numeric {
     
 }
 
-public protocol Averageable: Numeric{
+public protocol Averageable: Numeric {
     associatedtype AverageType: Numeric
     var average: AverageType { get }
 }
-
 
 extension Collection where Element: BinaryInteger {
     /// Swiftest: Average of all elements in array.
@@ -69,7 +68,7 @@ extension Collection where Element: BinaryInteger {
     }
 }
 
-extension BidirectionalCollection where Element: BinaryInteger{
+extension BidirectionalCollection where Element: BinaryInteger {
     /// Swiftest: Median of all elements in array.
     ///
     ///        [1, 2, 3, 4, 5].median -> 3
@@ -92,7 +91,7 @@ extension Collection where Element: FloatingPoint {
     }
 }
 
-extension BidirectionalCollection where Element: FloatingPoint{
+extension BidirectionalCollection where Element: FloatingPoint {
     /// Swiftest: Median of all elements in array.
     ///
     ///        [1.3, 2.3, 3.8, 4.1, 5.5].median -> 3.8
@@ -102,12 +101,11 @@ extension BidirectionalCollection where Element: FloatingPoint{
         guard let firstElement = first, let sorted = sorted() as? Self else { return nil}
         guard count > 1 else { return firstElement }
         let middleIndex = midIndex
-        if self.count.isEven{
+        if self.count.isEven {
             let midLeft = sorted[middleIndex]
             let midRight = sorted[sorted.index(after: middleIndex)]
             return [midLeft, midRight].average
-        }
-        else{
+        } else {
             return sorted[middleIndex]
         }
     }

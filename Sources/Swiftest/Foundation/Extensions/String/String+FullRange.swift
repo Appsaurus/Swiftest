@@ -8,8 +8,8 @@
 #if canImport(Foundation)
 import Foundation
 
-extension String{
-    public var fullIndexNSRange: NSRange{
+extension String {
+    public var fullIndexNSRange: NSRange {
         return self.fullIndexRange.toNSRange(self)
     }
 }
@@ -18,16 +18,10 @@ extension String{
 #if canImport(CoreFoundation)
 import CoreFoundation
 
-extension String{
-    public var fullIndexCFRange: CFRange{
+extension String {
+    public var fullIndexCFRange: CFRange {
         return fullIndexNSRange.cfRange
     }
 }
 #endif
-
-
     
-    
-
-
-

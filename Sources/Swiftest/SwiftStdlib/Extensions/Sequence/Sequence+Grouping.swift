@@ -7,12 +7,12 @@
 
 public extension Sequence {
     
-    public func grouped<Key>(by keyPath: KeyPath<Element, Key>) -> [Key: [Element]] where Key : Hashable {
+    public func grouped<Key>(by keyPath: KeyPath<Element, Key>) -> [Key: [Element]] where Key: Hashable {
         return grouped(by: { $0[keyPath: keyPath] })
     }
     
-    public func grouped<Key>(by keyFunction: (Element) -> Key) -> [Key: [Element]] where Key: Hashable{
-        var dict: [Key:[Iterator.Element]] = [:]
+    public func grouped<Key>(by keyFunction: (Element) -> Key) -> [Key: [Element]] where Key: Hashable {
+        var dict: [Key: [Iterator.Element]] = [:]
         for value in self {
             let key = keyFunction(value)
             dict[key, default: []].append(value)
@@ -21,13 +21,12 @@ public extension Sequence {
     }
     
     public func grouped<Key>(by keyFunction: (Element) throws -> Key?) rethrows -> (dictionary: [Key: [Element]], unkeyed: [Element]) where Key: Hashable {
-        var dict: [Key:[Element]] = [:]
+        var dict: [Key: [Element]] = [:]
         var unkeyedArray: [Element] = []
         for value in self {
-            if let key = try keyFunction(value){
+            if let key = try keyFunction(value) {
                 dict[key, default: []].append(value)
-            }
-            else{
+            } else {
                 unkeyedArray.append(value)
             }
         }

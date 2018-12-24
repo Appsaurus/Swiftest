@@ -5,7 +5,6 @@
 //  Created by Brian Strobach on 2/21/18.
 //
 
-
 /// Chains functions together like a pipe operator. The function on the rhs takes the outupt of the lhs function as input.
 ///	Example Usage:
 ///	public func run() throws {

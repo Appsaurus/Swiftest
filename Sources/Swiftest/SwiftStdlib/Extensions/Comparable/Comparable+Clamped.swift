@@ -22,7 +22,6 @@ public extension Comparable {
         return max(range.lowerBound, min(self, range.upperBound))
     }
     
-    
     public func clamped(_ lower: Self, _ upper: Self) -> Self {
         return clamped(to: lower...upper)
     }

@@ -9,10 +9,9 @@ public protocol DoubleConvertible {
     var double: Double { get }
 }
 
-public protocol DoubleInitializable{
+public protocol DoubleInitializable {
     init(_ double: Double)
 }
-
 
 extension Double: DoubleConvertible, DoubleInitializable {
     public var double: Double {
@@ -39,13 +38,11 @@ extension CGFloat: DoubleConvertible, DoubleInitializable {
 }
 #endif
 
-
-
-public protocol OptionalDoubleConvertible{
+public protocol OptionalDoubleConvertible {
     var double: Double? { get }
 }
 
-extension String: OptionalDoubleConvertible, DoubleInitializable{
+extension String: OptionalDoubleConvertible, DoubleInitializable {
     
     public var double: Double? {
         return Double(self)

@@ -6,14 +6,14 @@
 //
 
 import Foundation
-public protocol EmptyInitializable{
+public protocol EmptyInitializable {
 	init()
 }
 
-extension EmptyInitializable{
-	public static func initArray(_ size: Int) -> [Self]{
+extension EmptyInitializable {
+	public static func initArray(_ size: Int) -> [Self] {
 		var items: [Self] = []
-		size.times{
+		size.times {
 			items.append(self.init())
 		}
 		return items

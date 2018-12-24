@@ -10,14 +10,14 @@ import Foundation
 public typealias Comparator<Value: Comparable> = (Value, Value) -> Bool
 public typealias OptionalComparator<Value: Comparable> = (Value?, Value?) -> Bool
 
-public enum SortOrder{
+public enum SortOrder {
     case ascending
     case descending
     
     public static var `default`: SortOrder = .ascending
     
-    public func comparator<Value>() -> Comparator<Value>{
-        switch self{
+    public func comparator<Value>() -> Comparator<Value> {
+        switch self {
         case .ascending:
             return (<)
         case .descending:
@@ -26,7 +26,7 @@ public enum SortOrder{
     }
 }
 
-public enum OptionalSortOrder{
+public enum OptionalSortOrder {
     case ascendingNilsLast
     case ascendingNilsFirst
     case descendingNilsLast
@@ -34,8 +34,8 @@ public enum OptionalSortOrder{
     
     public static var `default`: OptionalSortOrder = .ascendingNilsLast
     
-    private func _comparator<Value>() -> Comparator<Value>{
-        switch self{
+    private func _comparator<Value>() -> Comparator<Value> {
+        switch self {
         case .ascendingNilsLast, .ascendingNilsFirst:
             return (<)
         case .descendingNilsLast, .descendingNilsFirst:
@@ -43,8 +43,8 @@ public enum OptionalSortOrder{
         }
     }
     
-    private var nilsLast: Bool{
-        switch self{
+    private var nilsLast: Bool {
+        switch self {
         case .ascendingNilsLast, .descendingNilsLast:
             return true
         case .ascendingNilsFirst, .descendingNilsFirst:
@@ -52,14 +52,14 @@ public enum OptionalSortOrder{
         }
     }
     
-    public func comparator<Value>() -> OptionalComparator<Value>{
+    public func comparator<Value>() -> OptionalComparator<Value> {
         return { (lhs: Value?, rhs: Value?) -> Bool in
             return self.compare(lhs, rhs)
         }
     }
     
     func compare<Value: Comparable>(_ lhs: Value?,
-                                    _ rhs: Value?) -> Bool{
+                                    _ rhs: Value?) -> Bool {
         switch (lhs, rhs) {
         case let (lhs?, rhs?):
             return _comparator()(lhs, rhs)
@@ -82,7 +82,6 @@ extension Sequence {
                                           _ order: SortOrder = .default) -> [Element] {
         return sorted(by: keyPath, order.comparator())
     }
-    
     
     /// Swiftest: Returns a sorted array based on a keypath.
     ///
@@ -124,7 +123,6 @@ extension Sequence {
 
 extension MutableCollection where Self: RandomAccessCollection {
     
-    
     /// Sort the collection based on a keypath.
     ///
     /// - Parameters:
@@ -137,8 +135,6 @@ extension MutableCollection where Self: RandomAccessCollection {
         sort(by: keyPath, order.comparator())
         return self
     }
-    
-    
     
     /// Sort the collection based on a keypath.
     ///
@@ -169,7 +165,6 @@ extension MutableCollection where Self: RandomAccessCollection {
         sort(by: keyPath, order.comparator())
         return self
     }
-
     
     /// Sort the collection based on a keypath with optional value.
     ///
@@ -179,9 +174,9 @@ extension MutableCollection where Self: RandomAccessCollection {
     /// - Returns: self after sorting.
     @discardableResult
     mutating public func sort<Value: Comparable>(by keyPath: KeyPath<Element, Value?>,
-                                                 _ comparator: OptionalComparator<Value>) -> Self{
+                                                 _ comparator: OptionalComparator<Value>) -> Self {
         var copy = self
-        copy.sort{
+        copy.sort {
             comparator($0[keyPath: keyPath], $1[keyPath: keyPath])
         }
         self = copy

@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension WritableKeyPath{
-    public func with(value: Value) -> WritableKeyPathApplicator<Root>{
+extension WritableKeyPath {
+    public func with(value: Value) -> WritableKeyPathApplicator<Root> {
         return WritableKeyPathApplicator(self, value)
     }
 }
@@ -20,7 +20,7 @@ precedencegroup KeyPathApplicatorPrecedence {
 
 infix operator => : KeyPathApplicatorPrecedence
 
-public func =><V, R, WKP: WritableKeyPath<R, V>> (lhs: WKP, rhs: V) -> WritableKeyPathApplicator<R>{
+public func =><V, R, WKP: WritableKeyPath<R, V>> (lhs: WKP, rhs: V) -> WritableKeyPathApplicator<R> {
     return lhs.with(value: rhs)
 }
 

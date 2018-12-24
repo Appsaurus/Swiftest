@@ -5,8 +5,7 @@
 //  Created by Brian Strobach on 4/23/18.
 //
 
-
-extension Collection{
+extension Collection {
     
     /// Alisa for `count`
     public var length: Int {
@@ -18,7 +17,7 @@ public extension Collection {
     
     @discardableResult
     public func forEachWithIndex(where: (Element) -> Bool, body: (_ index: Index, _ element: Element) throws -> Void) rethrows -> Self {
-        for index in indices{
+        for index in indices {
             try body(index, self[index])
         }
         return self
@@ -38,8 +37,7 @@ public extension Collection {
 }
 
 // MARK: - Methods (Int)
-public extension Collection where Index == Int{
-    
+public extension Collection where Index == Int {
     
     /// Swiftest: Calls the given closure with an array of size of the parameter slice.
     ///

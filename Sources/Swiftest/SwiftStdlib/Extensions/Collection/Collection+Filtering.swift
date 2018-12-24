@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension MutableCollection{
+public extension MutableCollection {
     /// Swiftest: Safely Swap values at index positions.
     ///
     ///        [1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
@@ -24,7 +24,6 @@ public extension MutableCollection{
     }
 }
 public extension RangeReplaceableCollection {
-
     
     /// Swiftest: Keep elements of Array while condition is true.
     ///

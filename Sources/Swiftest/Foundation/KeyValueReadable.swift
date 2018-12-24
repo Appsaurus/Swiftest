@@ -8,25 +8,24 @@
 
 import Foundation
 
-
 public protocol KeyValueReadable {
     
-    func valueForKey<T>(_ key : String) -> T?
+    func valueForKey<T>(_ key: String) -> T?
     
-    func valueForKeyPath<T>(_ keyPath : String) -> T?
+    func valueForKeyPath<T>(_ keyPath: String) -> T?
     
-    subscript (key : String) -> Any? { get }
+    subscript (key: String) -> Any? { get }
 }
 
 public extension KeyValueReadable {
     
     /// Returns the value for the property identified by a given key.
-    public func valueForKey<T>(_ key : String) -> T? {
+    public func valueForKey<T>(_ key: String) -> T? {
         
         let mirror: Mirror = Mirror(reflecting: self)
         
         for child in mirror.children {
-            if child.label == key{
+            if child.label == key {
                 return child.value as? T
             }
         }
@@ -34,9 +33,9 @@ public extension KeyValueReadable {
     }
     
     /// Returns the value for the derived property identified by a given key path.
-    public func valueForKeyPath<T>(_ keyPath : String) -> T? {
+    public func valueForKeyPath<T>(_ keyPath: String) -> T? {
         
-        let keys = keyPath.split(separator: ".").map{String($0)}
+        let keys = keyPath.split(separator: ".").map {String($0)}
         
         var mirror = Mirror(reflecting: self)
         
@@ -45,8 +44,7 @@ public extension KeyValueReadable {
                 if child.label == key {
                     if child.label == keys.last {
                         return child.value as? T
-                    }
-                    else {
+                    } else {
                         mirror = Mirror(reflecting: child)
                     }
                 }
@@ -56,7 +54,7 @@ public extension KeyValueReadable {
     }
     
     /// Returns the value for the property identified by a given key.
-    public subscript (key : String) -> Any? {
+    public subscript (key: String) -> Any? {
         get {
             return self.valueForKeyPath(key)
         }

@@ -5,7 +5,7 @@
 //  Created by Brian Strobach on 12/18/18.
 //
 
-extension String{
+extension String {
     
     /// Swiftest: Truncate string (cut it to a given number of characters).
     ///

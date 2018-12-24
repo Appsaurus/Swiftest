@@ -7,7 +7,7 @@
 
 #if canImport(Foundation)
 import Foundation
-extension String{
+extension String {
     
     /// Swiftest: Date object from string of date format.
     ///

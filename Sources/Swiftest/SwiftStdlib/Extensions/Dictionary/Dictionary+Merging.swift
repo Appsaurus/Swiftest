@@ -5,7 +5,6 @@
 //  Created by Brian Strobach on 12/16/18.
 //
 
-
 public func +<Key, Value> (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
     return lhs.merged(with: rhs)
 }
@@ -18,7 +17,7 @@ public func +=<Key, Value> (lhs: inout [Key: Value], rhs: [Key: Value]) -> [Key:
 extension Dictionary {
     
     @discardableResult
-    public mutating func merge(with dictionary: Dictionary) -> Dictionary{
+    public mutating func merge(with dictionary: Dictionary) -> Dictionary {
         dictionary.forEach { updateValue($1, forKey: $0) }
         return self
     }

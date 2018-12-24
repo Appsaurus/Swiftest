@@ -7,13 +7,13 @@
 
 import Foundation
 
-public class StringUtils{
-	public class English{
-		public static func punctuatedList(from words: [String], conjunction: String = "and" , includeOxfordComma: Bool = true ) -> String{
+public class StringUtils {
+	public class English {
+		public static func punctuatedList(from words: [String], conjunction: String = "and", includeOxfordComma: Bool = true ) -> String {
 			guard words.count > 0 else { return ""}
 
 			guard words.count > 1,
-				let lastWord = words.last else{
+				let lastWord = words.last else {
 					return words[0]
 			}
 
@@ -21,7 +21,7 @@ public class StringUtils{
 
 			let allButLast = words.dropLast()
 			let list = allButLast.joined(separator: separator)
-			guard includeOxfordComma else{
+			guard includeOxfordComma else {
 				return [list, conjunction, lastWord].joined(separator: " ")
 			}
 			return "\(list), \(conjunction) \(lastWord)"
@@ -80,7 +80,7 @@ public class StringUtils{
 
 				// Get the first word in the string
 				//
-				guard let word = str.words().first else{
+				guard let word = str.words().first else {
 					return ""
 				}
 
@@ -106,7 +106,6 @@ public class StringUtils{
 				regex = try NSRegularExpression(pattern: anPatterns, options: [.caseInsensitive])
 				let anMatches = regex.matches(in: word, options: [], range: NSRange(location: 0, length: word.count))
 
-
 				// balancing the specificity of aMatches, as they could be stonger then the
 				// general vowel matching of the an
 				//
@@ -127,7 +126,6 @@ public class StringUtils{
 	}
 }
 
-
 public extension String {
 	public func indefiniteArticle() -> String {
 		return StringUtils.English.indefiniteArticle(for: self)
@@ -135,7 +133,7 @@ public extension String {
 
 }
 
-extension CharacterSet{
+extension CharacterSet {
 	static public let vowels = CharacterSet(charactersIn: "aeiouAEIOU")
 	static public let consonants = CharacterSet(charactersIn: "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ")
 }
@@ -153,4 +151,3 @@ extension String {
 		return first?.isConsonant ?? false
 	}
 }
-

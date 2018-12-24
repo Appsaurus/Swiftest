@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
 	name: "Swiftest",
 	products: [
-		.library(name: "Swiftest", targets: ["Swiftest"]),
+		.library(name: "Swiftest", targets: ["Swiftest"])
 	],
 	dependencies: [
         .package(url: "https://github.com/Appsaurus/SwiftTestUtils", from: "1.0.0")

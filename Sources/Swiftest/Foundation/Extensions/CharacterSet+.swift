@@ -11,7 +11,7 @@ import Foundation
 //Source: https://stackoverflow.com/questions/15741631/nsarray-from-nscharacterset/15742659#15742659
 extension CharacterSet {
     
-    public var random: Character{
+    public var random: Character {
         return characters.randomElement() ?? Character("")
     }
     

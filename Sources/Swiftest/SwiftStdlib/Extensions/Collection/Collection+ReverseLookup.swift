@@ -6,7 +6,7 @@
 //  Copyright © 2018 Appsaurus
 //
 
-extension Collection{
+extension Collection {
     /// Swiftest: Get all indices where condition is met.
     ///
     ///     [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
@@ -15,7 +15,7 @@ extension Collection{
     /// - Returns: all indices where the specified condition evaluates to true. (optional)
     public func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
         var matchingIndices: [Index] = []
-        for index in indices where try condition(self[index]){
+        for index in indices where try condition(self[index]) {
             matchingIndices.append(index)
         }
         return matchingIndices.isEmpty ? nil : matchingIndices

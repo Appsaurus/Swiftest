@@ -25,7 +25,6 @@ public extension SignedInteger {
 
 // MARK: - Methods
 public extension SignedInteger {
-
     
     /// Swiftest: Greatest common divisor of integer value and n.
     ///
@@ -34,7 +33,6 @@ public extension SignedInteger {
     public func gcd(of n: Self) -> Self {
         return n == 0 ? self : n.gcd(of: self % n)
     }
-
     
     /// Swiftest: Least common multiple of integer and n.
     ///
@@ -62,7 +60,7 @@ public extension SignedInteger {
     #endif
 }
 
-extension SignedInteger{
+extension SignedInteger {
     /// Swiftest: String of format (XXh XXm) from seconds Int.
     public var timeString: String {
         guard self > 0 else {

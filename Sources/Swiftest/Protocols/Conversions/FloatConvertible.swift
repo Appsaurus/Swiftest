@@ -9,10 +9,9 @@ public protocol FloatConvertible {
     var float: Float { get }    
 }
 
-public protocol FloatInitializable{
+public protocol FloatInitializable {
     init(_ float: Float)
 }
-
 
 extension Float: FloatConvertible, FloatInitializable {
     public var float: Float {
@@ -39,16 +38,14 @@ extension CGFloat: FloatConvertible, FloatInitializable {
 }
 #endif
 
-
-
 public protocol OptionalFloatConvertible {
     var float: Float? { get }
 }
 
-public protocol OptionalFloatInitializable{
+public protocol OptionalFloatInitializable {
     init?(_ float: Float)
 }
-extension String: OptionalFloatConvertible, FloatInitializable{
+extension String: OptionalFloatConvertible, FloatInitializable {
     
     public var float: Float? {
         return Float(self)

@@ -8,31 +8,31 @@
 
 import Foundation
 
-public protocol Countable: Comparable{
+public protocol Countable: Comparable {
     static var max: Self { get }
     static var min: Self { get }
 }
-extension Countable where Self: FloatingPoint{
-    public static var min: Self{
+extension Countable where Self: FloatingPoint {
+    public static var min: Self {
         return 0
     }
     
-    public static var max: Self{
+    public static var max: Self {
         return greatestFiniteMagnitude
     }
 }
 
-public protocol RangeRandomizable: Countable{
+public protocol RangeRandomizable: Countable {
     static func random(_ min: Self, _ max: Self, inclusive: Bool) -> Self
     static func random(in range: Range<Self>) -> Self
     static func random(in range: ClosedRange<Self>) -> Self
 }
 
-extension RangeRandomizable{
+extension RangeRandomizable {
     //Range must be finite, and random(in:) considers the range -greatesFiniteMagnitude...greatestFiniteMagnitude to be infinite for some reason.
     //So a range of 0...greatestFiniteMagnitude is used for default. Must negate at callsite if desired.
     public static func random(_ min: Self = Self.min, _ max: Self = Self.max, inclusive: Bool = true) -> Self {
-        guard inclusive else{
+        guard inclusive else {
             return Self.random(in: min..<max)
         }
         return Self.random(in: min...max)
@@ -42,23 +42,23 @@ extension RangeRandomizable{
         return random()
     }
 }
-extension Int: RangeRandomizable{}
-extension Int8: RangeRandomizable{}
-extension Int16: RangeRandomizable{}
-extension Int32: RangeRandomizable{}
-extension Int64: RangeRandomizable{}
+extension Int: RangeRandomizable {}
+extension Int8: RangeRandomizable {}
+extension Int16: RangeRandomizable {}
+extension Int32: RangeRandomizable {}
+extension Int64: RangeRandomizable {}
 
-extension UInt: RangeRandomizable{}
-extension UInt8: RangeRandomizable{}
-extension UInt16: RangeRandomizable{}
-extension UInt32: RangeRandomizable{}
-extension UInt64: RangeRandomizable{}
+extension UInt: RangeRandomizable {}
+extension UInt8: RangeRandomizable {}
+extension UInt16: RangeRandomizable {}
+extension UInt32: RangeRandomizable {}
+extension UInt64: RangeRandomizable {}
 
-extension Double: RangeRandomizable{}
+extension Double: RangeRandomizable {}
 
-extension Float: RangeRandomizable{}
+extension Float: RangeRandomizable {}
 
-extension ClosedRange where Bound: RangeRandomizable{
+extension ClosedRange where Bound: RangeRandomizable {
     public var random: Bound {
         return Bound.random(in: self)
     }
@@ -70,8 +70,7 @@ public extension Bool {
     }
 }
 
-
-extension Date: RangeRandomizable{
+extension Date: RangeRandomizable {
     public static var max: Date {
         return Date(timeIntervalSince1970: TimeInterval.max)
     }
@@ -129,13 +128,12 @@ public extension Date {
         
         let furthest = date.addingTimeInterval(interval)
         let ordered = [date, furthest].sorted()
-        guard let lowerBound = ordered.first, let upperBound = ordered.last else{
+        guard let lowerBound = ordered.first, let upperBound = ordered.last else {
             return (date...furthest).random
         }
         return (lowerBound...upperBound).random
     }
 }
-
 
 #if canImport(CoreGraphics)
 import CoreGraphics
@@ -143,22 +141,22 @@ import CoreGraphics
 //Not sure why this is required since CGFloat implements FoatingPoint,
 //but compiler can't resolve min/max from default protocol implementation
 
-extension CGFloat: RangeRandomizable{
-    public static var min: CGFloat{
+extension CGFloat: RangeRandomizable {
+    public static var min: CGFloat {
         return 0
     }
     
-    public static var max: CGFloat{
+    public static var max: CGFloat {
         return greatestFiniteMagnitude
     }
 }
 
-extension CGRect{
-    public func randomPointInside() -> CGPoint{
+extension CGRect {
+    public func randomPointInside() -> CGPoint {
         return CGPoint(x: .random(origin.x, maxX), y: .random(origin.y, maxY))
     }
     
-    public func randomFrameInside(frameSize: CGSize) -> CGRect{
+    public func randomFrameInside(frameSize: CGSize) -> CGRect {
         
         assert(frameSize.w <= self.w && frameSize.h <= self.h, "Subframe is larger than parent frame")
         
@@ -171,8 +169,8 @@ extension CGRect{
     }
 }
 
-extension CGSize{
-    public static func randomSize(widthRange: ClosedRange<CGFloat>, heightRange: ClosedRange<CGFloat>) -> CGSize{
+extension CGSize {
+    public static func randomSize(widthRange: ClosedRange<CGFloat>, heightRange: ClosedRange<CGFloat>) -> CGSize {
         return CGSize(width: widthRange.random, height: heightRange.random)
     }
 }

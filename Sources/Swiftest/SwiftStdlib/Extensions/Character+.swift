@@ -66,8 +66,6 @@ public extension Character {
         return String(self) == " "
     }
 
-   
-
     /// Swiftest: Return the character lowercased.
     ///
     ///        Character("A").lowercased -> Character("a")
@@ -85,8 +83,6 @@ public extension Character {
     }
 
 }
-
-
 
 // MARK: - Operators
 public extension Character {

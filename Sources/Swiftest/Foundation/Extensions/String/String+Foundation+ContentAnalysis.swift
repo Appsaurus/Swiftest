@@ -7,7 +7,7 @@
 
 #if canImport(Foundation)
 import Foundation
-extension String{
+extension String {
     
     /// Swiftest: Count of words in a string.
     ///
@@ -21,7 +21,6 @@ extension String{
         let words = comps.filter { !$0.isEmpty }
         return words.count
     }
-    
     
     /// Swiftest: The most common character in string.
     ///

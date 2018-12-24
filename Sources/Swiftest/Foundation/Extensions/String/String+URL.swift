@@ -5,11 +5,10 @@
 //  Created by Brian Strobach on 12/17/18.
 //
 
-
 #if canImport(Foundation)
 import Foundation
 
-extension String{
+extension String {
     
     /// Swiftest: URL from string (if applicable).
     ///
@@ -77,7 +76,7 @@ extension String{
         var filtered = withDashes.filter {
             guard String($0) != "-" else { return true }
             guard String($0) != "&" else { return true }
-            return String($0).rangeOfCharacter(from:. alphanumerics) != nil
+            return String($0).rangeOfCharacter(from: . alphanumerics) != nil
         }
         
         while filtered.lastCharacterAsString == "-" {
@@ -97,7 +96,7 @@ extension String{
         let detector: NSDataDetector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         let text: String = self
         detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.count), using: {
-            (result: NSTextCheckingResult?, flags: NSRegularExpression.MatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
+            (result: NSTextCheckingResult?, _: NSRegularExpression.MatchingFlags, _: UnsafeMutablePointer<ObjCBool>) -> Void in
             if let result = result,
                 let url = result.url {
                 urls.append(url)
@@ -107,9 +106,9 @@ extension String{
     }
 }
 
-//MARK: Encoding/Decoding
+// MARK: Encoding/Decoding
 
-extension String{
+extension String {
     
     /// Swiftest: URL escaped string.
     ///
@@ -130,7 +129,6 @@ extension String{
             self = encoded
         }
     }
-    
     
     /// Swiftest: Readable string from a URL string.
     ///

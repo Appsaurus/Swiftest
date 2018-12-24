@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-extension RangeReplaceableCollection{
+extension RangeReplaceableCollection {
     /// Creates a new collection of a given size where for each position of the collection the value will be the result
     /// of a call of the given expression.
     ///
@@ -30,11 +29,11 @@ extension RangeReplaceableCollection{
         }
     }
     
-    public func repeated(count: Int, separatedBy separator: Element? = nil) -> Self{
+    public func repeated(count: Int, separatedBy separator: Element? = nil) -> Self {
         let copy: Self = self
         var output: Self = self
-        count.times{
-            if let separator = separator{
+        count.times {
+            if let separator = separator {
                 output.append(separator)
             }
             output.append(contentsOf: copy)

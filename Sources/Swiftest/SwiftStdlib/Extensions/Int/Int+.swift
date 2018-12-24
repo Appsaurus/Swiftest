@@ -5,7 +5,6 @@
 //  Created by Brian Strobach on 12/18/18.
 //
 
-
 #if canImport(CoreGraphics)
 import CoreGraphics
 #endif
@@ -39,7 +38,7 @@ public extension Int {
     }
 }
 
-extension Int{
+extension Int {
     
     /// Swiftest: Array of digits of integer value.
     public var digits: [Int] {
@@ -95,9 +94,6 @@ public extension Int {
         return true
     }
     
-    
-    
-    
     /// Swiftest: Rounds to the closest multiple of n
     public func roundToNearest(_ n: Int) -> Int {
         return n == 0 ? self : Int(round(Double(self) / Double(n))) * n
@@ -133,5 +129,3 @@ public extension Int {
         return romanValue
     }
 }
-
-

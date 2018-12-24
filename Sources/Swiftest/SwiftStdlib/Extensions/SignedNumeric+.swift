@@ -10,8 +10,7 @@
 import Foundation
 #endif
 
-
-extension SignedNumeric where Self: Comparable{
+extension SignedNumeric where Self: Comparable {
     public var abs: Self {
         return Swift.abs(self)
     }

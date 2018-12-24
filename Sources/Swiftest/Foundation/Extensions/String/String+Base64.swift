@@ -7,7 +7,7 @@
 
 #if canImport(Foundation)
 import Foundation
-extension String{
+extension String {
     
     /// Swiftest: Create a new string from a base64 string (if applicable).
     ///

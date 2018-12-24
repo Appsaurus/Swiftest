@@ -24,7 +24,6 @@ public extension RangeReplaceableCollection where Element: AnyObject {
     }
 }
 
-
 public extension RangeReplaceableCollection where Element: Equatable {
     
     /// Swiftest: Remove all duplicate elements from Array.

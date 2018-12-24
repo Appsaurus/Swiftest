@@ -8,8 +8,8 @@
 #if canImport(Foundation)
 import Foundation
 
-public extension String{
-    public var letterCount: Int{
+public extension String {
+    public var letterCount: Int {
         let letters = CharacterSet.letters
         
         var letterCount = 0
@@ -22,7 +22,7 @@ public extension String{
         return letterCount
     }
     
-    public var digitCount: Int{
+    public var digitCount: Int {
         let digits = CharacterSet.decimalDigits
         
         var digitCount = 0

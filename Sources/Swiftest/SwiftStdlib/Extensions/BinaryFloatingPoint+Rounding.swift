@@ -29,7 +29,7 @@ public extension BinaryFloatingPoint {
         return (self * factor).rounded(rule) / factor
     }
     
-    public mutating func round(numberOfDecimalPlaces: Int, rule: FloatingPointRoundingRule = .toNearestOrAwayFromZero){
+    public mutating func round(numberOfDecimalPlaces: Int, rule: FloatingPointRoundingRule = .toNearestOrAwayFromZero) {
         self = self.rounded(numberOfDecimalPlaces: numberOfDecimalPlaces, rule: rule)
     }
 }

@@ -62,14 +62,13 @@ public extension Optional {
 
 }
 
-//MARK: Removing nils
+// MARK: Removing nils
 public protocol OptionalType {
     associatedtype Wrapped
     func map<U>(_ f: (Wrapped) throws -> U) rethrows -> U?
 }
 
 extension Optional: OptionalType {}
-
 
 public extension Sequence where Iterator.Element: OptionalType {
     public func removeNils() -> [Iterator.Element.Wrapped] {

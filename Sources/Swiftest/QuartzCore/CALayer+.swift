@@ -9,7 +9,7 @@
 #if canImport(QuartzCore)
     import QuartzCore
 
-    public extension CALayer{
+    public extension CALayer {
         
         public func pauseAnimations() {
             CALayer.pauseAnimations(self)

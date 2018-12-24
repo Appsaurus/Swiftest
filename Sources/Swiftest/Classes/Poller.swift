@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class Poller{
+open class Poller {
     open var running: Bool = false
     open var refreshing: Bool = false
     open var refreshFrequency: Double = 60
@@ -32,8 +32,8 @@ open class Poller{
         timer.invalidate()
     }
     
-    @objc open func refreshTimerFired(){
-        if !needsRefresh(){
+    @objc open func refreshTimerFired() {
+        if !needsRefresh() {
             refresh()
         }
     }
@@ -47,12 +47,12 @@ open class Poller{
         self.refreshing = true
     }
     
-    open func refreshSucceeded(){
+    open func refreshSucceeded() {
         self.refreshing = false
     }
     
     //TODO: Consider implementing retries
-    open func refreshFailed(){
+    open func refreshFailed() {
         self.refreshing = false
     }
 }

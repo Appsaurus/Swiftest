@@ -5,17 +5,17 @@
 //  Created by Brian Strobach on 12/14/18.
 //
 
-public protocol IntConvertible{
+public protocol IntConvertible {
     var int: Int { get }
 }
 
-extension Double: IntConvertible{
+extension Double: IntConvertible {
     public var int: Int {
         return Int(self)
     }
 }
 
-extension Float: IntConvertible{
+extension Float: IntConvertible {
     public var int: Int {
         return Int(self)
     }
@@ -33,11 +33,11 @@ extension Bool: IntConvertible {
     }
 }
 
-public protocol OptionalIntConvertible{
+public protocol OptionalIntConvertible {
     var int: Int? { get }
 }
 
-extension String: OptionalIntConvertible{
+extension String: OptionalIntConvertible {
 
     /// Swiftest: Integer value from string (if applicable).
     ///

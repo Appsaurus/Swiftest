@@ -29,7 +29,6 @@ public extension Sequence {
         }
     }
     
-    
 }
 
 //  Allows you to call a method on each element of a sequence.
@@ -50,7 +49,6 @@ extension Sequence {
         }
     }
 }
-
 
 public func call<Input, Output>(_ function: (Input) -> Output, with input: Input) -> Output {
     return function(input)

@@ -7,14 +7,13 @@
 
 import Foundation
 
-
 /// Runs a lenghty synchronous function on a background thread, returning its value on the main thread in a closure.
 ///
 /// - Parameters:
 ///   - function: The synchronous function.
 ///   - completion: The closure to be called on the main thread when the function completes.
 @available(OSX 10.10, *)
-public func completeOnMainThread<R: Any>(_ function: @autoclosure @escaping () -> R, _ completion: @escaping (R) -> Void){
+public func completeOnMainThread<R: Any>(_ function: @autoclosure @escaping () -> R, _ completion: @escaping (R) -> Void) {
 	DispatchQueue.global().async {
 		let result = function()
 		DispatchQueue.main.async {

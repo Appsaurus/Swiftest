@@ -14,11 +14,11 @@ public extension Optional where Wrapped: Collection {
         return collection.isEmpty
     }
     
-    public var hasNonEmptyValue: Bool{
+    public var hasNonEmptyValue: Bool {
         return !isNilOrEmpty
     }
     
-    public var removeEmpty: Optional<Wrapped>{
+    public var removeEmpty: Optional<Wrapped> {
         guard let collection = self else { return nil }
         return collection.isEmpty ? nil : self
     }

@@ -8,7 +8,7 @@
 #if canImport(Foundation)
 import Foundation
 
-extension String{
+extension String {
     /// Swiftest: an array of all words in a string
     ///
     ///        "Swift is amazing".words() -> ["Swift", "is", "amazing"]
@@ -40,10 +40,9 @@ extension String{
         let locale = CFLocaleCopyCurrent()
         let tokenizer = CFStringTokenizerCreate( kCFAllocatorDefault, self as CFString?, inputRange, flag, locale)
         var tokenType = CFStringTokenizerAdvanceToNextToken(tokenizer)
-        var tokens : [String] = []
+        var tokens: [String] = []
         
-        while tokenType != CFStringTokenizerTokenType()
-        {
+        while tokenType != CFStringTokenizerTokenType() {
             let currentTokenRange = CFStringTokenizerGetCurrentTokenRange(tokenizer)
             let substring = self.subString(currentTokenRange.nsRange)
             tokens.append(substring)
@@ -53,12 +52,12 @@ extension String{
         return tokens
     }
     
-    public func initials(_ count: Int? = nil) -> String{
+    public func initials(_ count: Int? = nil) -> String {
         let words = self.tokenize()
         let intialsCount = count != nil ? min(count!, words.count) : words.count
         var initials = ""
         
-        for word in words[0...intialsCount - 1] where !word.isEmpty{
+        for word in words[0...intialsCount - 1] where !word.isEmpty {
             initials.append(word.first!)
         }
         
@@ -67,4 +66,3 @@ extension String{
 }
 
 #endif
-

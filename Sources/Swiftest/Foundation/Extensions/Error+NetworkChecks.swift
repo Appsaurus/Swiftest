@@ -12,8 +12,8 @@ import Foundation
 extension NSError {
     public func isNetworkConnectionError() -> Bool {
         
-        if let innerError = self.userInfo[NSString(string: NSUnderlyingErrorKey) as String] as? NSError{
-            if innerError.isNetworkConnectionError(){
+        if let innerError = self.userInfo[NSString(string: NSUnderlyingErrorKey) as String] as? NSError {
+            if innerError.isNetworkConnectionError() {
                 return true
             }
         }
@@ -37,8 +37,8 @@ extension NSError {
     
     public func isUserNetworkConnectionUnavailableError() -> Bool {
         
-        if let innerError = self.userInfo[NSString(string: NSUnderlyingErrorKey) as String] as? NSError{
-            if innerError.isUserNetworkConnectionUnavailableError(){
+        if let innerError = self.userInfo[NSString(string: NSUnderlyingErrorKey) as String] as? NSError {
+            if innerError.isUserNetworkConnectionUnavailableError() {
                 return true
             }
         }
@@ -56,7 +56,7 @@ extension NSError {
     }
 }
 
-extension Error{
+extension Error {
     public func isNetworkConnectionError() -> Bool {
         return (self as NSError).isNetworkConnectionError() 
     }

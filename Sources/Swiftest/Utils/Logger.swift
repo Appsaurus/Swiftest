@@ -21,25 +21,23 @@ public func debugLog(_ error: Error, file: String = #file, function: String = #f
 	#endif
 }
 
-
-
-public struct SourceCodeLocation: CustomDebugStringConvertible{
+public struct SourceCodeLocation: CustomDebugStringConvertible {
 	public var file: String
 	public var function: String
 	public var line: Int
 	public var column: Int
-	public init(file: String, function: String, line: Int , column: Int) {
+	public init(file: String, function: String, line: Int, column: Int) {
 		self.file = file
 		self.function = function
 		self.line = line
 		self.column = column
 	}
 
-	public static func here(file: String = #file, function: String = #function, line: Int = #line, column: Int = #column) -> SourceCodeLocation{
+	public static func here(file: String = #file, function: String = #function, line: Int = #line, column: Int = #column) -> SourceCodeLocation {
 		return SourceCodeLocation(file: file, function: function, line: line, column: column)
 	}
 
-	public var debugDescription: String{
+	public var debugDescription: String {
 		let className = file.lastPathComponent
 		return "[\(className): line #\(line) column # \(column)] in \(function)"
 	}
