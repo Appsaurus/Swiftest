@@ -11,6 +11,7 @@ import CoreGraphics
 
 public extension CGSize{
     
+    
     public var w: CGFloat {
         get {
             return self.width
@@ -18,6 +19,7 @@ public extension CGSize{
             self.width = value
         }
     }
+    
     
     public var h: CGFloat {
         get {

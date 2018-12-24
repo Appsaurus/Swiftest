@@ -6,10 +6,10 @@
 //
 
 
-// swiftlint:disable next identifier_name
+
 infix operator ±
 
-// swiftlint:disable next identifier_name
+
 prefix operator ±
 
 /// Swiftest: Tuple of plus-minus operation.

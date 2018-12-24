@@ -10,7 +10,7 @@ import Foundation
 extension String{
 
     
-    // swiftlint:disable next identifier_name
+    
     /// Swiftest: Sliced string from a start index with length.
     ///
     ///        "Hello World".slicing(from: 6, length: 5) -> "World"
@@ -28,7 +28,7 @@ extension String{
         return self[safe: i..<i.advanced(by: length)]
     }
     
-    // swiftlint:disable next identifier_name
+    
     /// Swiftest: Slice given string from a start index with length (if applicable).
     ///
     ///        var str = "Hello World"
@@ -60,7 +60,7 @@ extension String{
         }
     }
     
-    // swiftlint:disable next identifier_name
+    
     /// Swiftest: Slice given string from a start index (if applicable).
     ///
     ///        var str = "Hello World"

@@ -61,8 +61,8 @@ public enum OptionalSortOrder{
     func compare<Value: Comparable>(_ lhs: Value?,
                                     _ rhs: Value?) -> Bool{
         switch (lhs, rhs) {
-        case let (l?, r?):
-            return _comparator()(l, r)
+        case let (lhs?, rhs?):
+            return _comparator()(lhs, rhs)
         case (nil, _?):
             return !nilsLast
         default:

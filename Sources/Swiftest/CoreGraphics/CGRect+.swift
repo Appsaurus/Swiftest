@@ -31,6 +31,7 @@ import CoreGraphics
         }
         
         
+        // swiftlint:disable identifier_name
         /// X value of CGRect's origin
         public var x: CGFloat {
             get {
@@ -39,6 +40,7 @@ import CoreGraphics
                 self.origin.x = value
             }
         }
+        
         
         /// Y value of CGRect's origin
         public var y: CGFloat {

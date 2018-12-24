@@ -97,7 +97,7 @@ public extension Int {
     
     
     
-    // swiftlint:disable next identifier_name
+    
     /// Swiftest: Rounds to the closest multiple of n
     public func roundToNearest(_ n: Int) -> Int {
         return n == 0 ? self : Int(round(Double(self) / Double(n))) * n

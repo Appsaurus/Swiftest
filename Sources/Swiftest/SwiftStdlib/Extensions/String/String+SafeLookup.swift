@@ -7,7 +7,7 @@
 
 extension String{
     
-    // swiftlint:disable next identifier_name
+    
     /// Swiftest: Safely subscript string with index.
     ///
     ///        "Hello World!"[safe: 3] -> "l"

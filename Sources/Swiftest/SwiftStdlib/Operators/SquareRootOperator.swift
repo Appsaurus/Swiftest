@@ -11,7 +11,7 @@ import CoreGraphics
 #endif
 
 
-// swiftlint:disable next identifier_name
+
 prefix operator √
 
 /// Swiftest: Square root of double.

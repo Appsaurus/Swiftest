@@ -207,6 +207,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E439630521CD9C34000AF558 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E4AF831121C40DF7002D6E86 /* NSAttributedString+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
 		E4AF831221C40DF7002D6E86 /* UserDefaults+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		E4AF831321C40DF7002D6E86 /* Data+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
@@ -700,6 +701,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				E439630521CD9C34000AF558 /* .swiftlint.yml */,
 				E4F7E0B821CA14C90061EBB2 /* Cartfile */,
 				E4F7E0BA21CA14C90061EBB2 /* circle.yml */,
 				E4F7E0BB21CA14CA0061EBB2 /* CONTRIBUTING.md */,
@@ -935,6 +937,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_162 /* Build configuration list for PBXNativeTarget "Swiftest" */;
 			buildPhases = (
+				E43962FE21CD5206000AF558 /* ShellScript */,
 				OBJ_165 /* Sources */,
 				OBJ_242 /* Frameworks */,
 			);
@@ -1006,6 +1009,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E43962FE21CD5206000AF558 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint --config .swiftlint.yml \nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_150 /* Sources */ = {
