@@ -62,62 +62,6 @@ public extension RangeReplaceableCollection where Element: AnyObject {
     }
 }
 
-//TODO: Test if this NSObject extension is needed
-//public extension RangeReplaceableCollection where Element: NSObject {
-//
-//    /// Swiftest: Remove all references of an object using the identity operator.
-//    ///
-//    ///    let object1 = Object()
-//    ///    let object2 = Object()
-//    ///    let object1Ref = object1
-//    ///    var arr: [Object] = [object1, object2, object1Ref]
-//    ///    arr.remove(object: object1) -> [object2]
-//    ///
-//    /// - Parameter object: reference of object to remove.
-//    /// - Returns: self after removing all references to given object.
-//    @discardableResult
-//    public mutating func remove(object: Element) -> Self {
-//        removeAll(where: { $0 === object })
-//        return self
-//    }
-//    
-//    /// Swiftest: Remove all references of an object using the identity operator.
-//    ///
-//    ///    let object1 = Object()
-//    ///    let object2 = Object()
-//    ///    let object3 = Object()
-//    ///    let object1Ref = object1
-//    ///    var arr: [Object] = [object1, object2, object3, object1Ref]
-//    ///    arr.remove(objects: object1, object2) -> [object3]
-//    ///
-//    /// - Parameter objects: reference of objects to remove.
-//    /// - Returns: self after removing all references to given objects.
-//    @discardableResult
-//    public mutating func remove(objects: Element...) -> Self {
-//        return remove(objects: objects)
-//    }
-//    
-//    /// Swiftest: Remove all references of an object using the identity operator.
-//    ///
-//    ///    let object1 = Object()
-//    ///    let object2 = Object()
-//    ///    let object3 = Object()
-//    ///    let object1Ref = object1
-//    ///    var arr: [Object] = [object1, object2, object3, object1Ref]
-//    ///    arr.remove(objects: [object1, object2]) -> [object3]
-//    ///
-//    /// - Parameter objects: array of references of objects to remove.
-//    /// - Returns: self after removing all references to given objects.
-//    @discardableResult
-//    public mutating func remove(objects: [Element]) -> Self {
-//        guard !objects.isEmpty else { return self }
-//        removeAll(where: { object in
-//            objects.contains(where: {$0 === object})
-//        })
-//        return self
-//    }
-//}
-
 // MARK: - Methods (Equatable)
 public extension RangeReplaceableCollection where Element: Equatable {
     

@@ -9,7 +9,7 @@
 import XCTest
 @testable import Swiftest
 
-// swiftlint:disable next type_body_length
+// swiftlint:disable next type_body_length file_length
 final class StringExtensionsTests: XCTestCase {
 
     var helloWorld = "Hello World!"

@@ -16,6 +16,6 @@
 ///   - rhs: A function that takes the return type for lhs as input
 /// - Returns: A function that chains all the inputs together when called.
 public func +<A, B, C>(lhs: @escaping (A) throws -> B,
-						 rhs: @escaping (B) throws -> C) -> (A) throws -> C {
+                       rhs: @escaping (B) throws -> C) -> (A) throws -> C {
 	return { try rhs(lhs($0)) }
 }

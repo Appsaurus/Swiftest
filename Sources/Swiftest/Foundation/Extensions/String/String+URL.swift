@@ -95,8 +95,8 @@ extension String {
         var urls: [URL] = []
         let detector: NSDataDetector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         let text: String = self
-        detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.count), using: {
-            (result: NSTextCheckingResult?, _: NSRegularExpression.MatchingFlags, _: UnsafeMutablePointer<ObjCBool>) -> Void in
+        //swiftlint:disable:next line_length
+        detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.count), using: { (result: NSTextCheckingResult?, _: NSRegularExpression.MatchingFlags, _: UnsafeMutablePointer<ObjCBool>) -> Void in
             if let result = result,
                 let url = result.url {
                 urls.append(url)

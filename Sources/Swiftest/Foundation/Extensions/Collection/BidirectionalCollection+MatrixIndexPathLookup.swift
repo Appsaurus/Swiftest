@@ -14,10 +14,8 @@ public extension BidirectionalCollection where Element: BidirectionalCollection,
     public func indexPathOf(_ element: Element.Iterator.Element) -> (row: Element.Index, section: Index)? {
         for sectionIndex in indices {
             let sectionArray = self[sectionIndex]
-            for elementIndex in sectionArray.indices {
-                if sectionArray[elementIndex] == element {
-                    return (elementIndex, sectionIndex)
-                }
+            for elementIndex in sectionArray.indices where sectionArray[elementIndex] == element {
+                return (elementIndex, sectionIndex)
             }
         }
         return nil

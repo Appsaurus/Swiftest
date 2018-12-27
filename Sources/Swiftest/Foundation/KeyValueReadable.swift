@@ -24,10 +24,8 @@ public extension KeyValueReadable {
         
         let mirror: Mirror = Mirror(reflecting: self)
         
-        for child in mirror.children {
-            if child.label == key {
-                return child.value as? T
-            }
+        for child in mirror.children where child.label == key {
+            return child.value as? T
         }
         return nil
     }
@@ -40,23 +38,20 @@ public extension KeyValueReadable {
         var mirror = Mirror(reflecting: self)
         
         for key in keys {
-            for child in mirror.children {
-                if child.label == key {
-                    if child.label == keys.last {
-                        return child.value as? T
-                    } else {
-                        mirror = Mirror(reflecting: child)
-                    }
+            for child in mirror.children where child.label == key {
+                if child.label == keys.last {
+                    return child.value as? T
+                } else {
+                    mirror = Mirror(reflecting: child)
                 }
             }
+
         }
         return nil
     }
     
     /// Returns the value for the property identified by a given key.
     public subscript (key: String) -> Any? {
-        get {
-            return self.valueForKeyPath(key)
-        }
+        return self.valueForKeyPath(key)
     }
 }

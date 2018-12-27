@@ -9,7 +9,7 @@
 #if canImport(Foundation)
 import Foundation
 
-// MARK: - Enums
+// swiftlint:disable next file_length
 public extension Date {
 
     /// Swiftest: Day name format.

@@ -12,7 +12,7 @@ import XCTest
 #if canImport(Foundation)
 import Foundation
 
-// swiftlint:disable next type_body_length
+// swiftlint:disable next type_body_length file_length
 final class DateExtensionsTests: XCTestCase {
 
     override func setUp() {

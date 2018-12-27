@@ -21,10 +21,8 @@ public extension Collection where Element: Collection, Element.Iterator.Element:
     public func indexOf(_ element: Element.Iterator.Element) -> (row: Index, column: Element.Index)? {
         for sectionIndex in indices {
             let elementToCheck = self[sectionIndex]
-            for elementIndex in elementToCheck.indices {
-                if elementToCheck[elementIndex] == element {
-                    return (sectionIndex, elementIndex)
-                }
+            for elementIndex in elementToCheck.indices where elementToCheck[elementIndex] == element {
+                return (sectionIndex, elementIndex)
             }
         }
         return nil

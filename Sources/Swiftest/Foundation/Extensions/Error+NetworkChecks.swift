@@ -18,7 +18,7 @@ extension NSError {
             }
         }
         
-        switch (self.code) {
+        switch self.code {
         case NSURLErrorTimedOut,
              NSURLErrorCannotFindHost,
              NSURLErrorCannotConnectToHost,
@@ -43,7 +43,7 @@ extension NSError {
             }
         }
         
-        switch (self.code) {
+        switch self.code {
         case NSURLErrorNotConnectedToInternet,
              NSURLErrorInternationalRoamingOff,
              NSURLErrorCallIsActive,

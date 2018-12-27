@@ -8,23 +8,23 @@
 import Foundation
 
 extension Sequence {
-    public func valuesOfElements<Value: Comparable>(at keyPath: KeyPath<Element, Value>) -> [Value] {
+    public func map<Value: Comparable>(_ keyPath: KeyPath<Element, Value>) -> [Value] {
         return self.map({$0[keyPath: keyPath]})
     }
     
     //Optional value KeyPaths
-    public func valuesOfElements<Value: Comparable>(at keyPath: KeyPath<Element, Value?>) -> [Value] {
-        return self.map({$0[keyPath: keyPath]}).compactMap({$0})
+    public func compactMap<Value: Comparable>(_ keyPath: KeyPath<Element, Value?>) -> [Value] {
+        return self.compactMap({$0[keyPath: keyPath]})
     }
 }
 
 extension Sequence {
     public func elementsHaveEqualValues<Value: Comparable>(at keyPath: KeyPath<Element, Value>, as otherCollection: Self, orderSensitive: Bool = false) -> Bool {
-        return valuesOfElements(at: keyPath).containsEqualElements(otherCollection.valuesOfElements(at: keyPath), orderSensitive: orderSensitive)
+        return map(keyPath).containsEqualElements(otherCollection.map(keyPath), orderSensitive: orderSensitive)
     }
     
     public func elementsHaveEqualValues<Value: Comparable>(at keyPath: KeyPath<Element, Value?>, as otherCollection: Self, orderSensitive: Bool = false) -> Bool {
-        return valuesOfElements(at: keyPath).containsEqualElements(otherCollection.valuesOfElements(at: keyPath), orderSensitive: orderSensitive)
+        return compactMap(keyPath).containsEqualElements(otherCollection.compactMap(keyPath), orderSensitive: orderSensitive)
     }
 }
 

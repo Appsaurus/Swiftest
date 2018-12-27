@@ -18,7 +18,7 @@ public extension Optional where Wrapped: Collection {
         return !isNilOrEmpty
     }
     
-    public var removeEmpty: Optional<Wrapped> {
+    public var removeEmpty: Wrapped? {
         guard let collection = self else { return nil }
         return collection.isEmpty ? nil : self
     }

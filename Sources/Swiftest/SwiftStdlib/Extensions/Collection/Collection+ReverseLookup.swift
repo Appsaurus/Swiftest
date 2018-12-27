@@ -13,7 +13,7 @@ extension Collection {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: all indices where the specified condition evaluates to true. (optional)
-    public func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
+    public func indices(where condition: ThrowingPredicate<Element>) rethrows -> [Index]? {
         var matchingIndices: [Index] = []
         for index in indices where try condition(self[index]) {
             matchingIndices.append(index)

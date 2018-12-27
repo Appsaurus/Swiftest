@@ -9,8 +9,8 @@ import Foundation
 
 infix operator ~>
 
-public func ~><T>(expression: @autoclosure () throws -> T,
-                  errorTransform: (Error) -> Error) throws -> T {
+public func ~> <T>(expression: @autoclosure () throws -> T,
+                   errorTransform: (Error) -> Error) throws -> T {
     do {
         return try expression()
     } catch {

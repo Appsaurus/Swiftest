@@ -53,18 +53,18 @@ public extension NSMutableAttributedString {
     }
 }
 
-public func +(lhs: NSMutableAttributedString, rhs: NSMutableAttributedString) -> NSMutableAttributedString {
+public func + (lhs: NSMutableAttributedString, rhs: NSMutableAttributedString) -> NSMutableAttributedString {
     let mutableLhs: NSMutableAttributedString = NSMutableAttributedString(attributedString: lhs)
     mutableLhs.append(rhs)
     return mutableLhs
 }
 
-public func +(lhs: String, rhs: NSMutableAttributedString) -> NSMutableAttributedString {
+public func + (lhs: String, rhs: NSMutableAttributedString) -> NSMutableAttributedString {
     let lhsAttributed: NSMutableAttributedString = NSMutableAttributedString(string: lhs, attributes: rhs.attributes(at: 0, effectiveRange: nil))
     return lhsAttributed + rhs
 }
 
-public func +(lhs: NSMutableAttributedString, rhs: String) -> NSMutableAttributedString {
+public func + (lhs: NSMutableAttributedString, rhs: String) -> NSMutableAttributedString {
     let rhsAttributed: NSMutableAttributedString = NSMutableAttributedString(string: rhs, attributes: lhs.attributes(at: 0, effectiveRange: nil))
     return lhs + rhsAttributed
 }

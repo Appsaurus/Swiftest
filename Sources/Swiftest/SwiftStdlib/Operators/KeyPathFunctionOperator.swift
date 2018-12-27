@@ -13,7 +13,7 @@ prefix operator ~
 ///
 ///     e.g. people.map(\.name)
 ///
-prefix func ~<A, B>(_ keyPath: KeyPath<A, B>) -> (A) -> B {
+prefix func ~ <A, B>(_ keyPath: KeyPath<A, B>) -> (A) -> B {
     return { $0[keyPath: keyPath] }
 }
 
@@ -21,7 +21,7 @@ prefix func ~<A, B>(_ keyPath: KeyPath<A, B>) -> (A) -> B {
 ///
 ///     e.g. people.sorted(~\.name)
 ///
-prefix func ~<A, B>(_ keyPath: KeyPath<A, B>) -> (A, A) -> Bool where B: Comparable {
+prefix func ~ <A, B>(_ keyPath: KeyPath<A, B>) -> (A, A) -> Bool where B: Comparable {
     return { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
 }
 
@@ -30,6 +30,6 @@ prefix func ~<A, B>(_ keyPath: KeyPath<A, B>) -> (A, A) -> Bool where B: Compara
 ///
 ///     e.g. people.first(where: ~\.address.street.isEmpty)
 ///
-prefix func ~<A>(_ keyPath: KeyPath<A, Bool>) -> (A) -> Bool {
+prefix func ~ <A>(_ keyPath: KeyPath<A, Bool>) -> (A) -> Bool {
     return { $0[keyPath: keyPath] }
 }

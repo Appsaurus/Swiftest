@@ -6,9 +6,6 @@
 //
 //
 
-import Foundation
-import CoreGraphics
-
 public protocol Then {}
 
 extension Then where Self: Any {
@@ -54,8 +51,19 @@ extension Then where Self: AnyObject {
     
 }
 
+#if canImport(ObjectiveC)
+import ObjectiveC
 extension NSObject: Then {}
+#endif
+
+import Foundation
+
+#if canImport(CoreGraphics)
+import CoreGraphics
+
 extension CGPoint: Then {}
 extension CGRect: Then {}
 extension CGSize: Then {}
 extension CGVector: Then {}
+
+#endif

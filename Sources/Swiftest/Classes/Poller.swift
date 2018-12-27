@@ -51,7 +51,6 @@ open class Poller {
         self.refreshing = false
     }
     
-    //TODO: Consider implementing retries
     open func refreshFailed() {
         self.refreshing = false
     }

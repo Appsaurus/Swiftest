@@ -16,4 +16,7 @@ public typealias VoidClosure = () -> Void
 public typealias ErrorClosure = (Error) -> Void
 public typealias OptionalErrorClosure = (Error?) -> Void
 
+public typealias Predicate<X> = (X) -> Bool
+public typealias ThrowingPredicate<X> = (X) throws -> Bool
+
 public typealias AsyncThrowingClosure<Parameter, Return> = ((Parameter) throws -> Return) -> Void
