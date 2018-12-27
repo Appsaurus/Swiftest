@@ -14,7 +14,7 @@ extension Sequence where Element: Equatable {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when all elements in the array match the specified condition.
-    public func all(match condition: (Element) throws -> Bool) rethrows -> Bool {
+    public func all(match condition: ThrowingPredicate<Element>) rethrows -> Bool {
         return try !contains { try !condition($0) }
     }
     
@@ -25,7 +25,7 @@ extension Sequence where Element: Equatable {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when no elements in the array match the specified condition.
-    public func none(match condition: (Element) throws -> Bool) rethrows -> Bool {
+    public func none(match condition: ThrowingPredicate<Element>) rethrows -> Bool {
         return try !contains { try condition($0) }
     }
     
@@ -36,7 +36,7 @@ extension Sequence where Element: Equatable {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when no elements in the array match the specified condition.
-    public func any(match condition: (Element) throws -> Bool) rethrows -> Bool {
+    public func any(match condition: ThrowingPredicate<Element>) rethrows -> Bool {
         return try contains { try condition($0) }
     }
     

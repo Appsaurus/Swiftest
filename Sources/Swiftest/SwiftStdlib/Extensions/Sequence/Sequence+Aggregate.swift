@@ -13,7 +13,7 @@ extension Sequence {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: number of times the condition evaluated to true.
-    public func count(where condition: (Element) throws -> Bool) rethrows -> Int {
+    public func count(where condition: ThrowingPredicate<Element>) rethrows -> Int {
         var count = 0
         for element in self where try condition(element) {
             count += 1

@@ -33,7 +33,7 @@ public extension RangeReplaceableCollection {
     /// - Returns: self after applying provided condition.
     /// - Throws: provided condition exception.
     @discardableResult
-    public mutating func keep(while condition: (Element) throws -> Bool) rethrows -> Self {
+    public mutating func keep(while condition: ThrowingPredicate<Element>) rethrows -> Self {
         for (offset, element) in lazy.enumerated() where try !condition(element) {
             self = Self(self[startIndex..<index(startIndex, offsetBy: offset)])
             break
@@ -47,7 +47,7 @@ public extension RangeReplaceableCollection {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements up until condition evaluates to false.
-    public func take(while condition: (Element) throws -> Bool) rethrows -> Self {
+    public func take(while condition: ThrowingPredicate<Element>) rethrows -> Self {
         for (offset, element) in lazy.enumerated() where try !condition(element) {
             return Self(self[startIndex..<indexOffset(by: offset)])
         }

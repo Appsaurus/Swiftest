@@ -18,7 +18,7 @@ extension Sequence {
         return dictionary
     }
     
-    public func allSatisfy(_ condition: (Element) -> Bool) -> Bool {
+    public func allSatisfy(_ condition: Predicate<Element>) -> Bool {
         for element in self {
             if !condition(element) {
                 return false

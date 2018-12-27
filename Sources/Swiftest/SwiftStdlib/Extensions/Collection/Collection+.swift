@@ -16,7 +16,7 @@ extension Collection {
 public extension Collection {
     
     @discardableResult
-    public func forEachWithIndex(where: (Element) -> Bool, body: (_ index: Index, _ element: Element) throws -> Void) rethrows -> Self {
+    public func forEachWithIndex(where: Predicate<Element>, body: (_ index: Index, _ element: Element) throws -> Void) rethrows -> Self {
         for index in indices {
             try body(index, self[index])
         }

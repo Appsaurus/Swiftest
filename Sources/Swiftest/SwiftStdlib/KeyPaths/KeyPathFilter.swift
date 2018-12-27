@@ -6,7 +6,6 @@
 //
 // Based on https://medium.com/@vhart/https-medium-com-vhart-building-a-filter-with-swift-4-keypaths-ad236a8ab4da
 
-
 /// Uses closure type erasure to create type-safe KeyPath filters.
 
 public typealias KeyPathFilters<Object> = [KeyPathFilter<Object>]
@@ -29,12 +28,12 @@ public struct KeyPathFilter<Object> {
     }
 }
 
-extension Collection{
-    public func filtered(by filters: KeyPathFilter<Element>...) -> [Element]{
+extension Collection {
+    public func filtered(by filters: KeyPathFilter<Element>...) -> [Element] {
         return filtered(by: filters)
     }
 
-    public func filtered(by filters: KeyPathFilters<Element>) -> [Element]{
+    public func filtered(by filters: KeyPathFilters<Element>) -> [Element] {
         return filter { object in
             for filter in filters {
                 guard filter.includes(object) else { return false }

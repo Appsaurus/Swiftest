@@ -23,7 +23,7 @@ public extension Sequence {
     /// - Parameters:
     ///   - condition: condition to evaluate each element against.
     ///   - body: a closure that takes an element of the array as a parameter.
-    public func forEach(where condition: (Element) throws -> Bool, body: (Element) throws -> Void) rethrows {
+    public func forEach(where condition: ThrowingPredicate<Element>, body: (Element) throws -> Void) rethrows {
         for element in self where try condition(element) {
             try body(element)
         }

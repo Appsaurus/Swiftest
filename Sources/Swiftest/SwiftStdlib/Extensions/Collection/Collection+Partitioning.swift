@@ -21,7 +21,7 @@ extension RangeReplaceableCollection {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: Two collections, the first containing the elements for which the specified condition evaluates to true, the second containing the rest.
-    public func divided(by condition: (Element) throws -> Bool) rethrows -> (matching: Self, nonMatching: Self) {
+    public func divided(by condition: ThrowingPredicate<Element>) rethrows -> (matching: Self, nonMatching: Self) {
         //Inspired by: http://ruby-doc.org/core-2.5.0/Enumerable.html#method-i-partition
         var matching = Self()
         var nonMatching = Self()
@@ -36,7 +36,7 @@ extension RangeReplaceableCollection {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: Two collections, the first containing the elements for which the specified condition evaluates to true, the second containing the rest.
-    public func partitioned(by condition: (Element) throws -> Bool) rethrows -> (matching: Self, nonMatching: Self) {
+    public func partitioned(by condition: ThrowingPredicate<Element>) rethrows -> (matching: Self, nonMatching: Self) {
         return try divided(by: condition)
     }
 }

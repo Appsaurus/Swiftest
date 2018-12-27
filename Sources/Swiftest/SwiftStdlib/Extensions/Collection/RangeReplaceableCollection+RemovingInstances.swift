@@ -116,7 +116,7 @@ extension RangeReplaceableCollection {
     /// - Parameter predicate: A closure that takes an element as its argument and returns a Boolean value that indicates whether the passed element represents a match.
     /// - Returns: The first element for which predicate returns true, after removing it. If no elements in the collection satisfy the given predicate, returns `nil`.
     @discardableResult
-    public mutating func removeFirst(where predicate: (Element) throws -> Bool) rethrows -> Element? {
+    public mutating func removeFirst(where predicate: ThrowingPredicate<Element>) rethrows -> Element? {
         guard let index = try index(where: predicate) else { return nil }
         return remove(at: index)
     }
