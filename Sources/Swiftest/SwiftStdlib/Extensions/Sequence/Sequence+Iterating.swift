@@ -43,11 +43,13 @@ public typealias MethodOf<Class> = (Class) -> () -> Void
 extension Sequence {
     public func callOnEach(_ method: MethodOf<Element>) {
         for element in self {
-            // Get an instance method for the element by calling 'method'
-            // and then run it directly using ().
-            method(element)()
+            call(method, on: element)
         }
     }
+}
+
+public func call<Target>(_ method: MethodOf<Target>, on target: Target) {
+    method(target)()
 }
 
 public func call<Input, Output>(_ function: (Input) -> Output, with input: Input) -> Output {
