@@ -9,7 +9,6 @@
 #if canImport(CoreGraphics)
 import CoreGraphics
 
-
 prefix operator √
 
 /// Swiftest: Square root of double.

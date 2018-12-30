@@ -11,5 +11,3 @@ precedencegroup MapOperatorPrecedence {
 }
 
 infix operator => : MapOperatorPrecedence
-
-
