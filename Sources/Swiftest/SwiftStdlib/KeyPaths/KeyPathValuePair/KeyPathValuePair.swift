@@ -31,17 +31,6 @@ extension WritableKeyPath {
     }
 }
 
-precedencegroup KeyPathValueBinderPrecedence {
-    associativity: right
-    higherThan: AdditionPrecedence
-}
-
-infix operator => : KeyPathValueBinderPrecedence
-
-public func =><V, R, WKP: WritableKeyPath<R, V>> (lhs: WKP, rhs: @autoclosure () -> V) -> KeyPathValuePair<R> {
-    return lhs.with(value: rhs())
-}
-
 public func assign<O: Any>(_ keyPathValuePairs: KeyPathValuePairs<O>, to object: O) {
     for keyPathValuePair in keyPathValuePairs {
         keyPathValuePair.apply(to: object)

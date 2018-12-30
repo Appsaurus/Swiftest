@@ -8,7 +8,7 @@
 
 #if canImport(CoreGraphics)
 import CoreGraphics
-#endif
+
 
 prefix operator √
 
@@ -38,3 +38,5 @@ public prefix func √ (int: Int) -> Double {
     // http://nshipster.com/swift-operators/
     return sqrt(Double(int))
 }
+
+#endif

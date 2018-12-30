@@ -1,13 +1,12 @@
 //
-//  KeyPathFunctionOperator.swift
+//  TransformKeyPathToFunctionOperator.swift
 //  Swiftest
 //
 //  Created by Brian Strobach on 12/12/18.
 //
 //  From: https://gist.github.com/samdods/00d6a14a6430d824281822fdc2419672
 
-/// Prefix operator to turn a KeyPath into a function
-prefix operator ~
+/// Prefix operator to transform a KeyPath into a function
 
 /// Allows a key path to be passed into mapping functions
 ///
