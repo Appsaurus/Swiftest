@@ -5,4 +5,8 @@
 //  Created by Brian Strobach on 12/29/18.
 //
 
-infix operator ~
+precedencegroup StyleOperatorPrecedence{
+    associativity: right
+    higherThan: MapOperatorPrecedence
+}
+infix operator ~: StyleOperatorPrecedence
