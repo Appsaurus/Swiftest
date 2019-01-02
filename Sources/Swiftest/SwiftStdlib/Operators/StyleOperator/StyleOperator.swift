@@ -5,7 +5,7 @@
 //  Created by Brian Strobach on 12/29/18.
 //
 
-precedencegroup StyleOperatorPrecedence{
+precedencegroup StyleOperatorPrecedence {
     associativity: right
     higherThan: MapOperatorPrecedence
 }
