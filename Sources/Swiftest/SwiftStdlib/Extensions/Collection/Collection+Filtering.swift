@@ -70,7 +70,7 @@ public extension RangeReplaceableCollection {
 }
 
 extension Collection {
-    public func first<T: AnyObject>(ofType type: T.Type) -> T? {
+    public func first<T: AnyObject>(_ type: T.Type) -> T? {
         return first(where: {$0 is T.Type}) as? T
     }
 
