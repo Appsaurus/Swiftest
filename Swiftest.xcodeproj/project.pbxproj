@@ -879,20 +879,20 @@
 		OBJ_73 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
-				E4AF833321C417A7002D6E86 /* Collection+ReverseLookup.swift */,
 				OBJ_75 /* Collection+.swift */,
+				E4F7E04921C8421A0061EBB2 /* Collection+Filtering.swift */,
 				E4F7E03021C7283D0061EBB2 /* Collection+Indices.swift */,
 				E4F7E04321C836610061EBB2 /* Collection+Lookup.swift */,
 				OBJ_72 /* Collection+Matrix.swift */,
 				E4F7E04021C834D60061EBB2 /* Collection+Partitioning.swift */,
+				E4AF833321C417A7002D6E86 /* Collection+ReverseLookup.swift */,
 				E4F7E03721C81C9C0061EBB2 /* RangeReplaceableCollection+Affix.swift */,
 				E4F7E04621C837300061EBB2 /* RangeReplaceableCollection+Deduplication.swift */,
 				OBJ_67 /* RangeReplaceableCollection+Queue.swift */,
-				E4AF832D21C417A6002D6E86 /* RangeReplaceableCollection+Rotate.swift */,
 				E4F7E02D21C46DBF0061EBB2 /* RangeReplaceableCollection+RemovingInstances.swift */,
 				OBJ_69 /* RangeReplaceableCollection+Repeat.swift */,
+				E4AF832D21C417A6002D6E86 /* RangeReplaceableCollection+Rotate.swift */,
 				OBJ_68 /* RangeReplaceableCollection+Stack.swift */,
-				E4F7E04921C8421A0061EBB2 /* Collection+Filtering.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";

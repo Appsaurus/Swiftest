@@ -68,3 +68,13 @@ public extension RangeReplaceableCollection {
         
     }
 }
+
+extension Collection {
+    public func first<T: AnyObject>(ofType type: T.Type) -> T? {
+        return first(where: {$0 is T.Type}) as? T
+    }
+
+    public func filtered<T: AnyObject>(as type: T.Type) -> [T] {
+        return map {$0 as? T}.removeNils()
+    }
+}
