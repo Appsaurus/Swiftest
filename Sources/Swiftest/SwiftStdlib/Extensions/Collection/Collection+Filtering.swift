@@ -74,7 +74,17 @@ extension Collection {
         return first(where: {$0 is T.Type}) as? T
     }
 
+    public func first(skipping predicate: Predicate<Element>) -> Element? {
+        return first(where: {!predicate($0)})
+    }
+
     public func filtered<T: AnyObject>(as type: T.Type) -> [T] {
         return map {$0 as? T}.removeNils()
+    }
+}
+
+extension Collection where Element: Equatable {
+    public func first(skipping element: Element) -> Element? {
+        return first(skipping: { $0 == element })
     }
 }
