@@ -61,6 +61,10 @@
 		E4AF835A21C41924002D6E86 /* CGFloatConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF835921C41924002D6E86 /* CGFloatConvertible.swift */; };
 		E4AF835C21C41AF3002D6E86 /* FloatConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF835B21C41AF3002D6E86 /* FloatConvertible.swift */; };
 		E4AF835E21C41B7D002D6E86 /* BoolConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF835D21C41B7D002D6E86 /* BoolConvertible.swift */; };
+		E4DA5BFC21ECE69400A25746 /* KeyPathBuildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5BFB21ECE69400A25746 /* KeyPathBuildable.swift */; };
+		E4DA5BFE21ECE6DE00A25746 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5BFD21ECE6DE00A25746 /* Defaultable.swift */; };
+		E4DA5C0121ECEA9800A25746 /* Pairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C0021ECEA9800A25746 /* Pairs.swift */; };
+		E4DA5C0421ECEF0800A25746 /* DefaultMutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C0321ECEF0800A25746 /* DefaultMutable.swift */; };
 		E4F7E02421C44F370061EBB2 /* String+PathComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7E02121C41F0A0061EBB2 /* String+PathComponents.swift */; };
 		E4F7E02721C456480061EBB2 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* FileManagerExtensionsTests.swift */; };
 		E4F7E02C21C457270061EBB2 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = E4F7E02921C456930061EBB2 /* test.json */; };
@@ -257,6 +261,10 @@
 		E4AF835921C41924002D6E86 /* CGFloatConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatConvertible.swift; sourceTree = "<group>"; };
 		E4AF835B21C41AF3002D6E86 /* FloatConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatConvertible.swift; sourceTree = "<group>"; };
 		E4AF835D21C41B7D002D6E86 /* BoolConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolConvertible.swift; sourceTree = "<group>"; };
+		E4DA5BFB21ECE69400A25746 /* KeyPathBuildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPathBuildable.swift; sourceTree = "<group>"; };
+		E4DA5BFD21ECE6DE00A25746 /* Defaultable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaultable.swift; sourceTree = "<group>"; };
+		E4DA5C0021ECEA9800A25746 /* Pairs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pairs.swift; sourceTree = "<group>"; };
+		E4DA5C0321ECEF0800A25746 /* DefaultMutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMutable.swift; sourceTree = "<group>"; };
 		E4F7E02121C41F0A0061EBB2 /* String+PathComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PathComponents.swift"; sourceTree = "<group>"; };
 		E4F7E02921C456930061EBB2 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		E4F7E02D21C46DBF0061EBB2 /* RangeReplaceableCollection+RemovingInstances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+RemovingInstances.swift"; sourceTree = "<group>"; };
@@ -482,10 +490,11 @@
 		E4A45A1921D56D4700B96D3E /* KeyPathValuePair */ = {
 			isa = PBXGroup;
 			children = (
+				E4DA5BFB21ECE69400A25746 /* KeyPathBuildable.swift */,
+				E487375F21D971D00094F2EB /* KeyPathValueMapOperator.swift */,
+				E4A45A1A21D56D5500B96D3E /* KeyPathValuePair.swift */,
 				OBJ_12 /* KeyPathValuePairAssignable.swift */,
 				E4A45A1621D569DB00B96D3E /* KeyPathValuePairInitializable.swift */,
-				E4A45A1A21D56D5500B96D3E /* KeyPathValuePair.swift */,
-				E487375F21D971D00094F2EB /* KeyPathValueMapOperator.swift */,
 			);
 			path = KeyPathValuePair;
 			sourceTree = "<group>";
@@ -511,6 +520,25 @@
 				E4AF835D21C41B7D002D6E86 /* BoolConvertible.swift */,
 			);
 			path = Conversions;
+			sourceTree = "<group>";
+		};
+		E4DA5BFF21ECEA8300A25746 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_91 /* Typealiases.swift */,
+				E4DA5C0021ECEA9800A25746 /* Pairs.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		E4DA5C0221ECEE4500A25746 /* Initialization */ = {
+			isa = PBXGroup;
+			children = (
+				E4DA5BFD21ECE6DE00A25746 /* Defaultable.swift */,
+				OBJ_56 /* EmptyInitializable.swift */,
+				E4DA5C0321ECEF0800A25746 /* DefaultMutable.swift */,
+			);
+			path = Initialization;
 			sourceTree = "<group>";
 		};
 		E4F7E02821C456930061EBB2 /* TestResources */ = {
@@ -818,7 +846,7 @@
 			children = (
 				OBJ_41 /* RangeRandomizable.swift */,
 				E4AF835221C4184E002D6E86 /* Conversions */,
-				OBJ_56 /* EmptyInitializable.swift */,
+				E4DA5C0221ECEE4500A25746 /* Initialization */,
 				OBJ_58 /* Mockable.swift */,
 				OBJ_60 /* ObjectDisplayable.swift */,
 				OBJ_61 /* OptionalProtocol.swift */,
@@ -924,7 +952,7 @@
 				E4F7E08721C979730061EBB2 /* CoreGraphics */,
 				OBJ_45 /* Foundation */,
 				OBJ_63 /* SwiftStdlib */,
-				OBJ_91 /* Typealiases.swift */,
+				E4DA5BFF21ECEA8300A25746 /* Types */,
 				OBJ_92 /* Utils */,
 			);
 			name = Swiftest;
@@ -1157,10 +1185,12 @@
 				E4F7E0A221C99F010061EBB2 /* Dictionary+Arithmetic.swift in Sources */,
 				E4AF831B21C40DF7002D6E86 /* NSAttributedString+.swift in Sources */,
 				E4A45A0E21D546D400B96D3E /* Framed.swift in Sources */,
+				E4DA5BFE21ECE6DE00A25746 /* Defaultable.swift in Sources */,
 				E4F7E04421C836610061EBB2 /* Collection+Lookup.swift in Sources */,
 				E4F7E06021C8509F0061EBB2 /* String+BooleanTests.swift in Sources */,
 				E4F7E07121C962350061EBB2 /* String+ContentParsing.swift in Sources */,
 				E4F7E08321C969AA0061EBB2 /* String+Cleaning.swift in Sources */,
+				E4DA5BFC21ECE69400A25746 /* KeyPathBuildable.swift in Sources */,
 				E4F7E06F21C9618F0061EBB2 /* String+Localized.swift in Sources */,
 				OBJ_176 /* CGPoint+Arithmetic.swift in Sources */,
 				OBJ_178 /* CGSize+Arithmetic.swift in Sources */,
@@ -1169,6 +1199,7 @@
 				OBJ_180 /* Comparable+Optionals.swift in Sources */,
 				E4F7E03521C74EB80061EBB2 /* Dictionary+Merging.swift in Sources */,
 				E4F7E0B421CA10FA0061EBB2 /* String+FullRange.swift in Sources */,
+				E4DA5C0121ECEA9800A25746 /* Pairs.swift in Sources */,
 				OBJ_183 /* Equatable+.swift in Sources */,
 				E4A45A1221D54C5900B96D3E /* CGSize+Sized.swift in Sources */,
 				OBJ_184 /* Error+NetworkChecks.swift in Sources */,
@@ -1183,6 +1214,7 @@
 				OBJ_190 /* NSMutableAttributedString+.swift in Sources */,
 				E4AF834821C417A7002D6E86 /* StringProtocol+LongestCommonSuffix.swift in Sources */,
 				E4F7E08E21C97F5D0061EBB2 /* Int+Loop.swift in Sources */,
+				E4DA5C0421ECEF0800A25746 /* DefaultMutable.swift in Sources */,
 				E4AF835C21C41AF3002D6E86 /* FloatConvertible.swift in Sources */,
 				E4AF834121C417A7002D6E86 /* RangeReplaceableCollection+Rotate.swift in Sources */,
 				OBJ_193 /* NotificationCenter+.swift in Sources */,

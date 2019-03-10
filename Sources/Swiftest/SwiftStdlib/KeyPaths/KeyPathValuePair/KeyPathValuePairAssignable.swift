@@ -6,13 +6,15 @@
 //
 
 public protocol KeyPathValuePairAssignable {
-    func assign(_ keyPathValuePairs: KeyPathValuePairs<Self>)
+    func assign(_ keyPathValuePairs: KeyPathValuePairs<Self>) -> Self
 }
 
 extension KeyPathValuePairAssignable {
-    public func assign(_ keyPathValuePairs: KeyPathValuePairs<Self>) {
+    @discardableResult
+    public func assign(_ keyPathValuePairs: KeyPathValuePairs<Self>) -> Self {
         for keyPathValuePair in keyPathValuePairs {
             keyPathValuePair.apply(to: self)
         }
+        return self
     }
 }

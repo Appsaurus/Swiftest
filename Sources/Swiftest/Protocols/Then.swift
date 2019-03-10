@@ -4,7 +4,7 @@
 //
 //  Created by Brian Strobach on 7/6/17.
 //
-//
+//  Original implementation: https://github.com/devxoul/Then/blob/master/Sources/Then/Then.swift
 
 public protocol Then {}
 
@@ -66,4 +66,11 @@ extension CGRect: Then {}
 extension CGSize: Then {}
 extension CGVector: Then {}
 
+#endif
+
+#if canImport(UIKit)
+import UIKit
+extension UIEdgeInsets: Then {}
+extension UIOffset: Then {}
+extension UIRectEdge: Then {}
 #endif
