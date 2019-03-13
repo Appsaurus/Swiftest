@@ -7,7 +7,7 @@
 
 extension Collection {
     
-    /// Alisa for `count`
+    /// Alias for `count`
     public var length: Int {
         return self.count
     }
@@ -16,9 +16,18 @@ extension Collection {
 public extension Collection {
     
     @discardableResult
-    public func forEachWithIndex(where: Predicate<Element>, body: (_ index: Index, _ element: Element) throws -> Void) rethrows -> Self {
+    public func forEachWithIndex(body: (_ index: Index, _ element: Element) throws -> Void) rethrows -> Self {
         for index in indices {
             try body(index, self[index])
+        }
+        return self
+    }
+
+    @discardableResult
+    public func forEachWithIndex(where condition: ThrowingPredicate<Element>,
+                                 body: (_ index: Index, _ element: Element) throws -> Void) rethrows -> Self {
+        for index in indices {
+            if try condition(self[index]) { try body(index, self[index]) }
         }
         return self
     }

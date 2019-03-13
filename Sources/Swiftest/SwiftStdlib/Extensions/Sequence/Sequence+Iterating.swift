@@ -28,7 +28,6 @@ public extension Sequence {
             try body(element)
         }
     }
-    
 }
 
 //  Allows you to call a method on each element of a sequence.
