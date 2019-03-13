@@ -75,5 +75,17 @@ extension String {
     public func matches(pattern: String) -> Bool {
         return range(of: pattern, options: .regularExpression, range: nil, locale: nil) != nil
     }
+
+    public func count(of characters: CharacterSet) -> Int{
+        var characterCount = 0
+
+        for uni in unicodeScalars {
+            if let scalar = UnicodeScalar(uni.value), characters.contains(scalar) {
+                characterCount += 1
+            }
+        }
+        return characterCount
+    }
 }
+
 #endif
