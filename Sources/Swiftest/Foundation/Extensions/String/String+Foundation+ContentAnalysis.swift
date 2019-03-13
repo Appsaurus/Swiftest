@@ -76,7 +76,7 @@ extension String {
         return range(of: pattern, options: .regularExpression, range: nil, locale: nil) != nil
     }
 
-    public func count(of characters: CharacterSet) -> Int{
+    public func count(of characters: CharacterSet) -> Int {
         var characterCount = 0
 
         for uni in unicodeScalars {
