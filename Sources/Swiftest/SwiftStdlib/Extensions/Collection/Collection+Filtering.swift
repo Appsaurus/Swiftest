@@ -74,8 +74,8 @@ extension Collection {
         return first(where: {$0 is T.Type}) as? T
     }
 
-    public func first(skipping predicate: Predicate<Element>) -> Element? {
-        return first(where: {!predicate($0)})
+    public func firstSkipping(predicate: (Self.Element) throws -> Bool) rethrows -> Self.Element? {
+        return try first(where: {try !predicate($0)})
     }
 
     public func filtered<T: AnyObject>(as type: T.Type) -> [T] {
@@ -84,7 +84,7 @@ extension Collection {
 }
 
 extension Collection where Element: Equatable {
-    public func first(skipping element: Element) -> Element? {
-        return first(skipping: { $0 == element })
+    public func firstSkipping(element: Element) -> Element? {
+        return firstSkipping(predicate: { $0 == element })
     }
 }
