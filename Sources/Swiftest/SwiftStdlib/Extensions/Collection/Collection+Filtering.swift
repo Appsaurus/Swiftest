@@ -16,7 +16,7 @@ public extension MutableCollection {
     /// - Parameters:
     ///   - index: index of first element.
     ///   - otherIndex: index of other element.
-    public mutating func safeSwap(from index: Index, to otherIndex: Index) {
+    mutating func safeSwap(from index: Index, to otherIndex: Index) {
         guard index != otherIndex else { return }
         guard startIndex..<endIndex ~= index else { return }
         guard startIndex..<endIndex ~= otherIndex else { return }
@@ -33,7 +33,7 @@ public extension RangeReplaceableCollection {
     /// - Returns: self after applying provided condition.
     /// - Throws: provided condition exception.
     @discardableResult
-    public mutating func keep(while condition: ThrowingPredicate<Element>) rethrows -> Self {
+    mutating func keep(while condition: ThrowingPredicate<Element>) rethrows -> Self {
         for (offset, element) in lazy.enumerated() where try !condition(element) {
             self = Self(self[startIndex..<index(startIndex, offsetBy: offset)])
             break
@@ -47,7 +47,7 @@ public extension RangeReplaceableCollection {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements up until condition evaluates to false.
-    public func take(while condition: ThrowingPredicate<Element>) rethrows -> Self {
+    func take(while condition: ThrowingPredicate<Element>) rethrows -> Self {
         for (offset, element) in lazy.enumerated() where try !condition(element) {
             return Self(self[startIndex..<indexOffset(by: offset)])
         }
@@ -60,7 +60,7 @@ public extension RangeReplaceableCollection {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements after the condition evaluates to false.
-    public func skip(while condition: (Element) throws-> Bool) rethrows -> Self {
+    func skip(while condition: (Element) throws-> Bool) rethrows -> Self {
         for (offset, element) in lazy.enumerated() where try !condition(element) {
             return Self(self[index(startIndex, offsetBy: offset)..<endIndex])
         }

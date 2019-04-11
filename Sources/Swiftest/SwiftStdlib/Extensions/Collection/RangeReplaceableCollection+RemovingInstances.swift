@@ -20,7 +20,7 @@ public extension RangeReplaceableCollection where Element: AnyObject {
     /// - Parameter object: reference of object to remove.
     /// - Returns: self after removing all references to given object.
     @discardableResult
-    public mutating func remove(object: Element) -> Self {
+    mutating func remove(object: Element) -> Self {
         removeAll(where: { $0 === object })
         return self
     }
@@ -37,7 +37,7 @@ public extension RangeReplaceableCollection where Element: AnyObject {
     /// - Parameter objects: reference of objects to remove.
     /// - Returns: self after removing all references to given objects.
     @discardableResult
-    public mutating func remove(objects: Element...) -> Self {
+    mutating func remove(objects: Element...) -> Self {
         return remove(objects: objects)
     }
     
@@ -53,7 +53,7 @@ public extension RangeReplaceableCollection where Element: AnyObject {
     /// - Parameter objects: array of references of objects to remove.
     /// - Returns: self after removing all references to given objects.
     @discardableResult
-    public mutating func remove(objects: [Element]) -> Self {
+    mutating func remove(objects: [Element]) -> Self {
         guard !objects.isEmpty else { return self }
         removeAll(where: { object in
             objects.contains(where: {$0 === object})
@@ -73,7 +73,7 @@ public extension RangeReplaceableCollection where Element: Equatable {
     /// - Parameter value: value to remove.
     /// - Returns: self after removing all values equal to a value.
     @discardableResult
-    public mutating func remove(value: Element) -> Self {
+    mutating func remove(value: Element) -> Self {
         removeAll(where: { $0 == value })
         return self
     }
@@ -86,7 +86,7 @@ public extension RangeReplaceableCollection where Element: Equatable {
     /// - Parameter values: values to remove.
     /// - Returns: self after removing all values equal to given values.
     @discardableResult
-    public mutating func remove(values: Element...) -> Self {
+    mutating func remove(values: Element...) -> Self {
         return remove(values: values)
     }
     
@@ -98,7 +98,7 @@ public extension RangeReplaceableCollection where Element: Equatable {
     /// - Parameter values: values to remove.
     /// - Returns: self after removing all values equal to given values.
     @discardableResult
-    public mutating func remove(values: [Element]) -> Self {
+    mutating func remove(values: [Element]) -> Self {
         guard !values.isEmpty else { return self }
         removeAll(where: { value in
             values.contains(where: {$0 == value})
@@ -117,7 +117,7 @@ extension RangeReplaceableCollection {
     /// - Returns: The first element for which predicate returns true, after removing it. If no elements in the collection satisfy the given predicate, returns `nil`.
     @discardableResult
     public mutating func removeFirst(where predicate: ThrowingPredicate<Element>) rethrows -> Element? {
-        guard let index = try index(where: predicate) else { return nil }
+        guard let index = try firstIndex(where: predicate) else { return nil }
         return remove(at: index)
     }
     

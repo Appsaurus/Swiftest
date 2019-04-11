@@ -48,11 +48,11 @@ public extension Character {
     ///    Character.random() -> k
     ///
     /// - Returns: A random character.
-    public static func randomAlphanumeric() -> Character {
+    static func randomAlphanumeric() -> Character {
         return .random(in: .alphanumerics)
     }
     
-    public static func random(in set: CharacterSet) -> Character {
+    static func random(in set: CharacterSet) -> Character {
         return set.random
     }
 }

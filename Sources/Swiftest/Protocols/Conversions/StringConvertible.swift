@@ -35,7 +35,7 @@ extension Character: StringConvertible, StringInitializable {
 }
 
 public extension Numeric {
-    public var string: String {
+    var string: String {
         return String(describing: self)
     }
 }

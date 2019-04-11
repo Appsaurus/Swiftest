@@ -127,7 +127,7 @@ public class StringUtils {
 }
 
 public extension String {
-	public func indefiniteArticle() -> String {
+    func indefiniteArticle() -> String {
 		return StringUtils.English.indefiniteArticle(for: self)
 	}
 

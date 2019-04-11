@@ -77,7 +77,7 @@ public extension Dictionary where Value: Equatable {
     ///
     /// - Parameter value: Value for which keys are to be fetched.
     /// - Returns: An array containing keys that have the given value.
-    public func keys(forValue value: Value) -> [Key] {
+    func keys(forValue value: Value) -> [Key] {
         return keys.filter { self[$0] == value }
     }
     
@@ -92,7 +92,7 @@ public extension Dictionary where Key: StringProtocol {
     ///        dict.lowercaseAllKeys()
     ///        print(dict) // prints "["testkey": "value"]"
     ///
-    public mutating func lowercaseAllKeys() {
+    mutating func lowercaseAllKeys() {
         // http://stackoverflow.com/questions/33180028/extend-dictionary-where-key-is-of-type-string
         for key in keys {
             if let lowercaseKey = String(describing: key).lowercased() as? Key {
@@ -118,7 +118,7 @@ public extension Dictionary {
     /// - Parameter path: An array of keys to the desired value.
     ///
     /// - Returns: The value for the key-path passed in. `nil` if no value is found.
-    public subscript(path path: [Key]) -> Any? {
+    subscript(path path: [Key]) -> Any? {
         get {
             guard !path.isEmpty else { return nil }
             var result: Any? = self

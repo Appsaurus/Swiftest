@@ -12,7 +12,7 @@ public extension Sequence {
     ///        [0, 2, 4, 7].forEachReversed({ print($0)}) -> //Order of print: 7,4,2,0
     ///
     /// - Parameter body: a closure that takes an element of the array as a parameter.
-    public func forEachReversed(_ body: (Element) throws -> Void) rethrows {
+    func forEachReversed(_ body: (Element) throws -> Void) rethrows {
         try reversed().forEach(body)
     }
     
@@ -23,7 +23,7 @@ public extension Sequence {
     /// - Parameters:
     ///   - condition: condition to evaluate each element against.
     ///   - body: a closure that takes an element of the array as a parameter.
-    public func forEach(where condition: ThrowingPredicate<Element>, body: (Element) throws -> Void) rethrows {
+    func forEach(where condition: ThrowingPredicate<Element>, body: (Element) throws -> Void) rethrows {
         for element in self where try condition(element) {
             try body(element)
         }

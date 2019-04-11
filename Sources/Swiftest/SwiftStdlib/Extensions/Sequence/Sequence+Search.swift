@@ -16,7 +16,7 @@ public extension Sequence {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: the last element in the array matching the specified condition. (optional)
-    public func last(where condition: ThrowingPredicate<Element>) rethrows -> Element? {
+    func last(where condition: ThrowingPredicate<Element>) rethrows -> Element? {
         for element in reversed() {
             if try condition(element) { return element }
         }
@@ -32,7 +32,7 @@ public extension Sequence {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: The only element in the array matching the specified condition. If there are more matching elements, nil is returned. (optional)
-    public func single(where condition: (ThrowingPredicate<Element>)) rethrows -> Element? {
+    func single(where condition: (ThrowingPredicate<Element>)) rethrows -> Element? {
         var singleElement: Element?
         for element in self where try condition(element) {
             guard singleElement == nil else {
@@ -50,12 +50,12 @@ public extension Sequence {
     ///
     /// - Parameter condition: to evaluate the exclusion of an element from the array.
     /// - Returns: the array with rejected values filtered from it.
-    public func reject(where condition: ThrowingPredicate<Element>) rethrows -> [Element] {
+    func reject(where condition: ThrowingPredicate<Element>) rethrows -> [Element] {
         return try filter { return try !condition($0) }
     }
     
     // Alias for `filter(_ isIncluded: ThrowingPredicate<Element>) rethrows -> [Element]` to be more semantic
-    public func find(where condition: ThrowingPredicate<Element>) rethrows -> [Element] {
+    func find(where condition: ThrowingPredicate<Element>) rethrows -> [Element] {
         return try filter { return try condition($0) }
     }
 }
@@ -69,7 +69,7 @@ public extension Sequence where Element: Hashable {
     ///
     /// - Returns: An array of duplicated elements.
     ///
-    public var duplicates: [Element] {
+    var duplicates: [Element] {
         var set = Set<Element>()
         var duplicates = Set<Element>()
         forEach {

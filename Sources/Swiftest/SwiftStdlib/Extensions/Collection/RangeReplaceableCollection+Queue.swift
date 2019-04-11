@@ -12,15 +12,15 @@ import Foundation
 public typealias Queue = RangeReplaceableCollection
 
 public extension Queue {
-    public mutating func enqueue(_ newElement: Element) {
+    mutating func enqueue(_ newElement: Element) {
         self.append(newElement)
     }
     
-    public mutating func dequeue() -> Element? {
+    mutating func dequeue() -> Element? {
         return self.remove(at: startIndex)
     }
     
-    public func peekAtQueue() -> Element? {
+    func peekAtQueue() -> Element? {
         return self.first
     }
 }

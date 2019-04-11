@@ -29,7 +29,7 @@ public extension String {
     ///   - lhs: string to repeat.
     ///   - rhs: number of times to repeat character.
     /// - Returns: new string with given string repeated n times.
-    public static func * (lhs: String, rhs: Int) -> String {
+    static func * (lhs: String, rhs: Int) -> String {
         guard rhs > 0 else { return "" }
         return String(repeating: lhs, count: rhs)
     }
@@ -42,7 +42,7 @@ public extension String {
     ///   - lhs: number of times to repeat character.
     ///   - rhs: string to repeat.
     /// - Returns: new string with given string repeated n times.
-    public static func * (lhs: Int, rhs: String) -> String {
+    static func * (lhs: Int, rhs: String) -> String {
         guard lhs > 0 else { return "" }
         return String(repeating: rhs, count: lhs)
     }

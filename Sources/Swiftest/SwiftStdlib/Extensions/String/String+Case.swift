@@ -7,18 +7,18 @@
 
 public extension String {
     
-    public enum CaseFormat {
+    enum CaseFormat {
         case hyphenated
         case snake_case
         case camelCase
     }
     
     @discardableResult
-    public mutating func format(as format: CaseFormat) -> String {
+    mutating func format(as format: CaseFormat) -> String {
         self = formatted(as: format)
         return self
     }
-    public func formatted(as format: CaseFormat) -> String {
+    func formatted(as format: CaseFormat) -> String {
         switch format {
         case .hyphenated:
             return separated(by: "-")

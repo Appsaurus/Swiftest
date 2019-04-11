@@ -13,7 +13,7 @@ import Foundation
 //}
 
 public extension NSRange {
-    public func toRange(_ string: String) -> Range<String.Index> {
+    func toRange(_ string: String) -> Range<String.Index> {
         return Range(self, in: string)!
     }
 }

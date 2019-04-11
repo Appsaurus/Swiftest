@@ -13,12 +13,12 @@ import Foundation
 public extension SignedInteger {
 
     /// Swiftest: Check if integer is even.
-    public var isEven: Bool {
+    var isEven: Bool {
         return (self % 2) == 0
     }
 
     /// Swiftest: Check if integer is odd.
-    public var isOdd: Bool {
+    var isOdd: Bool {
         return (self % 2) != 0
     }
 }
@@ -30,7 +30,7 @@ public extension SignedInteger {
     ///
     /// - Parameter n: integer value to find gcd with.
     /// - Returns: greatest common divisor of self and n.
-    public func gcd(of n: Self) -> Self {
+    func gcd(of n: Self) -> Self {
         return n == 0 ? self : n.gcd(of: self % n)
     }
     
@@ -38,7 +38,7 @@ public extension SignedInteger {
     ///
     /// - Parameter n: integer value to find lcm with.
     /// - Returns: least common multiple of self and n.
-    public func lcm(of n: Self) -> Self {
+    func lcm(of n: Self) -> Self {
         return (self * n).abs / gcd(of: n)
     }
 
@@ -50,7 +50,7 @@ public extension SignedInteger {
     /// - Parameter locale: locale, default is .current.
     /// - Returns: string ordinal representation of number in specified locale language. E.g. input 92, output in "en": "92nd".
     @available(iOS 9.0, macOS 10.11, *)
-    public func ordinalString(locale: Locale = .current) -> String? {
+    func ordinalString(locale: Locale = .current) -> String? {
         let formatter = NumberFormatter()
         formatter.locale = locale
         formatter.numberStyle = .ordinal

@@ -65,7 +65,7 @@ extension ClosedRange where Bound: RangeRandomizable {
 }
 
 public extension Bool {
-    public static func random(chanceTrue: DoubleConvertible = 50.0) -> Bool {
+    static func random(chanceTrue: DoubleConvertible = 50.0) -> Bool {
         return (0.0...100.0).random < chanceTrue.double
     }
 }
@@ -123,7 +123,7 @@ extension Date: RangeRandomizable {
 }
 
 public extension Date {
-    public static func randomWithin(_ interval: TimeInterval,
+    static func randomWithin(_ interval: TimeInterval,
                                     from date: Date = Date()) -> Date {
         
         let furthest = date.addingTimeInterval(interval)

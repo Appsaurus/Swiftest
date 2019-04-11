@@ -16,7 +16,7 @@ extension Collection {
 public extension Collection {
     
     @discardableResult
-    public func forEachWithIndex(body: (_ index: Index, _ element: Element) throws -> Void) rethrows -> Self {
+    func forEachWithIndex(body: (_ index: Index, _ element: Element) throws -> Void) rethrows -> Self {
         for index in indices {
             try body(index, self[index])
         }
@@ -24,7 +24,7 @@ public extension Collection {
     }
 
     @discardableResult
-    public func forEachWithIndex(where condition: ThrowingPredicate<Element>,
+    func forEachWithIndex(where condition: ThrowingPredicate<Element>,
                                  body: (_ index: Index, _ element: Element) throws -> Void) rethrows -> Self {
         for index in indices {
             if try condition(self[index]) { try body(index, self[index]) }
@@ -39,7 +39,7 @@ public extension Collection {
     ///        arr[safe: 10] -> nil
     ///
     /// - Parameter index: index of element to access element.
-    public subscript(safe index: Index) -> Element? {
+    subscript(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
     
@@ -56,7 +56,7 @@ public extension Collection where Index == Int {
     /// - Parameters:
     ///   - slice: size of array in each interation.
     ///   - body: a closure that takes an array of slice size as a parameter.
-    public func forEach(slice: Int, body: ([Element]) throws -> Void) rethrows {
+    func forEach(slice: Int, body: ([Element]) throws -> Void) rethrows {
         guard slice > 0, !isEmpty else { return }
         
         var value: Int = 0
@@ -73,7 +73,7 @@ public extension Collection where Index == Int {
     ///
     /// - Parameter size: The size of the slices to be returned.
     /// - Returns: grouped self.
-    public func group(by size: Int) -> [[Element]]? {
+    func group(by size: Int) -> [[Element]]? {
         //Inspired by: https://lodash.com/docs/4.17.4#chunk
         guard size > 0, !isEmpty else { return nil }
         var value: Int = 0

@@ -35,7 +35,7 @@ public extension SignedNumeric {
 
     #if canImport(Foundation)
     /// Swiftest: String with number and current locale currency.
-    public var asLocaleCurrency: String? {
+    var asLocaleCurrency: String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = Locale.current
@@ -56,7 +56,7 @@ public extension SignedNumeric {
     ///
     /// - Parameter locale: Locale, default is .current.
     /// - Returns: String representation of number spelled in specified locale language. E.g. input 92, output in "en": "ninety-two"
-    public func spelledOutString(locale: Locale = .current) -> String? {
+    func spelledOutString(locale: Locale = .current) -> String? {
         let formatter = NumberFormatter()
         formatter.locale = locale
         formatter.numberStyle = .spellOut

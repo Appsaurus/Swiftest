@@ -10,12 +10,12 @@ import Foundation
 public extension RangeReplaceableCollection where Element: AnyObject {
     
     @discardableResult
-    public mutating func removeDuplicateReferences() -> Self {
+    mutating func removeDuplicateReferences() -> Self {
         self = withoutDuplicateReferences
         return self
     }
     
-    public var withoutDuplicateReferences: Self {
+    var withoutDuplicateReferences: Self {
         return reduce(into: Self(), { (accumulated, element) in
             if !accumulated.contains(where: {$0 === element}) {
                 accumulated.append(element)
@@ -32,7 +32,7 @@ public extension RangeReplaceableCollection where Element: Equatable {
     ///        ["h", "e", "l", "l", "o"]. removeDuplicates() -> ["h", "e", "l", "o"]
     ///
     @discardableResult
-    public mutating func removeDuplicates() -> Self {
+    mutating func removeDuplicates() -> Self {
         self = withoutDuplicates
         return self
     }
@@ -44,7 +44,7 @@ public extension RangeReplaceableCollection where Element: Equatable {
     ///
     /// - Returns: an array of unique elements.
     ///
-    public var withoutDuplicates: Self {
+    var withoutDuplicates: Self {
         // Thanks to https://github.com/sairamkotha for improving the method
         return reduce(into: Self()) {
             if !$0.contains($1) {

@@ -18,22 +18,22 @@ public extension Comparable {
     /// - parameter max: Upper bound to limit the value to.
     ///
     /// - returns: A value limited to the range between `min` and `max`.
-    public func clamped(to range: ClosedRange<Self>) -> Self {
+    func clamped(to range: ClosedRange<Self>) -> Self {
         return max(range.lowerBound, min(self, range.upperBound))
     }
     
-    public func clamped(_ lower: Self, _ upper: Self) -> Self {
+    func clamped(_ lower: Self, _ upper: Self) -> Self {
         return clamped(to: lower...upper)
     }
     
     @discardableResult
-    public mutating func clamp(to range: ClosedRange<Self>) -> Self {
+    mutating func clamp(to range: ClosedRange<Self>) -> Self {
         self = clamped(to: range)
         return self
     }
     
     @discardableResult
-    public mutating func clamp(_ lower: Self, _ upper: Self) -> Self {
+    mutating func clamp(_ lower: Self, _ upper: Self) -> Self {
         self = clamped(lower, upper)
         return self
     }

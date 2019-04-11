@@ -12,12 +12,12 @@ public extension RangeReplaceableCollection {
     // MARK: Appended copy
     
     @discardableResult
-    public func appended(with element: Element) -> Self {
+    func appended(with element: Element) -> Self {
         return self + [element]
     }
     
     @discardableResult
-    public func appended(with contents: [Element]) -> Self {
+    func appended(with contents: [Element]) -> Self {
         return self + contents
     }
     
@@ -30,12 +30,12 @@ public extension RangeReplaceableCollection {
     ///
     /// - Parameter elements: elements to insert.
     @discardableResult
-    public mutating func prepend(_ elements: Element...) -> Self {
+    mutating func prepend(_ elements: Element...) -> Self {
         return prepend(contentsOf: elements)
         
     }
     @discardableResult
-    public mutating func prepend<C>(contentsOf newElements: C) -> Self where C: Collection, C.Element == Element {
+    mutating func prepend<C>(contentsOf newElements: C) -> Self where C: Collection, C.Element == Element {
         insert(contentsOf: newElements, at: startIndex)
         return self
     }
@@ -49,12 +49,12 @@ public extension RangeReplaceableCollection {
     ///
     /// - Parameter elements: elements to insert.
     @discardableResult
-    public  func prepended(with elements: Element...) -> Self {
+    func prepended(with elements: Element...) -> Self {
         return prepended(withContentsOf: elements)
         
     }
     @discardableResult
-    public func prepended<C>(withContentsOf newElements: C) -> Self where C: Collection, C.Element == Element {
+    func prepended<C>(withContentsOf newElements: C) -> Self where C: Collection, C.Element == Element {
         var copy = self
         return copy.prepend(contentsOf: newElements)
     }
@@ -62,14 +62,14 @@ public extension RangeReplaceableCollection {
     // MARK: Replacement
     
     @discardableResult
-    public mutating func replaceLast(_ newValue: Element) -> Self {
+    mutating func replaceLast(_ newValue: Element) -> Self {
         remove(at: lastIndex)
         append(newValue)
         return self
     }
     
     @discardableResult
-    public mutating func replaceFirst(_ newValue: Element) -> Self {
+    mutating func replaceFirst(_ newValue: Element) -> Self {
         remove(at: startIndex)
         prepend(newValue)
         return self

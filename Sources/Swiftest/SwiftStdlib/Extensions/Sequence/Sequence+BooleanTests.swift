@@ -80,7 +80,7 @@ public extension Sequence where Element: Hashable {
     /// Swiftest: Check whether a sequence contains duplicates.
     ///
     /// - Returns: true if the receiver contains duplicates.
-    public var containsDuplicates: Bool {
+    var containsDuplicates: Bool {
         var set = Set<Element>()
         for element in self {
             if !set.insert(element).inserted {

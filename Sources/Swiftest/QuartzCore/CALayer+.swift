@@ -11,20 +11,20 @@
 
     public extension CALayer {
         
-        public func pauseAnimations() {
+        func pauseAnimations() {
             CALayer.pauseAnimations(self)
         }
         
-        public func resumeAnimations() {
+        func resumeAnimations() {
             CALayer.resumeAnimations(self)
         }
-        public class func pauseAnimations(_ layer: CALayer) {
+        class func pauseAnimations(_ layer: CALayer) {
             let pausedTime: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), from: nil)
             layer.speed = 0.0
             layer.timeOffset = pausedTime
         }
         
-        public class func resumeAnimations(_ layer: CALayer) {
+        class func resumeAnimations(_ layer: CALayer) {
             
             let pausedTime: CFTimeInterval = layer.timeOffset
             layer.speed = 1.0

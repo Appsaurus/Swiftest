@@ -20,7 +20,7 @@ public protocol ContextualObjectDisplayable {
 }
 
 public extension Array where Element: ObjectDisplayable {
-    public func display(object: Element.DisplayableObjectType) {
+    func display(object: Element.DisplayableObjectType) {
         for element in self {
             element.display(object: object)
         }

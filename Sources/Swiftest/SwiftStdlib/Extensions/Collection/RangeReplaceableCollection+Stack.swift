@@ -11,15 +11,15 @@ public typealias Stack = RangeReplaceableCollection
 
 public extension Stack {
     
-    public mutating func push(_ newElement: Element) {
+    mutating func push(_ newElement: Element) {
         self.append(newElement)
     }
     
-    public mutating func pop() -> Element? {
+    mutating func pop() -> Element? {
         return self.remove(at: lastIndex)
     }
     
-    public func peekAtStack() -> Element? {
+    func peekAtStack() -> Element? {
         return self[safe: lastIndex]
     }
 }

@@ -24,12 +24,12 @@ public extension BinaryFloatingPoint {
     ///   - numberOfDecimalPlaces: The expected number of decimal places.
     ///   - rule: The rounding rule to use.
     /// - Returns: The rounded value.
-    public func rounded(numberOfDecimalPlaces: Int, rule: FloatingPointRoundingRule = .toNearestOrAwayFromZero) -> Self {
+    func rounded(numberOfDecimalPlaces: Int, rule: FloatingPointRoundingRule = .toNearestOrAwayFromZero) -> Self {
         let factor = Self(pow(10.0, Double(max(0, numberOfDecimalPlaces))))
         return (self * factor).rounded(rule) / factor
     }
     
-    public mutating func round(numberOfDecimalPlaces: Int, rule: FloatingPointRoundingRule = .toNearestOrAwayFromZero) {
+    mutating func round(numberOfDecimalPlaces: Int, rule: FloatingPointRoundingRule = .toNearestOrAwayFromZero) {
         self = self.rounded(numberOfDecimalPlaces: numberOfDecimalPlaces, rule: rule)
     }
 }

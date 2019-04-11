@@ -20,7 +20,7 @@ public protocol KeyValueReadable {
 public extension KeyValueReadable {
     
     /// Returns the value for the property identified by a given key.
-    public func valueForKey<T>(_ key: String) -> T? {
+    func valueForKey<T>(_ key: String) -> T? {
         
         let mirror: Mirror = Mirror(reflecting: self)
         
@@ -31,7 +31,7 @@ public extension KeyValueReadable {
     }
     
     /// Returns the value for the derived property identified by a given key path.
-    public func valueForKeyPath<T>(_ keyPath: String) -> T? {
+    func valueForKeyPath<T>(_ keyPath: String) -> T? {
         
         let keys = keyPath.split(separator: ".").map {String($0)}
         
@@ -51,7 +51,7 @@ public extension KeyValueReadable {
     }
     
     /// Returns the value for the property identified by a given key.
-    public subscript (key: String) -> Any? {
+    subscript (key: String) -> Any? {
         return self.valueForKeyPath(key)
     }
 }

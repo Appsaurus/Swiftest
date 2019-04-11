@@ -9,7 +9,7 @@
 import Foundation
 
 public extension String {
-    public var letterCount: Int {
+    var letterCount: Int {
         let letters = CharacterSet.letters
         
         var letterCount = 0
@@ -22,7 +22,7 @@ public extension String {
         return letterCount
     }
     
-    public var digitCount: Int {
+    var digitCount: Int {
         let digits = CharacterSet.decimalDigits
         
         var digitCount = 0
@@ -36,7 +36,7 @@ public extension String {
     }
     
     /// Counts number of instances of a substring inside String
-    public func count(_ substring: String) -> Int {
+    func count(_ substring: String) -> Int {
         return components(separatedBy: substring).count - 1
     }
 }

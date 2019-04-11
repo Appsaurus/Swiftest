@@ -12,25 +12,25 @@ import Foundation
 public extension NSMutableAttributedString {
     
     @discardableResult
-    public func addAttribute(_ key: NSAttributedString.Key, value: AnyObject) -> NSMutableAttributedString {
+    func addAttribute(_ key: NSAttributedString.Key, value: AnyObject) -> NSMutableAttributedString {
         addAttribute(key, value: value, range: fullRange)
         return self
     }
     
     @discardableResult
-    public func addAttributes(_ attrs: [NSAttributedString.Key: AnyObject]) -> NSMutableAttributedString {
+    func addAttributes(_ attrs: [NSAttributedString.Key: AnyObject]) -> NSMutableAttributedString {
         addAttributes(attrs, range: fullRange)
         return self
     }
     
     @discardableResult
-    public func appendString(_ string: String) -> NSMutableAttributedString {
+    func appendString(_ string: String) -> NSMutableAttributedString {
         self.append(NSAttributedString(string: string))
         return self
     }
     
     @discardableResult
-    public func appendLineBreak(count: Int = 1) -> NSMutableAttributedString {        
+    func appendLineBreak(count: Int = 1) -> NSMutableAttributedString {        
         for _ in 0...count {
             self.append(NSAttributedString(string: "\n"))
         }
@@ -40,7 +40,7 @@ public extension NSMutableAttributedString {
 
 public extension NSMutableAttributedString {
     
-    public convenience init(attributedStrings: [NSAttributedString], separatedByLineBreaks: Bool = false) {
+    convenience init(attributedStrings: [NSAttributedString], separatedByLineBreaks: Bool = false) {
         self.init(attributedString: attributedStrings.first!)
         attributedStrings.enumerated().forEach { (index, element) in
             if index != 0 {

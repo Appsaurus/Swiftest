@@ -30,7 +30,7 @@ public extension Sequence where Element: Numeric {
     ///        [1, 2, 3, 4, 5].sum -> 15
     ///
     /// - Returns: sum of the array's elements.
-    public var sum: Element {
+    var sum: Element {
         return reduce(0, {$0 + $1})
     }
     

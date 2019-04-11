@@ -9,16 +9,16 @@
 public extension Optional where Wrapped: Collection {
     
     /// Swiftest: Check if optional is nil or empty collection.
-    public var isNilOrEmpty: Bool {
+    var isNilOrEmpty: Bool {
         guard let collection = self else { return true }
         return collection.isEmpty
     }
     
-    public var hasNonEmptyValue: Bool {
+    var hasNonEmptyValue: Bool {
         return !isNilOrEmpty
     }
     
-    public var removeEmpty: Wrapped? {
+    var removeEmpty: Wrapped? {
         guard let collection = self else { return nil }
         return collection.isEmpty ? nil : self
     }

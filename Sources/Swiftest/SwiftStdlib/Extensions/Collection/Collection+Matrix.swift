@@ -18,7 +18,7 @@ public enum MatrixMajorOrder {
 
 public extension Collection where Element: Collection, Element.Iterator.Element: Equatable {    
     
-    public func indexOf(_ element: Element.Iterator.Element) -> (row: Index, column: Element.Index)? {
+    func indexOf(_ element: Element.Iterator.Element) -> (row: Index, column: Element.Index)? {
         for sectionIndex in indices {
             let elementToCheck = self[sectionIndex]
             for elementIndex in elementToCheck.indices where elementToCheck[elementIndex] == element {
@@ -28,7 +28,7 @@ public extension Collection where Element: Collection, Element.Iterator.Element:
         return nil
     }
     
-    public func forEach(in order: MatrixMajorOrder = .row, _ body: (_ row: Index, _ column: Element.Index, _ element: Element.Iterator.Element) -> Void) {
+    func forEach(in order: MatrixMajorOrder = .row, _ body: (_ row: Index, _ column: Element.Index, _ element: Element.Iterator.Element) -> Void) {
         
         switch order {
             

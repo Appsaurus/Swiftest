@@ -7,11 +7,11 @@
 
 public extension Sequence {
     
-    public func grouped<Key>(by keyPath: KeyPath<Element, Key>) -> [Key: [Element]] where Key: Hashable {
+    func grouped<Key>(by keyPath: KeyPath<Element, Key>) -> [Key: [Element]] where Key: Hashable {
         return grouped(by: { $0[keyPath: keyPath] })
     }
     
-    public func grouped<Key>(by keyFunction: (Element) -> Key) -> [Key: [Element]] where Key: Hashable {
+    func grouped<Key>(by keyFunction: (Element) -> Key) -> [Key: [Element]] where Key: Hashable {
         var dict: [Key: [Iterator.Element]] = [:]
         for value in self {
             let key = keyFunction(value)
@@ -20,7 +20,7 @@ public extension Sequence {
         return dict
     }
     
-    public func grouped<Key>(by keyFunction: (Element) throws -> Key?) rethrows -> (dictionary: [Key: [Element]], unkeyed: [Element]) where Key: Hashable {
+    func grouped<Key>(by keyFunction: (Element) throws -> Key?) rethrows -> (dictionary: [Key: [Element]], unkeyed: [Element]) where Key: Hashable {
         var dict: [Key: [Element]] = [:]
         var unkeyedArray: [Element] = []
         for value in self {

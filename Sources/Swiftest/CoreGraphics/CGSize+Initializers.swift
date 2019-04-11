@@ -9,7 +9,7 @@
 import CoreGraphics
 
 public extension CGSize {
-    public init(side sideLength: CGFloat) {
+    init(side sideLength: CGFloat) {
         self.init(width: sideLength, height: sideLength)
     }
 }
