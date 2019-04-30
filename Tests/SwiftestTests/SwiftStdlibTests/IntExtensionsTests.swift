@@ -38,7 +38,9 @@ final class IntExtensionsTests: XCTestCase {
     }
 
     func testCGFloat() {
+        #if !os(Linux) && canImport(CoreGraphics)
         XCTAssertEqual(1.cgFloat, CGFloat(1))
+        #endif
     }
 
     func testKFormatted() {
@@ -72,6 +74,7 @@ final class IntExtensionsTests: XCTestCase {
     }
 
     func testIsPrime() {
+        #if !os(Linux) && canImport(CoreGraphics)
         // Prime number
         XCTAssertTrue(2.isPrime())
         XCTAssertTrue(3.isPrime())
@@ -91,6 +94,15 @@ final class IntExtensionsTests: XCTestCase {
         XCTAssertFalse((-1).isPrime())
         XCTAssertFalse(0.isPrime())
         XCTAssertFalse(1.isPrime())
+        #endif
+    }
+
+    func testRoundToNearest() {
+    #if !os(Linux) && canImport(CoreGraphics)
+        XCTAssert(12.roundToNearest(5) == 10)
+        XCTAssert(63.roundToNearest(25) == 75)
+        XCTAssert(42.roundToNearest(0) == 42)
+    #endif
     }
 
     func testRomanNumeral() {
@@ -98,17 +110,14 @@ final class IntExtensionsTests: XCTestCase {
         XCTAssertNil((-1).romanNumeral())
     }
 
-    func testRoundToNearest() {
-        XCTAssert(12.roundToNearest(5) == 10)
-        XCTAssert(63.roundToNearest(25) == 75)
-        XCTAssert(42.roundToNearest(0) == 42)
-    }
 
     func testOperators() {
         XCTAssertEqual(5 ** 2, 25)
         XCTAssert((5 ± 2) == (3, 7) || (5 ± 2) == (7, 3))
         XCTAssert((±2) == (2, -2) || (±2) == (-2, 2))
+        #if !os(Linux) && canImport(CoreGraphics)
         XCTAssertEqual(√25, 5.0)
+        #endif
     }
 
 }

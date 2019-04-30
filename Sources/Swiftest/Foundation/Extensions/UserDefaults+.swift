@@ -6,7 +6,7 @@
 //  Copyright © 2018 Appsaurus
 //
 
-#if canImport(Foundation)
+#if !os(Linux)
 import Foundation
 
 // MARK: - Methods

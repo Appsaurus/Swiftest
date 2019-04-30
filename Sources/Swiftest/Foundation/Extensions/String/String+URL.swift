@@ -89,7 +89,8 @@ extension String {
         
         return filtered.replacingOccurrences(of: "--", with: "-")
     }
-    
+
+    #if !os(Linux)
     /// Extracts URLS from String
     public func extractURLs() throws -> [URL] {
         var urls: [URL] = []
@@ -104,6 +105,7 @@ extension String {
         })
         return urls
     }
+    #endif
 }
 
 // MARK: Encoding/Decoding

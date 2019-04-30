@@ -9,6 +9,7 @@
 import Foundation
 
 extension String {
+
     /// Swiftest: an array of all words in a string
     ///
     ///        "Swift is amazing".words() -> ["Swift", "is", "amazing"]
@@ -33,7 +34,9 @@ extension String {
         }
         return result
     }
-    
+
+    #if !os(Linux)
+
     public func tokenize() -> [String] {
         let inputRange = fullIndexRange.toNSRange(self).cfRange
         let flag = UInt(kCFStringTokenizerUnitWord)
@@ -63,6 +66,7 @@ extension String {
         
         return initials
     }
+    #endif
 }
 
 #endif

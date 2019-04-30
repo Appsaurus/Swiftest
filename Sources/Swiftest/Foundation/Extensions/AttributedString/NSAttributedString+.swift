@@ -20,6 +20,7 @@ public extension NSAttributedString {
     }
 }
 
+#if !os(Linux)
 public extension NSAttributedString {
 
     /// Swiftest: Dictionary of the attributes applied across the whole string
@@ -77,6 +78,7 @@ public extension NSAttributedString {
     }
 
 }
+#endif
 
 // MARK: - Operators
 public extension NSAttributedString {

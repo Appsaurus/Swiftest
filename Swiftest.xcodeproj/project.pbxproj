@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		E4408C472278B4D90076CD8A /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = E4408C452278B4A00076CD8A /* test.json */; };
 		OBJ_224 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_212 /* BaseTestCase.swift */; };
 		OBJ_225 /* LinuxTestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_213 /* LinuxTestable.swift */; };
 		OBJ_226 /* XCAssertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_214 /* XCAssertions.swift */; };
@@ -194,21 +195,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E4366294225FAC9100FA4C63 /* PBXContainerItemProxy */ = {
+		E4408C3C2278B06A0076CD8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SwiftTestUtils::SwiftTestUtils";
 			remoteInfo = SwiftTestUtils;
 		};
-		E4366295225FAC9100FA4C63 /* PBXContainerItemProxy */ = {
+		E4408C3D2278B06A0076CD8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Swiftest::Swiftest";
 			remoteInfo = Swiftest;
 		};
-		E4366296225FAC9300FA4C63 /* PBXContainerItemProxy */ = {
+		E4408C3E2278B06B0076CD8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -218,7 +219,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E4366297225FB0CE00FA4C63 /* Swiftest.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Swiftest.podspec; sourceTree = "<group>"; };
+		E4408C452278B4A00076CD8A /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		E4408C482278CD550076CD8A /* run_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_tests.sh; sourceTree = "<group>"; };
 		OBJ_10 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		OBJ_100 /* RangeReplaceableCollection+Rotate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Rotate.swift"; sourceTree = "<group>"; };
 		OBJ_101 /* RangeReplaceableCollection+Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Stack.swift"; sourceTree = "<group>"; };
@@ -389,9 +391,9 @@
 		OBJ_97 /* RangeReplaceableCollection+Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Queue.swift"; sourceTree = "<group>"; };
 		OBJ_98 /* RangeReplaceableCollection+RemovingInstances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+RemovingInstances.swift"; sourceTree = "<group>"; };
 		OBJ_99 /* RangeReplaceableCollection+Repeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Repeat.swift"; sourceTree = "<group>"; };
-		"SwiftTestUtils::SwiftTestUtils::Product" /* SwiftTestUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftTestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Swiftest::Swiftest::Product" /* Swiftest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swiftest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Swiftest::SwiftestTests::Product" /* SwiftestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwiftTestUtils::SwiftTestUtils::Product" /* SwiftTestUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftTestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Swiftest::Swiftest::Product" /* Swiftest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swiftest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Swiftest::SwiftestTests::Product" /* SwiftestTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwiftestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +423,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4408C3F2278B3000076CD8A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E4408C452278B4A00076CD8A /* test.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		OBJ_102 /* Comparable */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +607,7 @@
 		OBJ_174 /* SwiftestTests */ = {
 			isa = PBXGroup;
 			children = (
+				E4408C3F2278B3000076CD8A /* Resources */,
 				OBJ_175 /* FoundationTests */,
 				OBJ_185 /* SwiftStdlibTests */,
 			);
@@ -768,7 +779,7 @@
 		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
-				E4366297225FB0CE00FA4C63 /* Swiftest.podspec */,
+				E4408C482278CD550076CD8A /* run_tests.sh */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_173 /* Tests */,
@@ -994,6 +1005,7 @@
 			buildPhases = (
 				OBJ_388 /* Sources */,
 				OBJ_419 /* Frameworks */,
+				E4408C462278B4D10076CD8A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -1036,6 +1048,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E4408C462278B4D10076CD8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4408C472278B4D90076CD8A /* test.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_223 /* Sources */ = {
@@ -1247,17 +1270,17 @@
 		OBJ_383 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Swiftest::SwiftestTests" /* SwiftestTests */;
-			targetProxy = E4366296225FAC9300FA4C63 /* PBXContainerItemProxy */;
+			targetProxy = E4408C3E2278B06B0076CD8A /* PBXContainerItemProxy */;
 		};
 		OBJ_422 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SwiftTestUtils::SwiftTestUtils" /* SwiftTestUtils */;
-			targetProxy = E4366294225FAC9100FA4C63 /* PBXContainerItemProxy */;
+			targetProxy = E4408C3C2278B06A0076CD8A /* PBXContainerItemProxy */;
 		};
 		OBJ_423 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Swiftest::Swiftest" /* Swiftest */;
-			targetProxy = E4366295225FAC9100FA4C63 /* PBXContainerItemProxy */;
+			targetProxy = E4408C3D2278B06A0076CD8A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1281,7 +1304,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = SwiftTestUtils;
 			};
 			name = Debug;
@@ -1305,7 +1328,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = SwiftTestUtils;
 			};
 			name = Release;
@@ -1315,7 +1338,7 @@
 			buildSettings = {
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1324,7 +1347,7 @@
 			buildSettings = {
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1347,7 +1370,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = Swiftest;
 			};
 			name = Debug;
@@ -1371,7 +1394,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = Swiftest;
 			};
 			name = Release;
@@ -1398,7 +1421,6 @@
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SWIFT_PACKAGE DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 				USE_HEADERMAP = NO;
 			};
 			name = Debug;
@@ -1408,7 +1430,7 @@
 			buildSettings = {
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4.2 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1417,21 +1439,19 @@
 			buildSettings = {
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4.2 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
 		OBJ_381 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		OBJ_382 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1451,7 +1471,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = SwiftestTests;
 			};
 			name = Debug;
@@ -1472,7 +1492,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = SwiftestTests;
 			};
 			name = Release;
@@ -1493,7 +1513,6 @@
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.0;
 				USE_HEADERMAP = NO;
 			};
 			name = Release;

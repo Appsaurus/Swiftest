@@ -104,10 +104,14 @@ extension String {
     ///     "1,3".isNumeric -> true (fr_FR)
     ///        "abc".isNumeric -> false
     ///
-    public var isNumeric: Bool {
+    var isNumeric: Bool {
         let scanner = Scanner(string: self)
         scanner.locale = NSLocale.current
+        #if os(Linux)
+        return scanner.scanDecimal() != nil && scanner.isAtEnd
+        #else
         return scanner.scanDecimal(nil) && scanner.isAtEnd
+        #endif
     }
     
     /// Swiftest: Check if string contains one or more letters.

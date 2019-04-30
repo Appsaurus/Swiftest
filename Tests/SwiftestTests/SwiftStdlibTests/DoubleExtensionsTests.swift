@@ -22,14 +22,17 @@ final class DoubleExtensionsTests: XCTestCase {
         XCTAssertEqual(Double(2).float, Float(2))
         XCTAssertEqual(Double(4.3).float, Float(4.3))
     }
-
     func testCGFloat() {
+        #if !os(Linux) && canImport(CoreGraphics)
         XCTAssertEqual(Double(4.3).cgFloat, CGFloat(4.3))
+        #endif
     }
-
+    
     func testOperators() {
         XCTAssertEqual((Double(5.0) ** Double(2.0)), Double(25.0))
+        #if !os(Linux)
         XCTAssertEqual((√Double(25.0)), Double(5.0))
+        #endif
     }
 
 }

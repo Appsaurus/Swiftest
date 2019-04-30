@@ -212,7 +212,11 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil("8.23".float(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".float(locale: Locale(identifier: "en_US_POSIX")), Float(8.23))
 
+        #if os(Linux)
+        XCTAssertEqual("8s".float(), 8)
+        #else
         XCTAssertNil("8s".float())
+        #endif
     }
 
     func testDouble() {
@@ -222,10 +226,15 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil("8.23".double(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".double(locale: Locale(identifier: "en_US_POSIX")), 8.23)
 
+        #if os(Linux)
+        XCTAssertEqual("8s".double(), 8)
+        #else
         XCTAssertNil("8s".double())
+        #endif
     }
 
     func testCgFloat() {
+        #if !os(Linux)
         XCTAssertNotNil("8".cgFloat())
         XCTAssertEqual("8".cgFloat(), 8)
 
@@ -233,10 +242,13 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX")), CGFloat(8.23))
 
         XCTAssertNil("8s".cgFloat())
+        #endif
     }
 
     func testLines() {
+        #if !os(Linux)
         XCTAssertEqual("Hello\ntest".lines(), ["Hello", "test"])
+        #endif
     }
 
     func testLocalized() {
@@ -245,8 +257,8 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testMostCommonCharacter() {
-        let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character".mostCommonCharacter
-        XCTAssertEqual(mostCommonCharacter, "e")
+        let character = "This is a test, since e is appearing every where e should be the common character".mostCommonCharacter
+        XCTAssertEqual(character, "e")
         XCTAssertNil("".mostCommonCharacter)
     }
 
@@ -282,14 +294,18 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNil(""[safe: 1...2])
     }
 
-    func testCamelize() {
-        var str = "Hello test"
-        str.format(as: .camelCase)
-        XCTAssertEqual(str, "helloTest")
+    func testCopyToPasteboard() {
+        let str = "Hello world!"
+        #if os(iOS)
+        str.copyToPasteboard()
+        let strFromPasteboard = UIPasteboard.general.string
+        XCTAssertEqual(strFromPasteboard, str)
 
-        str = "helloWorld"
-        str.format(as: .camelCase)
-        XCTAssertEqual(str, "helloworld")
+        #elseif os(macOS)
+        str.copyToPasteboard()
+        let strFromPasteboard = NSPasteboard.general.string(forType: .string)
+        XCTAssertEqual(strFromPasteboard, str)
+        #endif
     }
 
     func testUppercaseFirstCharacter() {
@@ -511,6 +527,17 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("str".paddingEnd(6, with: "a"), "straaa")
         XCTAssertEqual("str".paddingEnd(6, with: "abc"), "strabc")
         XCTAssertEqual("str".paddingEnd(2), "str")
+    }
+
+    func testIsSpelledCorrectly() {
+        #if os(iOS) || os(tvOS)
+        let strCorrect = "Hello, World!"
+
+        XCTAssertTrue(strCorrect.isSpelledCorrectly)
+
+        let strNonCorrect = "Helol, Wrold!"
+        XCTAssertFalse(strNonCorrect.isSpelledCorrectly)
+        #endif
     }
 
     func testRemovingPrefix() {

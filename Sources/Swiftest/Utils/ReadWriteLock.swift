@@ -6,6 +6,8 @@
 //  Copyright © 2018 Appsaurus
 //
 
+#if !os(Linux)
+
 import Foundation
 
 public func lock(_ object: AnyObject, closure: () -> Void) {
@@ -20,3 +22,5 @@ public func 🔒(_ object: AnyObject, closure: () -> Void) {
     closure()
     objc_sync_exit(object)
 }
+
+#endif

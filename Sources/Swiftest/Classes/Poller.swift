@@ -6,6 +6,8 @@
 //  Copyright © 2018 Appsaurus
 //
 
+#if !os(Linux)
+
 import Foundation
 
 open class Poller {
@@ -55,3 +57,5 @@ open class Poller {
         self.refreshing = false
     }
 }
+
+#endif

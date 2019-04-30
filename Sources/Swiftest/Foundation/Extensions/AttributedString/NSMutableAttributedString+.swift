@@ -10,7 +10,8 @@
 import Foundation
 
 public extension NSMutableAttributedString {
-    
+
+    #if !os(Linux)
     @discardableResult
     func addAttribute(_ key: NSAttributedString.Key, value: AnyObject) -> NSMutableAttributedString {
         addAttribute(key, value: value, range: fullRange)
@@ -22,6 +23,8 @@ public extension NSMutableAttributedString {
         addAttributes(attrs, range: fullRange)
         return self
     }
+
+    #endif
     
     @discardableResult
     func appendString(_ string: String) -> NSMutableAttributedString {

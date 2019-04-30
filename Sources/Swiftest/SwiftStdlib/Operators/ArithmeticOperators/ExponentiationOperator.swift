@@ -6,8 +6,8 @@
 //  Copyright © 2018 Appsaurus
 //
 
-#if canImport(CoreGraphics)
-import CoreGraphics
+#if canImport(Foundation)
+import Foundation
 #endif
 
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }

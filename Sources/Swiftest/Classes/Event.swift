@@ -6,6 +6,8 @@
 //
 //
 
+#if !os(Linux)
+
 import Foundation
 
 public class TypedEventSubscription<ValueType> {
@@ -80,3 +82,4 @@ public class Event {
         return sub
     }
 }
+#endif
