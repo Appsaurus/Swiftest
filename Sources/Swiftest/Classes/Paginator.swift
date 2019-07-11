@@ -8,10 +8,11 @@
 
 import Foundation
 
-public typealias PaginationResultsClosure<M: Hashable> = ((items: [M], isLastPage: Bool)) -> Void
-public typealias PaginationResult<M: Hashable> = (items: [M], isLastPage: Bool)
+public typealias PaginatableItemType = Hashable & Decodable
+public typealias PaginationResultsClosure<M: PaginatableItemType> = ((items: [M], isLastPage: Bool)) -> Void
+public typealias PaginationResult<M: PaginatableItemType> = (items: [M], isLastPage: Bool)
 
-open class Paginator<ModelType> where ModelType: Hashable {
+open class Paginator<ModelType> where ModelType: PaginatableItemType {
     
     open var searchQuery: String?
 
@@ -47,7 +48,7 @@ open class Paginator<ModelType> where ModelType: Hashable {
     }
 }
 
-open class CursorPaginator<ModelType: Identifiable & Decodable>: Paginator<ModelType> {
+open class CursorPaginator<ModelType: PaginatableItemType>: Paginator<ModelType> {
     open var lastPage: CursorPage<ModelType>?
     private var stashedLastPage: CursorPage<ModelType>?
 
@@ -70,7 +71,7 @@ open class CursorPaginator<ModelType: Identifiable & Decodable>: Paginator<Model
     }
 }
 
-open class OffsetPaginator<ModelType: Identifiable & Decodable>: Paginator<ModelType> {
+open class OffsetPaginator<ModelType: PaginatableItemType>: Paginator<ModelType> {
     open var lastPage: OffsetPage<ModelType>?
     private var stashedLastPage: OffsetPage<ModelType>?
 
@@ -98,13 +99,13 @@ public enum PaginatorError: Error {
     case noResults
 }
 
-public struct CursorPage<E: Hashable & Decodable>: Decodable {
+public struct CursorPage<E: PaginatableItemType>: Decodable {
     public let nextPageCursor: String?
     public let data: [E]
     public let remaining: Int
 }
 
-public struct OffsetPage<M: Hashable & Decodable>: Decodable {
+public struct OffsetPage<M: PaginatableItemType>: Decodable {
     public var page: PageInfo
     /// The paginated data.
     public var data: [M]
