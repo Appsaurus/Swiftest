@@ -8,15 +8,10 @@
 
 import Foundation
 
-public protocol Identifiable {
-    associatedtype ID: Hashable
-    var id: ID { get }
-}
-public typealias Paginatable = Identifiable
-public typealias PaginationResultsClosure<M: Paginatable> = ((items: [M], isLastPage: Bool)) -> Void
-public typealias PaginationResult<M: Paginatable> = (items: [M], isLastPage: Bool)
+public typealias PaginationResultsClosure<M: Hashable> = ((items: [M], isLastPage: Bool)) -> Void
+public typealias PaginationResult<M: Hashable> = (items: [M], isLastPage: Bool)
 
-open class Paginator<ModelType> where ModelType: Paginatable {
+open class Paginator<ModelType> where ModelType: Hashable {
     
     open var searchQuery: String?
 
@@ -103,40 +98,13 @@ public enum PaginatorError: Error {
     case noResults
 }
 
-public struct CursorPage<E: Paginatable & Decodable>: Decodable {
+public struct CursorPage<E: Hashable & Decodable>: Decodable {
     public let nextPageCursor: String?
     public let data: [E]
     public let remaining: Int
 }
 
-
-//public struct OffsetPage<E: Paginatable & Decodable>: Decodable {
-//
-//    /// The current page number.
-//    public let number: Int
-//
-//    /// The underlying data that is paginated.
-//    public let data: [E]
-//
-//    /// The page size, also known as `per`.
-//    public let size: Int
-//
-//    /// The total amount of data entities in the database.
-//    public let total: Int
-//
-//    public init(number: Int,
-//                data: [E],
-//                size: Int,
-//                total: Int) throws {
-//        self.number = number
-//        self.data = data
-//        self.size = size
-//        self.total = total
-//    }
-//}
-
-
-public struct OffsetPage<M: Paginatable & Decodable>: Decodable {
+public struct OffsetPage<M: Hashable & Decodable>: Decodable {
     public var page: PageInfo
     /// The paginated data.
     public var data: [M]

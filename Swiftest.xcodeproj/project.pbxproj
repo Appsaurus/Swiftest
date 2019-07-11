@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		E4408C472278B4D90076CD8A /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = E4408C452278B4A00076CD8A /* test.json */; };
+		E475F61122D6D83700FE1007 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E475F61022D6D83700FE1007 /* Identifiable.swift */; };
 		OBJ_224 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_212 /* BaseTestCase.swift */; };
 		OBJ_225 /* LinuxTestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_213 /* LinuxTestable.swift */; };
 		OBJ_226 /* XCAssertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_214 /* XCAssertions.swift */; };
@@ -221,6 +222,7 @@
 /* Begin PBXFileReference section */
 		E4408C452278B4A00076CD8A /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		E4408C482278CD550076CD8A /* run_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_tests.sh; sourceTree = "<group>"; };
+		E475F61022D6D83700FE1007 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		OBJ_100 /* RangeReplaceableCollection+Rotate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Rotate.swift"; sourceTree = "<group>"; };
 		OBJ_101 /* RangeReplaceableCollection+Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Stack.swift"; sourceTree = "<group>"; };
@@ -776,7 +778,7 @@
 			path = String;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				E4408C482278CD550076CD8A /* run_tests.sh */,
@@ -788,7 +790,6 @@
 				OBJ_209 /* Dependencies */,
 				OBJ_215 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_56 /* URL */ = {
@@ -811,6 +812,7 @@
 				OBJ_78 /* OptionalProtocol.swift */,
 				OBJ_79 /* RangeRandomizable.swift */,
 				OBJ_80 /* Then.swift */,
+				E475F61022D6D83700FE1007 /* Identifiable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1034,7 +1036,7 @@
 				English,
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_215 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1124,6 +1126,7 @@
 				OBJ_277 /* URL+.swift in Sources */,
 				OBJ_278 /* URL+ExpressibleByStringLiteral.swift in Sources */,
 				OBJ_279 /* URLRequest+.swift in Sources */,
+				E475F61122D6D83700FE1007 /* Identifiable.swift in Sources */,
 				OBJ_280 /* UserDefaults+.swift in Sources */,
 				OBJ_281 /* KeyValueReadable.swift in Sources */,
 				OBJ_282 /* PropertyReflectable.swift in Sources */,
