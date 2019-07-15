@@ -11,6 +11,12 @@ public protocol Identifiable: Hashable {
     associatedtype ID: Hashable
     var id: ID { get }
 }
+public extension Identifiable where ID == Int{
+    var hashValue: Int {
+        return id
+    }
+}
+
 public extension Identifiable {
     var hashValue: Int {
         return id.hashValue
