@@ -16,6 +16,16 @@ extension Sequence {
     public func compactMap<Value: Comparable>(_ keyPath: KeyPath<Element, Value?>) -> [Value] {
         return self.compactMap({$0[keyPath: keyPath]})
     }
+
+    public func contains<Value: Comparable>(value: Value, at keyPath: KeyPath<Element, Value>) -> Bool {
+        return self.map(keyPath).contains(value)
+    }
+
+    public func elements<Value: Comparable>(where keyPath: KeyPath<Element, Value>, _ function: (Value, Value) -> Bool = (==), value: Value) -> [Element] {
+        return self.find { (element) -> Bool in
+            return function(element[keyPath: keyPath], value)
+        }
+    }
 }
 
 extension Sequence {
@@ -36,3 +46,4 @@ extension Collection where Element: Comparable {
         return elementsEqual(other)
     }
 }
+
