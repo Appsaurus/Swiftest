@@ -18,10 +18,12 @@ public extension Identifiable where ID == Int{
 }
 
 public extension Identifiable {
-    var hashValue: Int {
-        return id.hashValue
-    }
+
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
