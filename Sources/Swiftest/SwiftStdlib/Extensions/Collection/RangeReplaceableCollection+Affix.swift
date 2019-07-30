@@ -83,3 +83,5 @@ public func + <E, C>(lhs: E, rhs: C) -> C where C: RangeReplaceableCollection, E
 public func + <E, C>(lhs: C, rhs: E) -> C where C: RangeReplaceableCollection, E == C.Element {
     return lhs.appended(with: rhs)
 }
+
+
