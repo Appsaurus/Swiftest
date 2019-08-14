@@ -35,7 +35,6 @@ open class Paginator<ModelType> where ModelType: Hashable {
     }
     
     open func reset(stashingLastPageInfo: Bool = true) {
-        searchQuery = nil
         resetLastPageInfo(stashing: stashingLastPageInfo)
     }
 
