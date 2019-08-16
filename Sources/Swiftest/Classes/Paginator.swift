@@ -66,7 +66,8 @@ open class CursorPaginator<ModelType: Hashable & Decodable>: Paginator<ModelType
     }
 
     open override func restoreLastPageInfo() {
-        lastPage = stashedLastPage
+        guard let page = stashedLastPage else { return }
+        lastPage = page
     }
 }
 
@@ -89,7 +90,8 @@ open class OffsetPaginator<ModelType: Hashable & Decodable>: Paginator<ModelType
     }
 
     open override func restoreLastPageInfo() {
-        lastPage = stashedLastPage
+        guard let page = stashedLastPage else { return }
+        lastPage = page
     }
 }
 
