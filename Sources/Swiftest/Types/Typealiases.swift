@@ -20,3 +20,5 @@ public typealias Predicate<X> = (X) -> Bool
 public typealias ThrowingPredicate<X> = (X) throws -> Bool
 
 public typealias AsyncThrowingClosure<Parameter, Return> = ((Parameter) throws -> Return) -> Void
+
+public typealias ResultClosure<Response> = (Result<Response, Error>) -> Void
