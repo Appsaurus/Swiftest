@@ -5,6 +5,8 @@
 //  Created by Brian Strobach on 12/18/18.
 //
 
+import Foundation
+
 public extension String {
     
     enum CaseFormat {
