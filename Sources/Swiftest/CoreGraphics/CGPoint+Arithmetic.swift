@@ -8,27 +8,39 @@
 
 #if canImport(CoreGraphics)
 import CoreGraphics
-    extension CGPoint {
-        public static func distanceBetween(p1: CGPoint, p2: CGPoint) -> CGFloat {
+    public extension CGPoint {
+        static func distanceBetween(p1: CGPoint, p2: CGPoint) -> CGFloat {
             let distance: CGFloat = CGFloat(hypotf(Float(p1.x) - Float(p2.x), Float(p1.y) - Float(p2.y)))
             return distance
         }
-        
-        public mutating func offsetX(byDistance distance: CGFloat) {
+
+        @discardableResult
+        mutating func offsetX(byDistance distance: CGFloat) -> CGPoint{
             self += CGPoint(x: distance, y: 0.0)
+            return self
         }
-        
-        public mutating func offsetY(byDistance distance: CGFloat) {
+
+        @discardableResult
+        mutating func offsetY(byDistance distance: CGFloat) -> CGPoint{
             self += CGPoint(x: 0.0, y: distance)
+            return self
         }
-        
-        public mutating func offsetByPoint(_ offset: CGPoint) {
+
+        @discardableResult
+        mutating func offsetByPoint(_ offset: CGPoint) -> CGPoint {
             self += offset
+            return self
         }
         
-        public var negated: CGPoint {
+        var negated: CGPoint {
             return CGPoint(x: -self.x, y: -self.y)
         }
+
+        static func midPoint(_ p1: CGPoint, _ p2: CGPoint) -> CGPoint {
+            return CGPoint(x: (p1.x + p2.x) / 2.0,
+                           y: (p1.y + p2.y) / 2.0)
+        }
+
     }
     
     public func += (point: inout CGPoint, right: CGFloat) {
