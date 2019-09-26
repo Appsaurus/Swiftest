@@ -120,4 +120,43 @@ public extension URL {
 
 }
 
+public enum URLConvertibleError: Error {
+    case invalidURL
+}
+
+public protocol URLConvertible {
+    var toURL: URL? { get }
+    func assertURL() throws -> URL
+}
+
+extension URLConvertible {
+    public func assertURL() throws -> URL {
+        guard let url = toURL else {
+            throw URLConvertibleError.invalidURL
+        }
+        return url
+    }
+}
+
+extension URL: URLConvertible {
+    public var toURL: URL? {
+        return self
+    }
+}
+
+extension URLComponents: URLConvertible {
+    public var toURL: URL? {
+        return url
+    }
+}
+
+extension String: URLConvertible {
+    public var toURL: URL? {
+        if let string = addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            return URL(string: string)
+        }
+        return URL(string: self)
+    }
+}
+
 #endif
