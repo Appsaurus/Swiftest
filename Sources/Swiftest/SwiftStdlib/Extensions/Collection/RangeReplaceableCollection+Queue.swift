@@ -17,6 +17,7 @@ public extension Queue {
     }
     
     mutating func dequeue() -> Element? {
+        guard count > 0 else { return nil }
         return self.remove(at: startIndex)
     }
     
