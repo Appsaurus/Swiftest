@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		E4408C472278B4D90076CD8A /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = E4408C452278B4A00076CD8A /* test.json */; };
+		E468BAC423995FC70035C7A9 /* String+DataDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468BAC323995FC70035C7A9 /* String+DataDetection.swift */; };
 		E475F61122D6D83700FE1007 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E475F61022D6D83700FE1007 /* Identifiable.swift */; };
 		E4E3B5D522F0A57B0068398F /* ClosedRange+Wrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3B5D422F0A57B0068398F /* ClosedRange+Wrapping.swift */; };
 		E4E3B5D722F0A5920068398F /* Int+WrappedToRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3B5D622F0A5920068398F /* Int+WrappedToRange.swift */; };
@@ -225,6 +226,7 @@
 /* Begin PBXFileReference section */
 		E4408C452278B4A00076CD8A /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		E4408C482278CD550076CD8A /* run_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_tests.sh; sourceTree = "<group>"; };
+		E468BAC323995FC70035C7A9 /* String+DataDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DataDetection.swift"; sourceTree = "<group>"; };
 		E475F61022D6D83700FE1007 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		E4E3B5D422F0A57B0068398F /* ClosedRange+Wrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+Wrapping.swift"; sourceTree = "<group>"; };
 		E4E3B5D622F0A5920068398F /* Int+WrappedToRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+WrappedToRange.swift"; sourceTree = "<group>"; };
@@ -782,6 +784,7 @@
 				OBJ_53 /* String+Localized.swift */,
 				OBJ_54 /* String+PathComponents.swift */,
 				OBJ_55 /* String+URL.swift */,
+				E468BAC323995FC70035C7A9 /* String+DataDetection.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -1138,6 +1141,7 @@
 				OBJ_278 /* URL+ExpressibleByStringLiteral.swift in Sources */,
 				OBJ_279 /* URLRequest+.swift in Sources */,
 				E475F61122D6D83700FE1007 /* Identifiable.swift in Sources */,
+				E468BAC423995FC70035C7A9 /* String+DataDetection.swift in Sources */,
 				OBJ_280 /* UserDefaults+.swift in Sources */,
 				OBJ_281 /* KeyValueReadable.swift in Sources */,
 				OBJ_282 /* PropertyReflectable.swift in Sources */,
