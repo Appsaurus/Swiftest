@@ -59,29 +59,6 @@ public extension Sequence {
     }
 }
 
-//Write only
-public extension Sequence where Self: MutableCollection {
-    subscript<Value>(_ keyPath: WritableKeyPath<Element, Value>) -> Value {
-        get {
-            assertionFailure()
-            return self.first![keyPath: keyPath]
-        }
-        set(newValue){
-            assign(value: newValue, to: keyPath)
-        }
-    }
-
-    subscript<Value>(_ keyPath: WritableKeyPath<Element, Value?>) -> Value? {
-        get {
-            assertionFailure()
-            return self.first?[keyPath: keyPath]
-        }
-        set(newValue){
-            assign(value: newValue, to: keyPath)
-        }
-    }
-}
-
 public extension Sequence {
     func elementsHaveEqualValues<Value: Comparable>(at keyPath: KeyPath<Element, Value>, as otherCollection: Self, orderSensitive: Bool = false) -> Bool {
         return map(keyPath).containsEqualElements(otherCollection.map(keyPath), orderSensitive: orderSensitive)
