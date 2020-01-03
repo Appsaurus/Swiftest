@@ -24,6 +24,7 @@
 		E4408C472278B4D90076CD8A /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = E4408C452278B4A00076CD8A /* test.json */; };
 		E468BAC423995FC70035C7A9 /* String+DataDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468BAC323995FC70035C7A9 /* String+DataDetection.swift */; };
 		E475F61122D6D83700FE1007 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E475F61022D6D83700FE1007 /* Identifiable.swift */; };
+		E498514C23BED26C005A8573 /* Int+LocalizedDecimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498514B23BED26C005A8573 /* Int+LocalizedDecimals.swift */; };
 		E4E3B5D522F0A57B0068398F /* ClosedRange+Wrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3B5D422F0A57B0068398F /* ClosedRange+Wrapping.swift */; };
 		E4E3B5D722F0A5920068398F /* Int+WrappedToRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3B5D622F0A5920068398F /* Int+WrappedToRange.swift */; };
 		E4E3B5DB22F0A5FC0068398F /* ClosedRangeExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3B5D822F0A5DB0068398F /* ClosedRangeExtensionTests.swift */; };
@@ -228,6 +229,7 @@
 		E4408C482278CD550076CD8A /* run_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_tests.sh; sourceTree = "<group>"; };
 		E468BAC323995FC70035C7A9 /* String+DataDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DataDetection.swift"; sourceTree = "<group>"; };
 		E475F61022D6D83700FE1007 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		E498514B23BED26C005A8573 /* Int+LocalizedDecimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+LocalizedDecimals.swift"; sourceTree = "<group>"; };
 		E4E3B5D422F0A57B0068398F /* ClosedRange+Wrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+Wrapping.swift"; sourceTree = "<group>"; };
 		E4E3B5D622F0A5920068398F /* Int+WrappedToRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+WrappedToRange.swift"; sourceTree = "<group>"; };
 		E4E3B5D822F0A5DB0068398F /* ClosedRangeExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedRangeExtensionTests.swift; sourceTree = "<group>"; };
@@ -741,6 +743,7 @@
 				OBJ_45 /* String */,
 				OBJ_56 /* URL */,
 				OBJ_60 /* UserDefaults+.swift */,
+				E498514B23BED26C005A8573 /* Int+LocalizedDecimals.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1110,6 +1113,7 @@
 				OBJ_249 /* CGSize+Sized.swift in Sources */,
 				OBJ_250 /* Framed.swift in Sources */,
 				E4E3B5D722F0A5920068398F /* Int+WrappedToRange.swift in Sources */,
+				E498514C23BED26C005A8573 /* Int+LocalizedDecimals.swift in Sources */,
 				OBJ_251 /* Sized.swift in Sources */,
 				OBJ_252 /* ClassNameReflectable.swift in Sources */,
 				OBJ_253 /* NSAttributedString+.swift in Sources */,

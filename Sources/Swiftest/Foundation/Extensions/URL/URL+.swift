@@ -129,12 +129,23 @@ public protocol URLConvertible {
     func assertURL() throws -> URL
 }
 
-extension URLConvertible {
-    public func assertURL() throws -> URL {
+public extension URLConvertible {
+    func assertURL() throws -> URL {
         guard let url = toURL else {
             throw URLConvertibleError.invalidURL
         }
         return url
+    }
+
+    func assertURL(prefixingSchemeIfNeeded scheme: String) throws -> URL {
+        return try assertURL()
+            .absoluteString
+            .stringByAddingUrlProtocolPrefixIfNeeded(scheme)
+            .assertURL()
+    }
+
+    func assertURLPrefixingHTTPSchemeIfNeeded() throws -> URL {
+        return try assertURL(prefixingSchemeIfNeeded: "http")
     }
 }
 
