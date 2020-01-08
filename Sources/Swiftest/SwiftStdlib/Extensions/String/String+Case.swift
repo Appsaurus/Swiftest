@@ -44,11 +44,11 @@ extension String {
                 return self
         }
         
-        characters.suffix(from: 1).forEach { char in
-            if char.isUppercased {
+        for (index, char) in characters.suffix(from: 1).enumerated() {
+            if char.isUppercased && characters[safe: index]?.isUppercase == false {
                 expanded.append(separatorCharacter)
             }
-            
+
             expanded.append(char)
         }
         
