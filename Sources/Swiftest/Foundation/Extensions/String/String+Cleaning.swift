@@ -39,7 +39,11 @@ extension String {
     public var withoutSpacesAndNewLines: String {
         return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
     }
-    
+
+    public var filterEmptyOrWhiteSpace: String? {
+        let trimmed = self.trimmed
+        return (trimmed.isEmpty || trimmed.isWhitespace || trimmed == "") ? nil : trimmed
+    }
 }
 
 #endif
