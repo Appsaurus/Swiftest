@@ -63,5 +63,13 @@ public extension UserDefaults {
         set(data, forKey: key)
     }
 
+    func clearAll() {
+        removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        synchronize()
+    }
+
+    static func clearAll() {
+        standard.clearAll()
+    }
 }
 #endif
