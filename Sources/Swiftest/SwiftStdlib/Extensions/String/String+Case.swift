@@ -35,7 +35,11 @@ public extension String {
 extension String {
     
     internal func separated(by separatorCharacter: Character) -> String {
-        let characters = Array(self)
+        var trimmed = self.trimmed
+        guard !trimmed.contains(" ") else {
+            return trimmed.replacingOccurrences(of: " ", with: "\(separatorCharacter)").lowercased()
+        }
+        let characters = Array(trimmed)
         
         guard var expanded = characters
             .first
