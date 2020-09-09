@@ -32,7 +32,8 @@ extension RangeReplaceableCollection {
     public func repeated(count: Int, separatedBy separator: Element? = nil) -> Self {
         let copy: Self = self
         var output: Self = self
-        count.times {
+        guard count > 1 else { return output }
+        (count - 1).times {
             if let separator = separator {
                 output.append(separator)
             }
