@@ -9,55 +9,58 @@
 import Foundation
 
 public protocol BaseError: LocalizedError {
-	associatedtype ErrorType: LocalizedError
-	var type: ErrorType { get set }
-	var customLocalizedDescription: String? { get set }
-	init(_ type: ErrorType, _ customLocalizedDescription: String?)
+    associatedtype ErrorType: LocalizedError
+    var type: ErrorType { get set }
+    var customLocalizedDescription: String? { get set }
+    init(_ type: ErrorType, _ customLocalizedDescription: String?)
 }
 
 extension BaseError {
-	public var localizedDescription: String {
-		return customLocalizedDescription ?? type.localizedDescription
-	}
+    public var errorDescription: String? {
+        return customLocalizedDescription ?? type.errorDescription
+    }
 }
 
-open class GenericError<T: LocalizedError>: BaseError {
+open class GenericError<T: Error>: LocalizedError {
 
-	public typealias ErrorType = T
-	public var type: T
-	open var customLocalizedDescription: String?
+    public var error: T?
+    open var customLocalizedDescription: String?
 
-	public required init(_ type: T, _ customLocalizedDescription: String? = nil) {
-		self.type = type
-		self.customLocalizedDescription = customLocalizedDescription
-	}
+    public required init(_ error: T? = nil, _ customLocalizedDescription: String? = nil) {
+        self.error = error
+        self.customLocalizedDescription = customLocalizedDescription
+    }
+
+    public var errorDescription: String? {
+        return customLocalizedDescription ?? error?.localizedDescription
+    }
 }
 
 public enum BasicErrorType: LocalizedError {
-	case error
-	case unknown
+    case error
+    case unknown
 
-	public var errorDescription: String? {
-		switch self {
-		case .error:
-			return "An error occurred."
-		case .unknown:
-			return "An unknown error occurred."
-		}
-	}
+    public var errorDescription: String? {
+        switch self {
+        case .error:
+            return "An error occurred."
+        case .unknown:
+            return "An unknown error occurred."
+        }
+    }
 }
 open class BasicError: GenericError<BasicErrorType> {
-	//Common types
-	static public let unknown = BasicError(.unknown)
-	static public let error = BasicError(.error)
+    //Common types
+    static public let unknown = BasicError(.unknown)
+    static public let error = BasicError(.error)
 }
 
 extension Swift.Error {
-	public func keyValueDescription() -> String {
-		return DebugUtils.listOfPropertiesWithValues(of: self)
-	}
+    public func keyValueDescription() -> String {
+        return DebugUtils.listOfPropertiesWithValues(of: self)
+    }
 
-	public func printDescription() {
-		print(keyValueDescription())
-	}
+    public func printDescription() {
+        print(keyValueDescription())
+    }
 }
