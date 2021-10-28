@@ -529,17 +529,6 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("str".paddingEnd(2), "str")
     }
 
-    func testIsSpelledCorrectly() {
-        #if os(iOS) || os(tvOS)
-        let strCorrect = "Hello, World!"
-
-        XCTAssertTrue(strCorrect.isSpelledCorrectly)
-
-        let strNonCorrect = "Helol, Wrold!"
-        XCTAssertFalse(strNonCorrect.isSpelledCorrectly)
-        #endif
-    }
-
     func testRemovingPrefix() {
         let inputStr = "Hello, World!"
         XCTAssertEqual(inputStr.removingPrefix("Hello, "), "World!")

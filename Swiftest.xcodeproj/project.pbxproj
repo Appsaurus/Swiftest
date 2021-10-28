@@ -24,6 +24,7 @@
 		E4408C472278B4D90076CD8A /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = E4408C452278B4A00076CD8A /* test.json */; };
 		E468BAC423995FC70035C7A9 /* String+DataDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468BAC323995FC70035C7A9 /* String+DataDetection.swift */; };
 		E475F61122D6D83700FE1007 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E475F61022D6D83700FE1007 /* Identifiable.swift */; };
+		E494FE90272B3128004E17A6 /* String+CharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E494FE8F272B3128004E17A6 /* String+CharacterSet.swift */; };
 		E498514C23BED26C005A8573 /* Int+LocalizedDecimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498514B23BED26C005A8573 /* Int+LocalizedDecimals.swift */; };
 		E4E3B5D522F0A57B0068398F /* ClosedRange+Wrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3B5D422F0A57B0068398F /* ClosedRange+Wrapping.swift */; };
 		E4E3B5D722F0A5920068398F /* Int+WrappedToRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3B5D622F0A5920068398F /* Int+WrappedToRange.swift */; };
@@ -229,6 +230,7 @@
 		E4408C482278CD550076CD8A /* run_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_tests.sh; sourceTree = "<group>"; };
 		E468BAC323995FC70035C7A9 /* String+DataDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DataDetection.swift"; sourceTree = "<group>"; };
 		E475F61022D6D83700FE1007 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		E494FE8F272B3128004E17A6 /* String+CharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CharacterSet.swift"; sourceTree = "<group>"; };
 		E498514B23BED26C005A8573 /* Int+LocalizedDecimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+LocalizedDecimals.swift"; sourceTree = "<group>"; };
 		E4E3B5D422F0A57B0068398F /* ClosedRange+Wrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+Wrapping.swift"; sourceTree = "<group>"; };
 		E4E3B5D622F0A5920068398F /* Int+WrappedToRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+WrappedToRange.swift"; sourceTree = "<group>"; };
@@ -403,9 +405,9 @@
 		OBJ_97 /* RangeReplaceableCollection+Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Queue.swift"; sourceTree = "<group>"; };
 		OBJ_98 /* RangeReplaceableCollection+RemovingInstances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+RemovingInstances.swift"; sourceTree = "<group>"; };
 		OBJ_99 /* RangeReplaceableCollection+Repeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Repeat.swift"; sourceTree = "<group>"; };
-		"SwiftTestUtils::SwiftTestUtils::Product" /* SwiftTestUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftTestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwiftTestUtils::SwiftTestUtils::Product" /* SwiftTestUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftTestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Swiftest::Swiftest::Product" /* Swiftest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swiftest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Swiftest::SwiftestTests::Product" /* SwiftestTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwiftestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Swiftest::SwiftestTests::Product" /* SwiftestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -788,6 +790,7 @@
 				OBJ_54 /* String+PathComponents.swift */,
 				OBJ_55 /* String+URL.swift */,
 				E468BAC323995FC70035C7A9 /* String+DataDetection.swift */,
+				E494FE8F272B3128004E17A6 /* String+CharacterSet.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -1217,6 +1220,7 @@
 				OBJ_348 /* String+Truncating.swift in Sources */,
 				OBJ_349 /* StringProtocol+LongestCommonSuffix.swift in Sources */,
 				OBJ_350 /* KeyPathFilter.swift in Sources */,
+				E494FE90272B3128004E17A6 /* String+CharacterSet.swift in Sources */,
 				OBJ_351 /* KeyPathBuildable.swift in Sources */,
 				OBJ_352 /* KeyPathValueMapOperator.swift in Sources */,
 				OBJ_353 /* KeyPathValuePair.swift in Sources */,
@@ -1312,6 +1316,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -1336,6 +1341,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -1359,6 +1365,7 @@
 		OBJ_230 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 4.0;
@@ -1368,6 +1375,7 @@
 		OBJ_231 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 4.0;
@@ -1378,6 +1386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -1402,6 +1411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -1452,6 +1462,7 @@
 		OBJ_375 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4.2 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 5.0;
@@ -1461,6 +1472,7 @@
 		OBJ_376 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4.2 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 5.0;
@@ -1470,12 +1482,14 @@
 		OBJ_381 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 			};
 			name = Debug;
 		};
 		OBJ_382 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 			};
 			name = Release;
 		};
@@ -1484,6 +1498,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -1505,6 +1520,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",

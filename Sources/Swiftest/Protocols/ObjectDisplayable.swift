@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol ObjectDisplayable: class {
+public protocol ObjectDisplayable: AnyObject {
     associatedtype DisplayableObjectType
     func display(object: DisplayableObjectType)
 }

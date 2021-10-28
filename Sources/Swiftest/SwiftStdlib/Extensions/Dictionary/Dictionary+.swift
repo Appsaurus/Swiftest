@@ -8,13 +8,13 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     
     /// Access a dictionaries values given a key prioritization.
     ///
     /// - Parameter prioritizedKeys: Keys ordered by priority
     /// - Returns: The value for the first key that is non nil, or nil if none of the keys have values.
-    public func firstValue(for prioritizedKeys: Key...) -> Value? {
+    func firstValue(for prioritizedKeys: Key...) -> Value? {
         for key in prioritizedKeys {
             if let value = self[key] { return value }
         }
@@ -22,7 +22,7 @@ extension Dictionary {
     }
 }
 
-extension Dictionary {
+public extension Dictionary {
     /// Swiftest: Check if key exists in dictionary.
     ///
     ///        let dict: [String : Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
@@ -31,14 +31,14 @@ extension Dictionary {
     ///
     /// - Parameter key: key to search for
     /// - Returns: true if key exists in dictionary.
-    public func has(key: Key) -> Bool {
+    func has(key: Key) -> Bool {
         return index(forKey: key) != nil
     }
     
     /// Swiftest: Returns a dictionary containing the results of mapping the given closure over the sequence’s elements.
     /// - Parameter transform: A mapping closure. `transform` accepts an element of this sequence as its parameter and returns a transformed value of the same or of a different type.
     /// - Returns: A dictionary containing the transformed elements of this sequence.
-    public func mapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)) rethrows -> [K: V] {
+    func mapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)) rethrows -> [K: V] {
         return [K: V](uniqueKeysWithValues: try map(transform))
     }
     
@@ -46,7 +46,7 @@ extension Dictionary {
     /// - Parameter transform: A closure that accepts an element of this sequence as its argument and returns an optional value.
     /// - Returns: A dictionary of the non-`nil` results of calling `transform` with each element of the sequence.
     /// - Complexity: *O(m + n)*, where _m_ is the length of this sequence and _n_ is the length of the result.
-    public func compactMapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)?) rethrows -> [K: V] {
+    func compactMapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)?) rethrows -> [K: V] {
         return [K: V](uniqueKeysWithValues: try compactMap(transform))
     }
     
@@ -59,7 +59,7 @@ extension Dictionary {
     ///        dict.keys.contains("key2") -> false
     ///
     /// - Parameter keys: keys to be removed
-    public mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
+    mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
         keys.forEach { removeValue(forKey: $0) }
     }
     
@@ -146,14 +146,14 @@ public extension Dictionary {
 }
 
 // MARK: Typed lookups for Any Values
-extension Dictionary where Key: Hashable, Value: Any {
+public extension Dictionary where Key: Hashable, Value: Any {
     
-	public func get<A: Any>(_ type: A.Type, at key: Key) -> A? {
+	func get<A: Any>(_ type: A.Type, at key: Key) -> A? {
 		guard let value = self[key] as? A else { return nil }
 		return value
 	}
     
-	public func get<A: Any>(_ type: A.Type, at key: Key, orThrow error: Error? = nil) throws -> A {
+	func get<A: Any>(_ type: A.Type, at key: Key, orThrow error: Error? = nil) throws -> A {
 		guard let value = get(type, at: key) else {
 			let foundValue = self[key]
 			let foundValueDescription = String(describing: foundValue.self)
@@ -167,12 +167,22 @@ extension Dictionary where Key: Hashable, Value: Any {
 }
 
 // MARK: Pretty printing
-extension Dictionary where Key: StringProtocol, Value: Any {
-	public func printPretty() {
+public extension Dictionary where Key: StringProtocol, Value: Any {
+	func printPretty() {
 		print("\(prettyPrinted)")
 	}
 
-	public var prettyPrinted: String {
+	var prettyPrinted: String {
 		return "\(self as AnyObject)"
 	}
+}
+
+public extension Dictionary {
+    func toCSV() -> String {
+        var string = ""
+        for kv in self {
+            string += "\(kv.key),\(kv.value)\n"
+        }
+        return string.trimmed
+    }
 }

@@ -35,7 +35,7 @@ public extension String {
 extension String {
     
     internal func separated(by separatorCharacter: Character) -> String {
-        var trimmed = self.trimmed
+        let trimmed = self.trimmed
         guard !trimmed.contains(" ") else {
             return trimmed.replacingOccurrences(of: " ", with: "\(separatorCharacter)").lowercased()
         }

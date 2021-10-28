@@ -5,7 +5,7 @@
 //  Created by Brian Strobach on 1/14/19.
 //
 
-public protocol KeyPathBuildable: class {
+public protocol KeyPathBuildable: AnyObject {
     func with<T>(_ keyPath: WritableKeyPath<Self, T>, _ value: T) -> Self
     func with(_ keyPathValuePairs: KeyPathValuePairs<Self>) -> Self
     func with(_ keyPathValuePair: KeyPathValuePair<Self>...) -> Self

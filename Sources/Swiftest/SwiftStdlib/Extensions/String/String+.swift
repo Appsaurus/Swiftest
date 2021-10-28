@@ -122,17 +122,23 @@ public extension String {
             return nil
         }
     }
+
+    func substringsMatching(regex: String) -> [String] {
+        do {
+            let regex = try NSRegularExpression(pattern: regex)
+            let results = regex.matches(in: self,
+                                        range: NSRange(self.startIndex..., in: self))
+            return results.map {
+                String(self[Range($0.range, in: self)!])
+            }
+        } catch let error {
+            print("invalid regex: \(error.localizedDescription)")
+            return []
+        }
+    }
+
     
-    #if canImport(Foundation)
-    
-    #endif
-    
-    //    /// Trims white space and new line characters, returns a new string
-    //    public func trimmed() -> String {
-    //        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-    //    }
-    
-    /// Trims all characters after the last occurence of a given substring
+    /// Trims all characters after the last occurrence of a given substring
     func trimmingSubstringAfterLastOccurrence(of substring: String) -> String {
         guard let location = self.lastIndexOf(substring) else { return self }
         return self.subString(upToIndex: location.utf16Offset(in: self))

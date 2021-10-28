@@ -69,4 +69,28 @@ extension String {
     #endif
 }
 
+extension String {
+
+    public func wordCounts() -> [String: Int] {
+        var counts: [String: Int] = [:]
+        for word in self.words() {
+            counts[word] = (counts[word] ?? 0) + 1
+        }
+        return counts
+    }
+}
+
+extension Collection where Element == String {
+    public func wordCounts() -> [String: Int] {
+        var counts: [String: Int] = [:]
+        for element in self {
+            let elementCount = element.wordCounts()
+            for count in elementCount {
+                counts[count.key] = (counts[count.key] ?? 0) + count.value
+            }
+        }
+        return counts
+    }
+}
+
 #endif

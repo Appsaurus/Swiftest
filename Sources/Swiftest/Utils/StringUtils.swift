@@ -10,21 +10,21 @@ import Foundation
 public class StringUtils {
 	public class English {
 		public static func punctuatedList(from words: [String], conjunction: String = "and", includeOxfordComma: Bool = true ) -> String {
-			guard words.count > 0 else { return ""}
+            switch words.count {
+            case 0: return ""
+            case 1: return words[0]
+            case 2: return words[0] + " \(conjunction) " + words[1]
+            default:
+                guard let lastWord = words.last else { return "" }
+                let separator = ", "
 
-			guard words.count > 1,
-				let lastWord = words.last else {
-					return words[0]
-			}
-
-			let separator = ", "
-
-			let allButLast = words.dropLast()
-			let list = allButLast.joined(separator: separator)
-			guard includeOxfordComma else {
-				return [list, conjunction, lastWord].joined(separator: " ")
-			}
-			return "\(list), \(conjunction) \(lastWord)"
+                let allButLast = words.dropLast()
+                let list = allButLast.joined(separator: separator)
+                guard includeOxfordComma else {
+                    return [list, conjunction, lastWord].joined(separator: " ")
+                }
+                return "\(list), \(conjunction) \(lastWord)"
+            }
 		}
 
 		public static func indefiniteArticle(for str: String) -> String {
