@@ -163,9 +163,6 @@ extension URLComponents: URLConvertible {
 
 extension String: URLConvertible {
     public var toURL: URL? {
-        if let string = addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            return URL(string: string)
-        }
         return URL(string: self)
     }
 }
