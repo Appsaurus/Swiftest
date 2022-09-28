@@ -1,19 +1,11 @@
-//
-//  File.swift
-//  
-//
-//  Created by Brian Strobach on 9/28/22.
-//
-
-import Foundation
 
 //
 //  CGSize+Framed.swift
-//  GiftAMeal
+//  Swiftest
 //
 //  Created by Brian Strobach on 9/13/22.
-//  Copyright © 2022 GiftAMeal. All rights reserved.
 //
+
 
 #if canImport(CoreGraphics)
 import CoreGraphics
