@@ -7,7 +7,7 @@
 #if canImport(Foundation)
 import Foundation
 
-extension URL: ExpressibleByStringLiteral {
+extension URL: @retroactive ExpressibleByStringLiteral {
     // By using 'StaticString' we disable string interpolation, for safety
     public init(stringLiteral value: StaticString) {
         guard let url = URL(string: "\(value)") else {

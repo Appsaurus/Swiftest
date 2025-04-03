@@ -9,11 +9,13 @@ import Foundation
 
 open class DebugUtils {
 	static public func listOfPropertiesWithValues(of object: Any) -> String {
-		var object: Any = object
-		var desc = "\(String(describing: object)) at address \(address(of: &object)):\n"
-		let mirror = Mirror(reflecting: object)
-		desc.append(listOfPropertiesWithValues(of: mirror))
-		return desc
+        return withUnsafePointer(to: object) { address in
+            var desc = "\(String(describing: object)) at address \(address):\n"
+            let mirror = Mirror(reflecting: object)
+            desc.append(listOfPropertiesWithValues(of: mirror))
+            return desc
+        }
+		
 	}
 
 	static public  func listOfPropertiesWithValues(of mirror: Mirror) -> String {
