@@ -4,7 +4,7 @@
 //
 //  Created by Brian Strobach on 12/17/18.
 //
-#if canImport(Foundation)
+#if !os(Linux) && canImport(Foundation)
 import Foundation
 
 extension URL: @retroactive ExpressibleByStringLiteral {
