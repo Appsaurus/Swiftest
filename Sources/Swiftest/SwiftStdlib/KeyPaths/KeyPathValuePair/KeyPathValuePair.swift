@@ -5,9 +5,9 @@
 //  Created by Brian Strobach on 12/27/18.
 //
 
-public typealias KeyPathValuePairs<Type> = [KeyPathValuePair<Type>]
+public typealias KeyPathValuePairs<Type: AnyObject> = [KeyPathValuePair<Type>]
 
-public struct KeyPathValuePair<Type> {
+public struct KeyPathValuePair<Type: AnyObject> {
     private let applicator: (Type) -> Type
     private let value: Any
     public init<ValueType>(_ keyPath: WritableKeyPath<Type, ValueType>, _ value: ValueType) {
@@ -25,7 +25,7 @@ public struct KeyPathValuePair<Type> {
     }
 }
 
-extension WritableKeyPath {
+extension WritableKeyPath where Root: AnyObject {
     public func with(value: Value) -> KeyPathValuePair<Root> {
         return KeyPathValuePair(self, value)
     }

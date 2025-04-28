@@ -11,6 +11,6 @@
 ///   - lhs: A WritableKeyPath
 ///   - rhs: Value to be mapped to the WritableKeyPath
 /// - Returns: A KeyPathValuePair that can be later applied to the supplied KeyPath with the supplied Value.
-public func => <V, R, WKP: WritableKeyPath<R, V>> (lhs: WKP, rhs: @autoclosure () -> V) -> KeyPathValuePair<R> {
+public func => <V, R: AnyObject, WKP: WritableKeyPath<R, V>> (lhs: WKP, rhs: @autoclosure () -> V) -> KeyPathValuePair<R> {
     return lhs.with(value: rhs())
 }

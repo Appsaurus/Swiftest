@@ -16,6 +16,8 @@ extension String {
     ///        "not url".url -> nil
     ///
     public var url: URL? {
+        // Only create URL if string contains a scheme to prevent automatic encoding of invalid URLs
+        guard self.contains("://") else { return nil }
         return URL(string: self)
     }
     

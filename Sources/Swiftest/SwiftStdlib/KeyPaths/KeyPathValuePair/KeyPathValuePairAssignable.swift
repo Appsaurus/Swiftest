@@ -5,7 +5,7 @@
 //  Created by Brian Strobach on 11/13/18.
 //
 
-public protocol KeyPathValuePairAssignable {
+public protocol KeyPathValuePairAssignable: AnyObject{
     func assign(_ keyPathValuePairs: KeyPathValuePairs<Self>) -> Self
 }
 
